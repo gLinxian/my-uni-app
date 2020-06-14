@@ -1,0 +1,27 @@
+{
+	"pages": [
+		{ "path": "pages/tabBar/home/home", "style": { "navigationStyle": "custom" } },
+		{ "path": "pages/tabBar/list/list", "style": { "navigationStyle": "custom" } },
+		{ "path": "pages/tabBar/map/map", "style": { "navigationStyle": "custom" } },
+		{ "path": "pages/tabBar/my/my", "style": { "navigationStyle": "custom" } },
+		{ "path": "pages/home/home-A/home-A", "style": { "navigationStyle": "custom" } },
+		{ "path": "pages/home/home-B/home-B", "style": { "navigationBarTitleText": "home-B" } }
+	],
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#333333",
+		"backgroundColor": "#FFFFFF",
+		"list": [
+			{ "pagePath": "pages/tabBar/home/home", "text": "首页" }, 
+			{ "pagePath": "pages/tabBar/list/list", "text": "列表" }, 
+			{ "pagePath": "pages/tabBar/map/map", "text": "地图" }, 
+			{ "pagePath": "pages/tabBar/my/my", "text": "我的" }
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "my-uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
