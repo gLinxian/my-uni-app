@@ -139,7 +139,7 @@
 			box-sizing: border-box;
 			margin-bottom: 2px;
 			padding: 9px;
-			background-image: $blue-linear-gradient;
+			background-image: $blueLinearGradient;
 			border-radius: 50%;
 			color: $white;
 			font-size: 30px;

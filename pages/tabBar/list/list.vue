@@ -14,6 +14,6 @@
 
 <style lang="scss" scoped>
 	.container {
-		background-color: $bg-color;
+		background-color: $bgColor;
 	}
 </style>
