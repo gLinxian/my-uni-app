@@ -11,7 +11,7 @@ import Vue from 'vue'
  * @param {String} url 
  */
 function navigateTo(url) {
-	uni.navigateTo({ url })
+  uni.navigateTo({ url })
 }
 
 /**
@@ -20,7 +20,7 @@ function navigateTo(url) {
  * @param {Number} delta 
  */
 function navigateBack(delta) {
-	uni.navigateBack({ delta })
+  uni.navigateBack({ delta })
 }
 
 /**
@@ -29,7 +29,7 @@ function navigateBack(delta) {
  * @param {String} url 
  */
 function redirectTo(url) {
-	uni.redirectTo({ url })
+  uni.redirectTo({ url })
 }
 
 /**
@@ -38,7 +38,7 @@ function redirectTo(url) {
  * @param {String} url 
  */
 function reLaunch(url) {
-	uni.reLaunch({ url })
+  uni.reLaunch({ url })
 }
 
 /**
@@ -47,7 +47,7 @@ function reLaunch(url) {
  * @param {String} url 
  */
 function switchTab(url) {
-	uni.switchTab({ url })
+  uni.switchTab({ url })
 }
 
 /**
@@ -59,14 +59,14 @@ function switchTab(url) {
  * @param {String} icon
  */
 function showToast(title, duration = 1500, mask = true, icon = 'none') {
-	uni.showToast({ title, duration, mask, icon })
+  uni.showToast({ title, duration, mask, icon })
 }
 
 /**
  * 隐藏消息提示框
  */
 function hideToast() {
-	uni.hideToast()
+  uni.hideToast()
 }
 
 /**
@@ -76,14 +76,14 @@ function hideToast() {
  * @param {Boolean} mask
  */
 function showLoading(title = '', mask = true) {
-	uni.showLoading({ title, mask })
+  uni.showLoading({ title, mask })
 }
 
 /**
  * 隐藏 loading 提示框
  */
 function hideLoading() {
-	uni.hideLoading()
+  uni.hideLoading()
 }
 
 /**
@@ -91,25 +91,25 @@ function hideLoading() {
  * 
  * @param {Object} object 
  */
-function showModal(object) {
-	if (typeof object === 'object') {
-		const commit = Vue.prototype.$store.commit
-		commit('modal/SET_MODAL', { key: 'show', val: true })
-		Object.keys(object).forEach(key => {
-			commit('modal/SET_MODAL', { key, val: object[key] })
-		})
-	}
+function showMyModal(object) {
+  if (typeof object === 'object') {
+    const commit = Vue.prototype.$store.commit
+    commit('modal/SET_MODAL', { key: 'show', val: true })
+    Object.keys(object).forEach(key => {
+      commit('modal/SET_MODAL', { key, val: object[key] })
+    })
+  }
 }
 
 Vue.prototype.$uni = {
-	navigateTo,
-	navigateBack,
-	redirectTo,
-	reLaunch,
-	switchTab,
-	showToast,
-	hideToast,
-	showLoading,
-	hideLoading,
-	showModal
+  navigateTo,
+  navigateBack,
+  redirectTo,
+  reLaunch,
+  switchTab,
+  showToast,
+  hideToast,
+  showLoading,
+  hideLoading,
+  showMyModal
 }

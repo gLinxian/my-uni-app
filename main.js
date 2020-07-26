@@ -6,10 +6,10 @@ import MyModal from './components/modal/modal.vue'
 import MyNavigationBar from './components/navigation-bar/navigation-bar.vue'
 import MyPicker from './components/picker/picker.vue'
 import MyTabBar from './components/tab-bar/tab-bar.vue'
-import './utils/util.js'       // 工具函数
-import './utils/config.js'     // 配置文件
-import './utils/uni-api.js'    // 常用封装
-import './mixins/index.js'     // 全局混合
+import './utils/config.js'        // 配置文件
+import './utils/uni-api.js'       // 常用封装
+import './utils/util.js'          // 工具函数
+import './mixins/index.js'        // 全局混合
 // import './components/index.js' // 全局组件
 
 Vue.config.productionTip = false

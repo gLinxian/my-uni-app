@@ -1,11 +1,11 @@
 <template>
-	<view></view>
+  <view></view>
 </template>
 
 <script>
-	export default {
-		name: 'MySearchBar'
-	}
+export default {
+  name: 'MySearchBar'
+}
 </script>
 
 <style>

@@ -1,11 +1,11 @@
 <template>
-	<view></view>
+  <view></view>
 </template>
 
 <script>
-	export default {
-		name: 'MySwitch'
-	}
+export default {
+  name: 'MySwitch'
+}
 </script>
 
 <style>

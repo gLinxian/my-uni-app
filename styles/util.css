@@ -687,19 +687,12 @@
 .pl-95 { padding-left: 95px; }
 .pl-100 { padding-left: 100px; }
 
-/* 背景 */
-.bg-center { background-position: center; }
-.bg-cover { background-size: cover; }
-.bg-no-repeat { background-repeat: no-repeat; }
-
-
 /**
  * 边框
  *
  * border: 0; 比 border: none; 多渲染了一个 border-width: 0;
  * border: none; 的性能要比 border: 0; 高
  */
-
 .border-top-none { border-top: none; }
 .border-top-1 { border-top: 1px solid; }
 .border-right-none { border-right: none; }
@@ -720,14 +713,32 @@
 .radius-20 { border-radius: 20px; }
 .circle { border-radius: 50%; }
 
+/* 背景 */
+.bg-center { background-position: center; }
+.bg-cover { background-size: cover; }
+.bg-no-repeat { background-repeat: no-repeat; }
+
+/* 透明 */
+.opacity-0 { opacity: 0; }
+.opacity-1 { opacity: .1; }
+.opacity-2 { opacity: .2; }
+.opacity-3 { opacity: .3; }
+.opacity-4 { opacity: .4; }
+.opacity-5 { opacity: .5; }
+.opacity-6 { opacity: .6; }
+.opacity-7 { opacity: .7; }
+.opacity-8 { opacity: .8; }
+.opacity-9 { opacity: .9; }
+.opacity-10 { opacity: 1; }
+
 /* 颜色 */
 /* :root {
   --theme: #123456;
-  --white: #ffffff;
   --black: #000000;
-  --red: #ff0000;
-  --green: #00ff00;
-  --blue: #0000ff;
+  --white: #FFFFFF;
+  --red: #FF0000;
+  --green: #00FF00;
+  --blue: #0000FF;
 }
 
 .theme { color: var(--theme); }
@@ -846,6 +857,18 @@
 .hidden { overflow: hidden; }
 .scroll-x { overflow-x: scroll; }
 .scroll-y { overflow-y: scroll; }
+
+/* 2D */
+.scale-1 { transform: scale(.1) }
+.scale-2 { transform: scale(.2) }
+.scale-3 { transform: scale(.3) }
+.scale-4 { transform: scale(.4) }
+.scale-5 { transform: scale(.5) }
+.scale-6 { transform: scale(.6) }
+.scale-7 { transform: scale(.7) }
+.scale-8 { transform: scale(.8) }
+.scale-9 { transform: scale(.9) }
+.scale-10 { transform: scale(1) }
 
 /* 弹性布局 */
 .flex { display: flex; }

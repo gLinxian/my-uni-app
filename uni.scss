@@ -4,22 +4,22 @@
  * @author linxian
  */
 
+/* 边框 */
+$border: #C8C7CC;
+$blueLinearGradient: linear-gradient(to right, #05d7ff, #007AFF);
+
 /* 背景 */
 $bgColor: #F8F8F8;
 
-/* 边框 */
-$border: #C8C7CC;
-
 /* 颜色 */
 $theme: #123456;
-$white: #FFFFFF;
 $black: #000000;
+$white: #FFFFFF;
 $red: #FF3B30;
 $green: #4CD964;
 $blue: #007AFF;
 $tabColor: #999999;
 $tabSelected: #333333;
-$blueLinearGradient: linear-gradient(to right, #05d7ff, #007AFF);
 
 /* 文字 */
 $primary: #303133;     // 主要文字
