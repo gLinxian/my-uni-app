@@ -4,7 +4,7 @@
 
     <view :style="[fullPage]" class="container">
       <text>a</text>
-      <my-picker type="region" @change="change" @cancel="cancel">
+      <my-picker type="date" @change="pickerChange" @cancel="pickerCancel">
         <text>{{ region }}</text>
       </my-picker>
     </view>
@@ -22,10 +22,10 @@ export default {
     }
   },
   methods: {
-    change(val) {
+    pickerChange(val) {
       this.region = val
     },
-    cancel() {
+    pickerCancel() {
       this.cancel = '请选择省市区'
     }
   }

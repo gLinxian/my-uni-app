@@ -72,10 +72,10 @@ export default {
     },
     scanClick() {
       uni.scanCode({
-        success(res) {
+        success: res => {
           this.$emit('success', res)
         },
-        fail(err) {
+        fail: err => {
           this.$emit('fail', err)
         }
       })

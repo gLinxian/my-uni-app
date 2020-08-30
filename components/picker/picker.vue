@@ -35,7 +35,9 @@
     </picker>
 
     <!-- 省市区选择器 -->
-    <view v-if="type === 'region'"></view>
+    <view v-if="type === 'region'">
+      <slot></slot>
+    </view>
   </view>
 </template>
 
@@ -89,9 +91,6 @@ export default {
     },
     dateTimeRange() {
       if (this.type === 'dateTime') {
-        console.log(
-          this.getDateTimeRange(this.isUnit, '年', '月', '日', '时', '分')
-        )
         return this.getDateTimeRange(this.isUnit, '年', '月', '日', '时', '分')
       }
     }
