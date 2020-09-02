@@ -6,8 +6,8 @@
     <view
       class="number"
       :class="{ before: isBefore, after: isAfter }"
-      :number-before="numberBefore"
-      :number-after="numberAfter">
+      :data-before="numberBefore"
+      :data-after="numberAfter">
       {{ number }}
     </view>
     <view class="button">
@@ -114,6 +114,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 3px;
     background: linear-gradient(
       180deg,
       rgba(0, 0, 0, .9) 0%,
@@ -132,11 +133,11 @@ export default {
   line-height: 19px;
   transform: translateY(-19px);
   &::before {
-    content: attr(number-before);
+    content: attr(data-before);
     display: block;
   }
   &::after {
-    content: attr(number-after);
+    content: attr(data-after);
     display: block;
   }
   &.before {

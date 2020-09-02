@@ -1,24 +1,24 @@
 <template>
   <view :style="[navigationBar, tabBar]">
-    <my-navigationBar title="my-uni-app"/>
+    <my-navigationBar title="my-uni-app" />
     <view :style="[fullPage]" class="container">
       <!-- 页面内容写在这里 -->
-      
+
     </view>
-    <my-tabBar :midButton="true"/>
+    <my-tabBar :midButton="true" />
   </view>
 </template>
 
 <script>
 export default {
-  
+
 }
 </script>
 
 <style lang="scss" scoped>
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 </style>

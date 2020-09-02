@@ -9,8 +9,8 @@
       class="view"
       :class="[isChecked && 'checked']"
       :style="{ 'background-color': isChecked ? color : '#E9E9E9' }"
-      :unchecked-text="uncheckedText"
-      :checked-text="checkedText"></view>
+      :data-unchecked="uncheckedText"
+      :data-checked="checkedText"></view>
   </label>
 </template>
 
@@ -86,12 +86,12 @@ export default {
   }
   &::before, &.checked::before {
     color: #FFFFFF;
-    font-size: 10px;
+    font-size: 14px;
     text-align: center;
     line-height: 28px;
   }
   &::before {
-    content: attr(unchecked-text);
+    content: attr(data-unchecked);
     right: 0;
   }
   &::after {
@@ -103,7 +103,7 @@ export default {
     transform: translateX(2px);
   }
   &.checked::before {
-    content: attr(checked-text);
+    content: attr(data-checked);
     left: 0;
   }
   &.checked::after {

@@ -11,10 +11,7 @@ export default {
 @import url("styles/iconfont.css");
 @import url("styles/util.css");
 
-page {
-  min-height: 100vh;
-  font-size: 16px;
-}
+page { font-size: 16px; }
 
 /* 边框 */
 .border { border: 1px solid $border; }

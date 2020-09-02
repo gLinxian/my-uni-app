@@ -1,8 +1,13 @@
 <template>
-  <view class="navigationBar" :style="[statusBarHeight, backgroundColor, borderBottom]">
-    <image v-if="bgImg" class="img" :src="bgImg" mode="aspectFill">
+  <view class="navigationBar" :style="{
+      'padding-top': paddingTop,
+      'border-bottom': borderBottom,
+      'background': bgColor,
+      'opacity': opacity
+    }">
+    <image v-if="bgImg" class="img" :src="bgImg" mode="aspectFill" />
     <text v-if="back" class="back icon-back" @click="backClick"></text>
-    <text v-if="title" class="title" :style="[titleColor]">{{ title }}</text>
+    <text v-if="title" class="title" :style="{ color: color }">{{ title }}</text>
     <slot></slot>
   </view>
 </template>
@@ -11,17 +16,21 @@
 export default {
   name: 'MyNavigationBar',
   props: {
-    bgImg: {
-      type: String,
-      default: ''
-    },
-    bgColor: {
-      type: String,
-      default: ''
-    },
     border: {
       type: Boolean,
       default: true
+    },
+    bgColor: {
+      type: String,
+      default: '#FFFFFF'
+    },
+    opacity: {
+      type: Number,
+      default: 1
+    },
+    bgImg: {
+      type: String,
+      default: ''
     },
     back: {
       type: Boolean,
@@ -31,26 +40,17 @@ export default {
       type: String,
       default: ''
     },
-    tlColor: {
+    color: {
       type: String,
-      default: ''
+      default: '#000000'
     }
   },
   computed: {
-    statusBarHeight() {
-      return { 'padding-top': `${uni.getSystemInfoSync().statusBarHeight}px` }
-    },
-    backgroundColor() {
-      return { 'background-color': this.bgColor || '#FFFFFF' }
-    },
-    titleColor() {
-      return { color: this.tlColor || '#000000' }
+    paddingTop() {
+      return `${uni.getSystemInfoSync().statusBarHeight}px`
     },
     borderBottom() {
-      const borderBottom = this.border
-        ? { 'border-bottom': '.5px solid #C8C7CC' }
-        : { 'border-bottom': 'none' }
-      return borderBottom
+      return this.border ? '.5px solid #C8C7CC' : 'none'
     }
   },
   methods: {

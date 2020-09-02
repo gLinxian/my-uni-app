@@ -2,16 +2,18 @@
   <view class="tabBar">
     <view
       class="tab"
-      hover-class="animate"
+      hover-class="tab-hover"
       v-for="item in list"
       :key="item.id"
       @click="itemClick(item.url)">
       <image
         class="tab-img"
-        :class="selected === item.url ? 'animate' : ''"
-        :src="'/static/tabBar/' + item.url + (selected === item.url ? '-selected' : '') + '.png'"
+        :src="`/static/tabBar/${item.url}${(selected === item.url ? '-selected' : '')}.png`"
         mode="aspectFit">
-      <text :class="selected === item.url ? 'selected' : ''">{{ item.name }}</text>
+      <text
+        :class="{ 'tab-selected' : selected === item.url }">
+        {{ item.name }}
+      </text>
     </view>
     <view v-if="midButton" class="middle">
       <template v-if="$slots.default">
@@ -49,11 +51,7 @@ export default {
     midButton: {
       handler(val) {
         if (val) {
-          this.list.splice(2, 0, {
-            id: 4,
-            name: '扫码',
-            url: 'list'
-          })
+          this.list.splice(2, 0, { id: 4, name: '扫码', url: 'scan' })
         }
       },
       immediate: true
@@ -67,7 +65,9 @@ export default {
   methods: {
     itemClick(url) {
       if (url !== this.selected) {
-        this.$uni.switchTab(`../${url}/${url}`)
+        setTimeout(() => {
+          this.$uni.switchTab(`../${url}/${url}`)
+        }, 300)
       }
     },
     scanClick() {
@@ -104,16 +104,16 @@ export default {
   align-items: center;
   color: $tabColor;
   font-size: 10px;
-  .tab-img {
+  &-img {
     width: 24px;
     height: 24px;
   }
-  .selected {
+  &-selected {
     color: $tabSelected;
   }
-  &.animate {
-    animation: animate 0.5s 1;
-    @keyframes animate {
+  &-hover {
+    animation: narrow .3s 1;
+    @keyframes narrow {
       0% {
         transform: scale(1);
       }
@@ -130,22 +130,22 @@ export default {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 75px;
   height: 75px;
+  border-radius: 50%;
   background-color: $white;
   box-shadow: 0 -5px 5px -3px $border;
-  border-radius: 50%;
+  transform: translateX(-50%);
   &-btn {
     box-sizing: border-box;
     margin-bottom: 2px;
     padding: 9px;
-    background-image: $blueLinearGradient;
     border-radius: 50%;
+    background-image: $blueLinearGradient;
     color: $white;
     font-size: 30px;
     line-height: 1;

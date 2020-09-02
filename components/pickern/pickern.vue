@@ -95,7 +95,7 @@ export default {
         const minute = now.getMinutes()
         return [50, month, day - 1, hour, minute]
       }
-      if (this.type = 'region') {
+      if (this.type === 'region') {
         return [0, 0 , 0]
       }
     },

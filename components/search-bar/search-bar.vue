@@ -1,9 +1,11 @@
 <template>
   <view class="searchbar">
-    <view class="input" :style="{ 
-      'border-radius': radius,
-      'background-color': bgColor
-    }">
+    <view
+      class="input"
+      :style="{
+        'border-radius': radius,
+        'background-color': bgColor
+      }">
       <text :class="iconPrefix"></text>
       <label
         class="input_label"

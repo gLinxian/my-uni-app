@@ -7,6 +7,7 @@ import MyPickern from './pickern/pickern.vue'
 import MySearchBar from './search-bar/search-bar.vue'
 import MySwitch from './switch/switch.vue'
 import MyTabBar from './tab-bar/tab-bar.vue'
+import MyWaterDrop from './water-drop/water-drop.vue'
 
 Vue.component('my-button', MyButton)
 Vue.component('my-modal', MyModal)
@@ -16,3 +17,4 @@ Vue.component('my-pickern', MyPickern)
 Vue.component('my-search-bar', MySearchBar)
 Vue.component('my-switch', MySwitch)
 Vue.component('my-tabBar', MyTabBar)
+Vue.component('my-water-drop', MyWaterDrop)
