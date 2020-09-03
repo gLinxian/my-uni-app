@@ -96,7 +96,7 @@ export default {
         return [50, month, day - 1, hour, minute]
       }
       if (this.type === 'region') {
-        return [0, 0 , 0]
+        return [0, 0, 0]
       }
     },
     dateStart() {

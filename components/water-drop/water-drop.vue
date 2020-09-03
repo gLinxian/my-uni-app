@@ -28,7 +28,7 @@ export default {
     },
     text: {
       type: String,
-      default: '80%'
+      default: '0%'
     }
   },
   data() {

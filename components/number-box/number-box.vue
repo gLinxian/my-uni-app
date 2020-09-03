@@ -151,7 +151,7 @@ export default {
 }
 .button {
   position: relative;
-  z-index: 100;
+  z-index: 10;
   flex: 0 0 30px;
   width: 19px;
   height: 19px;

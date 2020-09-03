@@ -39,10 +39,10 @@ export default {
   data() {
     return {
       list: [
-        { id: 0, name: '首页', url: 'home' },
-        { id: 1, name: '列表', url: 'list' },
-        { id: 2, name: '地图', url: 'map' },
-        { id: 3, name: '我的', url: 'my' }
+        { id: 0, name: '基础', url: 'basic' },
+        { id: 1, name: '组件', url: 'components' },
+        { id: 2, name: '模板', url: 'templates' },
+        { id: 3, name: '关于', url: 'about' }
       ],
       selected: ''
     }

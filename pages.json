@@ -1,21 +1,19 @@
 {
   "pages": [
-    { "path": "pages/tabBar/home/home", "style": { "navigationStyle": "custom" } },
-    { "path": "pages/tabBar/list/list", "style": { "navigationStyle": "custom" } },
-    { "path": "pages/tabBar/map/map", "style": { "navigationStyle": "custom" } },
-    { "path": "pages/tabBar/my/my", "style": { "navigationStyle": "custom" } },
-    { "path": "pages/home/home-A/home-A", "style": { "navigationStyle": "custom" } },
-    { "path": "pages/home/home-B/home-B", "style": { "navigationBarTitleText": "home-B" } }
+    { "path": "pages/basic/basic", "style": { "navigationStyle": "custom" } },
+    { "path": "pages/components/components", "style": { "navigationStyle": "custom" } },
+    { "path": "pages/templates/templates", "style": { "navigationStyle": "custom" } },
+    { "path": "pages/about/about", "style": { "navigationStyle": "custom" } }
   ],
   "tabBar": {
     "color": "#999999",
     "selectedColor": "#333333",
     "backgroundColor": "#FFFFFF",
     "list": [
-      { "pagePath": "pages/tabBar/home/home", "text": "首页" },
-      { "pagePath": "pages/tabBar/list/list", "text": "列表" },
-      { "pagePath": "pages/tabBar/map/map", "text": "地图" },
-      { "pagePath": "pages/tabBar/my/my", "text": "我的" }
+      { "pagePath": "pages/basic/basic", "text": "基础" },
+      { "pagePath": "pages/components/components", "text": "组件" },
+      { "pagePath": "pages/templates/templates", "text": "模板" },
+      { "pagePath": "pages/about/about", "text": "关于" }
     ]
   },
   "globalStyle": {

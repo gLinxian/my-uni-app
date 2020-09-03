@@ -69,7 +69,7 @@ export default {
     circleStyle() {
       if (this.circle) {
         return {
-          padding: '12px',
+          'padding': '12px',
           'border-radius': '50%',
           'line-height': '1'
         }

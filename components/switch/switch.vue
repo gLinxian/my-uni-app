@@ -7,7 +7,7 @@
       @change="switchChange" />
     <view
       class="view"
-      :class="[isChecked && 'checked']"
+      :class="{ 'checked': isChecked }"
       :style="{ 'background-color': isChecked ? color : '#E9E9E9' }"
       :data-unchecked="uncheckedText"
       :data-checked="checkedText"></view>

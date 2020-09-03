@@ -5,7 +5,6 @@ import './mixins/index.js'        // 全局混合
 import './utils/config.js'        // 配置文件
 import './utils/uni-api.js'       // 常用封装
 import './utils/util.js'          // 工具函数
-
 // #ifndef MP-WEIXIN
 import './components/index.js'    // 全局组件（小程序不支持）
 // #endif
