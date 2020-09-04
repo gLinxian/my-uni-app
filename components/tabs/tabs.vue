@@ -5,11 +5,15 @@
         <view 
           class="tab-text" 
           :class="{ 'tab-active': active === item.name }" 
-          :style="{ color: active === item.name ? color : '#333333' }">
-          {{ item.name }}
-        </view>
+          :style="{ color: active === item.name ? color : '#333333' }">{{ item.name }}</view>
       </view>
-      <view class="line" :style="{ width: lineWidth, left: `${lineLeft}px`, backgroundColor: color }"></view>
+      <view
+        class="line"
+        :style="{
+          width: lineWidth,
+          left: `${lineLeft}px`,
+          backgroundColor: color
+        }"></view>
     </view>
   </scroll-view>
 </template>
@@ -21,7 +25,13 @@ export default {
     data: {
       type: Array,
       default() {
-        return []
+        return [
+          { id: 1, name: '新闻' },
+					{ id: 2, name: '近期展会' },
+					{ id: 3, name: '商圈信息' },
+					{ id: 4, name: '广州物流' },
+					{ id: 5, name: '广州旅游' }
+        ]
       }
     },
     color: {

@@ -163,8 +163,8 @@ export default {
       }
       this.$emit('change', e.detail.value)
     },
-    pickerCancel() {
-      this.$emit('cancel')
+    pickerCancel(e) {
+      this.$emit('cancel', e)
     },
 
     /**
