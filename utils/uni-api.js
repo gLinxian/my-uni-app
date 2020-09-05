@@ -5,6 +5,8 @@
  */
 import Vue from 'vue'
 
+const commit = Vue.prototype.$store.commit
+
 /**
  * 保留当前页面，跳转到应用内的某个页面
  * 
@@ -87,18 +89,31 @@ function hideLoading() {
 }
 
 /**
- * 显示模态弹窗
+ * 显示麦尤尼模态弹窗
  * 
  * @param {Object} object 
  */
 function showMyModal(object) {
+  commit('modal/SET_STATE', { key: 'show', val: true })
   if (typeof object === 'object') {
-    const commit = Vue.prototype.$store.commit
-    commit('modal/SET_MODAL', { key: 'show', val: true })
     Object.keys(object).forEach(key => {
-      commit('modal/SET_MODAL', { key, val: object[key] })
+      commit('modal/SET_STATE', { key, val: object[key] })
     })
   }
+}
+
+/**
+ * 显示麦尤尼 loading 提示框
+ */
+function showMyLoading() {
+  commit('loading/SET_STATE', { key: 'show', val: true })
+}
+
+/**
+ * 隐藏麦尤尼 loading 提示框
+ */
+function hideMyLoading() {
+  commit('loading/SET_STATE', { key: 'show', val: false })
 }
 
 Vue.prototype.$uni = {
@@ -111,5 +126,7 @@ Vue.prototype.$uni = {
   hideToast,
   showLoading,
   hideLoading,
-  showMyModal
+  showMyModal,
+  showMyLoading,
+  hideMyLoading
 }

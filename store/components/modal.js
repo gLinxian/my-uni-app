@@ -2,7 +2,7 @@ export default {
   namespaced: true,
   state: {
     show: false,
-    title: '',
+    title: '提示',
     content: '',
     showCancel: true,
     animate: true,
@@ -13,7 +13,7 @@ export default {
     success: null
   },
   mutations: {
-    SET_MODAL(state, obj) {
+    SET_STATE(state, obj) {
       state[obj.key] = obj.val
     }
   }

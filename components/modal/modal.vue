@@ -1,14 +1,27 @@
 <template>
-  <view :style="[style, isShow]">
+  <view
+    class="modal-container"
+    :class="[ isAnimate ? (!isOut ? 'zoom-in' : 'zoom-out') : '' ]"
+    :style="{ display: isShow }">
     <view class="mask"></view>
-    <view class="modal" :class="[animation]">
+    <view class="modal">
       <view class="modal-header">
         <text class="modal-header-title">{{ title || object.title }}</text>
       </view>
       <view class="modal-body">{{ content || object.content }}</view>
       <view class="modal-footer">
-        <view v-if="showCc" class="modal-footer-btn" :style="[ccColor]" @click="btnClick('cancel')">{{ ccText }}</view>
-        <view class="modal-footer-btn" :style="[cfColor, cfBorder]" @click="btnClick('confirm')">{{ cfText }}</view>
+        <view
+          v-if="showCancel_"
+          class="modal-footer-btn"
+          :style="{ color: cancelColor_ }"
+          @click="btnClick('cancel')">{{ cancelText_ }}</view>
+        <view
+          class="modal-footer-btn"
+          :style="{
+            borderLeft: confirmBorder_,
+            color: confirmColor_
+          }"
+          @click="btnClick('confirm')">{{ confirmText_ }}</view>
       </view>
     </view>
   </view>
@@ -18,19 +31,19 @@
 export default {
   name: 'MyModal',
   props: {
+    isAnimate: {
+      type: Boolean,
+      default: true
+    },
     title: {
       type: String,
-      default: ''
+      default: '提示'
     },
     content: {
       type: String,
       default: ''
     },
     showCancel: {
-      type: Boolean,
-      default: true
-    },
-    animate: {
       type: Boolean,
       default: true
     },
@@ -53,70 +66,32 @@ export default {
   },
   data() {
     return {
-      style: {
-        position: 'fixed',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-        'z-index': 999,
-        display: 'block',
-        'box-sizing': 'border-box'
-      },
+      isOut: false,
       isApi: true,
       object: {}
     }
   },
   computed: {
     isShow() {
-      const isShow =
-        !this.isApi || this.object.show
-          ? { display: 'block' }
-          : { display: 'none' }
-      return isShow
+      return (!this.isApi || this.object.show) ? 'flex' : 'none'
     },
-    cfBorder() {
-      const cfBorder = (this.isApi
-      ? this.object.showCancel
-      : this.showCancel)
-        ? { 'border-left': '.5px solid #C8C7CC' }
-        : { 'border-left': 'none' }
-      return cfBorder
-    },
-    showCc() {
+    showCancel_() {
       return this.isApi ? this.object.showCancel : this.showCancel
     },
-    animation() {
-      const animation = (this.isApi
-      ? this.object.animate
-      : this.animate)
-        ? 'animation'
-        : ''
-      return animation
+    cancelColor_() {
+      return this.isApi ? this.object.cancelColor : this.cancelColor
     },
-    ccText() {
-      const ccText = this.isApi
-        ? this.object.cancelText.slice(0, 3)
-        : this.cancelText.slice(0, 3)
-      return ccText
+    cancelText_() {
+      return this.isApi ? this.object.cancelText.slice(0, 3) : this.cancelText.slice(0, 3)
     },
-    ccColor() {
-      const ccColor = this.isApi
-        ? { color: this.object.cancelColor }
-        : { color: this.cancelColor }
-      return ccColor
+    confirmBorder_() {
+      return (this.isApi ? this.object.showCancel : this.showCancel) ? '.5px solid #F5F5F5' : 'none'
     },
-    cfText() {
-      const cfText = this.isApi
-        ? this.object.confirmText.slice(0, 3)
-        : this.confirmText.slice(0, 3)
-      return cfText
+    confirmColor_() {
+      return this.isApi ? this.object.confirmColor : this.confirmColor
     },
-    cfColor() {
-      const cfColor = this.isApi
-        ? { color: this.object.confirmColor }
-        : { color: this.confirmColor }
-      return cfColor
+    confirmText_() {
+      return this.isApi ? this.object.confirmText.slice(0, 3) : this.confirmText.slice(0, 3)
     }
   },
   created() {
@@ -130,7 +105,11 @@ export default {
         errMsg: 'showModal:ok'
       }
       if (this.isApi) {
-        this.$store.commit('modal/SET_MODAL', { key: 'show', val: false })
+        this.isOut = true
+        setTimeout(() => { 
+          this.$store.commit('modal/SET_STATE', { key: 'show', val: false }) 
+        }, this.isAnimate ? 300 : 0)
+
         this.object.success(res)
       } else {
         this.$emit('success', res)
@@ -141,6 +120,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.modal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .mask {
   position: fixed;
   top: 0;
@@ -151,35 +141,19 @@ export default {
   background: rgba(0, 0, 0, 0.6);
 }
 .modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 999;
   width: 80%;
   max-width: 300px;
-  background-color: #fff;
-  border-radius: 14px;
-  text-align: center;
+  border-radius: 15px;
+  background-color: #FFFFFF;
   overflow: hidden;
-  &.animation {
-    animation: scale 1s;
-    @keyframes scale {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1.2);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-  }
+  text-align: center;
   &-header {
     box-sizing: border-box;
     padding: 1em 1.6em 0.3em;
     &-title {
       display: -webkit-box;
+      overflow: hidden;
       color: $primary;
       font-size: 18px;
       font-weight: 400;
@@ -189,7 +163,6 @@ export default {
       text-overflow: ellipsis;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      overflow: hidden;
     }
   }
   &-body {
@@ -197,14 +170,14 @@ export default {
     min-height: 40px;
     max-height: 400px;
     padding: 1.3em 1.6em 1.3em;
-    border-bottom: 0.5px solid $border;
-    color: $secondary;
+    border-bottom: .5px solid #F5F5F5;
+    overflow-y: auto;
+    color: #909399;
     font-size: 15px;
     line-height: 1.4;
     word-wrap: break-word;
     word-break: break-all;
     white-space: pre-wrap;
-    overflow-y: auto;
   }
   &-footer {
     display: flex;
@@ -213,7 +186,26 @@ export default {
     &-btn {
       flex: 1;
       box-sizing: border-box;
-      color: $blue;
+    }
+  }
+}
+.zoom {
+  &-in {
+    animation: zoom-in .3s;
+    @keyframes zoom-in {
+      0% {
+        opacity: 0;
+        transform: scale(1.2);
+      }
+    }
+  }
+  &-out {
+    animation: zoom-out .3s;
+    @keyframes zoom-out {
+      100% {
+        opacity: 0;
+        transform: scale(1.2);
+      }
     }
   }
 }

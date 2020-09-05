@@ -1,10 +1,35 @@
 <template>
   <view>
+    <!-- 普通选择选择器 -->
+    <picker
+      v-if="type === 'selector'"
+      mode="selector"
+      :value="value_"
+      :range="range"
+      :range-key="rangeKey"
+      @change="pickerChange"
+      @cancel="pickerCancel">
+      <slot></slot>
+    </picker>
+
+    <!-- 多列选择选择器 -->
+    <picker
+      v-if="type === 'multiSelector'"
+      mode="multiSelector"
+      :value="value_"
+      :range="range"
+      :range-key="rangeKey"
+      @columnchange="pickerColumnchange"
+      @change="pickerChange"
+      @cancel="pickerCancel">
+      <slot></slot>
+    </picker>
+
     <!-- 时间选择器 -->
     <picker
       v-if="type === 'time'"
       mode="time"
-      :value="value"
+      :value="value_"
       @change="pickerChange"
       @cancel="pickerCancel">
       <slot></slot>
@@ -14,7 +39,7 @@
     <picker
       v-if="type === 'date'"
       mode="date"
-      :value="value"
+      :value="value_"
       :fields="fields"
       :start="dateStart"
       :end="dateEnd"
@@ -27,8 +52,8 @@
     <picker
       v-if="type === 'dateTime'"
       mode="multiSelector"
+      :value="value_"
       :range="dateTimeRange"
-      :value="value"
       @change="pickerChange"
       @cancel="pickerCancel">
       <slot></slot>
@@ -38,9 +63,9 @@
     <picker 
       v-if="type === 'region'"
       mode="multiSelector"
+      :value="value_"
       :range="regionRange"
       :range-key="'label'"
-      :value="value"
       @columnchange="pickerColumnchange"
       @change="pickerChange"
       @cancel="pickerCancel">
@@ -54,9 +79,23 @@ import provinceData from './data/province'
 import cityData from './data/city'
 import districtData from './data/district'
 export default {
-  name: 'MyPickern',
+  name: 'MyUniPicker',
   props: {
     type: {
+      type: String,
+      default: ''
+    },
+    value: {
+      type: [String, Number, Array],
+      default: ''
+    },
+    range: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    rangeKey: {
       type: String,
       default: ''
     },
@@ -72,33 +111,11 @@ export default {
   data() {
     return {
       regionRange: [provinceData, cityData[0], districtData[0][0]],
-      provinceIndex: 0
+      provinceIndex: 0,
+      value_: null
     }
   },
   computed: {
-    value() {
-      if (this.type === 'time') {
-        const now = new Date()
-        const nowHour = now.getHours()
-        const nowMinute = now.getMinutes()
-        return `${nowHour}:${nowMinute}`
-      }
-      if (this.type === 'date') {
-        return this.getDate(this.fields)
-      }
-      if (this.type === 'dateTime') {
-        const now = new Date()
-        const year = now.getFullYear()
-        const month = now.getMonth()
-        const day = now.getDate()
-        const hour = now.getHours()
-        const minute = now.getMinutes()
-        return [50, month, day - 1, hour, minute]
-      }
-      if (this.type === 'region') {
-        return [0, 0, 0]
-      }
-    },
     dateStart() {
       if (this.type === 'date') {
         return this.getDate(this.fields, 'start')
@@ -115,24 +132,66 @@ export default {
       }
     }
   },
+  created() {
+    this.value_ = this.value
+
+    if (!this.value_) {
+      if (this.type === 'selector') {
+        this.value_ = 0
+      }
+
+      if (this.type === 'multiSelector') {
+        this.value_ = []
+      }
+
+      if (this.type === 'time') {
+        const now = new Date()
+        const nowHour = now.getHours()
+        const nowMinute = now.getMinutes()
+        this.value_ = `${nowHour}:${nowMinute}`
+      }
+
+      if (this.type === 'date') {
+        this.value_ = this.getDate(this.fields)
+      }
+
+      if (this.type === 'dateTime') {
+        const now = new Date()
+        const year = now.getFullYear()
+        const month = now.getMonth()
+        const day = now.getDate()
+        const hour = now.getHours()
+        const minute = now.getMinutes()
+        this.value_ = [50, month, day - 1, hour, minute]
+      }
+
+      if (this.type === 'region') {
+        this.value_ = [0, 0, 0]
+      }
+    }
+  },
   methods: {
     pickerColumnchange(e) {
-      const column = e.detail.column
-      const value = e.detail.value
-      this.$set(this.value, column, value)
-      switch(column) {
-        case 0:
-          this.provinceIndex = value
-          this.$set(this.regionRange, 1, cityData[value])
-          this.$set(this.regionRange, 2, districtData[value][0])
-          this.$set(this.value, 1, 0)
-          this.$set(this.value, 2, 0)
-          break
-        case 1:
-          this.$set(this.regionRange, 2, districtData[this.provinceIndex][value])
-          this.$set(this.value, 2, 0)
-          break
+      if (this.type === 'region') {
+        const column = e.detail.column
+        const value = e.detail.value
+        this.$set(this.value_, column, value)
+        switch(column) {
+          case 0:
+            this.provinceIndex = value
+            this.$set(this.regionRange, 1, cityData[value])
+            this.$set(this.regionRange, 2, districtData[value][0])
+            this.$set(this.value_, 1, 0)
+            this.$set(this.value_, 2, 0)
+            break
+          case 1:
+            this.$set(this.regionRange, 2, districtData[this.provinceIndex][value])
+            this.$set(this.value_, 2, 0)
+            break
+        }
+        return
       }
+      this.$emit('columnchange', e.detail.value)
     },
     pickerChange(e) {
       if (this.type === 'dateTime') {

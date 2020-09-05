@@ -7,8 +7,22 @@
         <view class="picker-action confirm" @click="close('confirm')">确定</view>
       </view>
 
+      <!-- 普通选择器 -->
+      <picker-view v-if="type === 'selector'" class="picker-content" :value="value_" @change="handleChange">
+        <picker-view-column>
+          <view class="picker-item" v-for="(item, index) in range" :key="index">{{ rangeKey ? item[rangeKey] : item }}</view>
+        </picker-view-column>
+      </picker-view>
+
+      <!-- 多列选择器 -->
+      <picker-view v-if="type === 'multiSelector'" class="picker-content" :value="value_" @change="handleChange">
+        <picker-view-column v-for="(column, colIdx) in range" :key="colIdx">
+          <view class="picker-item" v-for="(item, index) in column" :key="index">{{ rangeKey ? item[rangeKey] : item }}</view>
+        </picker-view-column>
+      </picker-view>
+
       <!-- 时间选择器 -->
-      <picker-view v-if="type === 'time'" class="picker-content" :value="value" @change="handleChange">
+      <picker-view v-if="type === 'time'" class="picker-content" :value="value_" @change="handleChange">
         <picker-view-column>
           <view class="picker-item" v-for="item in hours" :key="item">{{ item }}时</view>
         </picker-view-column>
@@ -18,7 +32,7 @@
       </picker-view>
 
       <!-- 日期选择器 -->
-      <picker-view v-if="type === 'date'" class="picker-content" :value="value" @change="handleChange">
+      <picker-view v-if="type === 'date'" class="picker-content" :value="value_" @change="handleChange">
         <picker-view-column>
           <view class="picker-item" v-for="item in years" :key="item">{{ item }}年</view>
         </picker-view-column>
@@ -31,7 +45,7 @@
       </picker-view>
 
       <!-- 日期时间选择器 -->
-      <picker-view v-if="type === 'dateTime'" class="picker-content" :value="value" @change="handleChange">
+      <picker-view v-if="type === 'dateTime'" class="picker-content" :value="value_" @change="handleChange">
         <picker-view-column>
           <view class="picker-item" v-for="item in years" :key="item">{{ item }}年</view>
         </picker-view-column>
@@ -50,7 +64,7 @@
       </picker-view>
 
       <!-- 省市区选择器 -->
-      <picker-view v-if="type === 'region'" class="picker-content" :value="value" @change="handleChange">
+      <picker-view v-if="type === 'region'" class="picker-content" :value="value_" @change="handleChange">
         <picker-view-column>
           <view class="picker-item" v-for="item in provinces" :key="item.value">{{ item.label }}</view>
         </picker-view-column>
@@ -75,7 +89,23 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'region'
+      default: ''
+    },
+    value: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    range: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    rangeKey: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -86,25 +116,11 @@ export default {
       provinces: provinceData,
       citys: [],
       districts: [],
-      value: [],
+      value_: [],
       result: null
     }
   },
   computed: {
-    hours() {
-      const hours = []
-      for (let i = 0; i < 24; i++) {
-        hours.push(i < 10 ? `0${i}` : i )
-      }
-      return hours
-    },
-    minutes() {
-      const minutes = []
-      for (let i = 0; i < 60; i++) {
-        minutes.push(i < 10 ? `0${i}` : i )
-      }
-      return minutes
-    },
     years() {
       const years = []
       const year = new Date().getFullYear()
@@ -126,39 +142,70 @@ export default {
         days.push(i < 10 ? `0${i}` : i )
       }
       return days
+    },
+    hours() {
+      const hours = []
+      for (let i = 0; i < 24; i++) {
+        hours.push(i < 10 ? `0${i}` : i )
+      }
+      return hours
+    },
+    minutes() {
+      const minutes = []
+      for (let i = 0; i < 60; i++) {
+        minutes.push(i < 10 ? `0${i}` : i )
+      }
+      return minutes
     }
   },
   created() {
-    const now = new Date()
+    this.value_ = this.value
 
-    if (this.type === 'time') {
-      this.$set(this.value, 0, now.getHours())
-      this.$set(this.value, 1, now.getMinutes())
-    }
+    if (!this.value_.length) {
+      const now = new Date()
 
-    if (this.type === 'date') {
-      this.$set(this.value, 0, 50)
-      this.$set(this.value, 1, now.getMonth())
-      this.$set(this.value, 2, now.getDay() - 2)
-    }
+      if (this.type === 'selector') {
+        this.value_ = [0]
+      }
 
-    if (this.type === 'dateTime') {
-      this.$set(this.value, 0, 50)
-      this.$set(this.value, 1, now.getMonth())
-      this.$set(this.value, 2, now.getDay() - 2)
-      this.$set(this.value, 3, now.getHours())
-      this.$set(this.value, 4, now.getMinutes())
-    }
+      if (this.type === 'multiSelector') {
+        this.value_ = [0, 0]
+      }
 
-    if (this.type === 'region') {
-      this.value = [0, 0, 0]
-      this.citys = cityData[0]
-      this.districts = districtData[0][0]
+      if (this.type === 'time') {
+        this.$set(this.value_, 0, now.getHours())
+        this.$set(this.value_, 1, now.getMinutes())
+      }
+
+      if (this.type === 'date') {
+        this.$set(this.value_, 0, 50)
+        this.$set(this.value_, 1, now.getMonth())
+        this.$set(this.value_, 2, now.getDay() - 2)
+      }
+
+      if (this.type === 'dateTime') {
+        this.$set(this.value_, 0, 50)
+        this.$set(this.value_, 1, now.getMonth())
+        this.$set(this.value_, 2, now.getDay() - 2)
+        this.$set(this.value_, 3, now.getHours())
+        this.$set(this.value_, 4, now.getMinutes())
+      }
+
+      if (this.type === 'region') {
+        this.value_ = [0, 0, 0]
+        this.citys = cityData[0]
+        this.districts = districtData[0][0]
+      }
     }
   },
   methods: {
     handleChange(e) {
       const value = e.detail.value
+
+      if (this.type === 'selector' || this.type === 'multiSelector') {
+        this.result = value
+      }
+
       if (this.type === 'time') {
         this.result = `${this.hours[value[0]]}:${this.minutes[value[1]]}`
       }
@@ -174,7 +221,15 @@ export default {
       if (this.type === 'region') {
         this.citys = cityData[value[0]]
         this.districts = districtData[value[0]][value[1]]
-        this.result = `${this.provinces[value[0]].label}${this.citys[value[1]].label}${this.districts[value[2]].label}`
+        const province = this.provinces[value[0]]
+        const city = this.citys[value[1]]
+        const district = this.districts[value[2]]
+        const region = {
+          label: `${province.label}${city.label}${district.label}`,
+          value: district.value,
+          data: [province, city, district]
+        }
+        this.result = region
       }
     },
     open() {
@@ -193,20 +248,32 @@ export default {
 
       if (type === 'confirm') {
         if (!this.result) {
+          if (this.type === 'selector' || this.type === 'multiSelector') {
+            this.result = this.value_
+          }
+
           if (this.type === 'time') {
-            this.result = `${this.hours[this.value[0]]}:${this.minutes[this.value[1]]}`
+            this.result = `${this.hours[this.value_[0]]}:${this.minutes[this.value_[1]]}`
           }
 
           if (this.type === 'date') {
-            this.result = `${this.years[this.value[0]]}-${this.months[this.value[1]]}-${this.days[this.value[2]]}`
+            this.result = `${this.years[this.value_[0]]}-${this.months[this.value_[1]]}-${this.days[this.value_[2]]}`
           }
 
           if (this.type === 'dateTime') {
-            this.result = `${this.years[this.value[0]]}-${this.months[this.value[1]]}-${this.days[this.value[2]]} ${this.hours[this.value[3]]}:${this.minutes[this.value[4]]}`
+            this.result = `${this.years[this.value_[0]]}-${this.months[this.value_[1]]}-${this.days[this.value_[2]]} ${this.hours[this.value_[3]]}:${this.minutes[this.value_[4]]}`
           }
 
           if (this.type === 'region') {
-            this.result = `${this.provinces[this.value[0]].label}${this.citys[this.value[1]].label}${this.districts[this.value[2]].label}`
+            const province = this.provinces[this.value_[0]]
+            const city = this.citys[this.value_[1]]
+            const district = this.districts[this.value_[2]]
+            const region = {
+              label: `${province.label}${city.label}${district.label}`,
+              value: district.value,
+              data: [province, city, district]
+            }
+            this.result = region
           }
         }
 
@@ -225,7 +292,6 @@ export default {
   bottom: 0;
   left: 0;
   z-index: 999;
-  box-sizing: border-box;
   font-size: 16px;
 }
 .mask {
