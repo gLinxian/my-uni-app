@@ -1,5 +1,6 @@
 {
   "pages": [
+    { "path": "pages/templates/sort-list/sort-list", "style": { "navigationBarTitleText": "分类列表" } },
     { "path": "pages/basic/basic", "style": { "navigationStyle": "custom" } },
     { "path": "pages/components/components", "style": { "navigationStyle": "custom" } },
     { "path": "pages/templates/templates", "style": { "navigationStyle": "custom" } },
