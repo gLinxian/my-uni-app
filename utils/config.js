@@ -8,7 +8,7 @@ import Vue from 'vue'
 export const config = {
   baseUrl: 'https://www.baidu.com/',
   
-  theme: '#123456',
+  theme: '#007AFF',
   black: '#000000',
   white: '#FFFFFF',
   red: '#FF3B30',

@@ -10,7 +10,7 @@ export default {
     cancelColor: '#007AFF',
     confirmText: '确定',
     confirmColor: '#007AFF',
-    success: null
+    success: function() {}
   },
   mutations: {
     SET_STATE(state, obj) {

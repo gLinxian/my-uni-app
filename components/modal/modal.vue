@@ -107,7 +107,8 @@ export default {
       if (this.isApi) {
         this.isOut = true
         setTimeout(() => { 
-          this.$store.commit('modal/SET_STATE', { key: 'show', val: false }) 
+          this.$store.commit('modal/SET_STATE', { key: 'show', val: false })
+          this.isOut = false
         }, this.isAnimate ? 300 : 0)
 
         this.object.success(res)

@@ -1,6 +1,8 @@
 {
   "pages": [
+    { "path": "pages/templates/form/form", "style": { "navigationBarTitleText": "表单" } },
     { "path": "pages/templates/sort-list/sort-list", "style": { "navigationBarTitleText": "分类列表" } },
+    { "path": "pages/templates/swiper-list/swiper-list", "style": { "navigationBarTitleText": "左右滑动长列表" } },
     { "path": "pages/basic/basic", "style": { "navigationStyle": "custom" } },
     { "path": "pages/components/components", "style": { "navigationStyle": "custom" } },
     { "path": "pages/templates/templates", "style": { "navigationStyle": "custom" } },

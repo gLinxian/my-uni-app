@@ -1,5 +1,7 @@
 <template>
   <view class="sortlist">
+
+    <!-- 分类 -->
     <view class="sort-list">
       <scroll-view class="scroll-view" :scroll-y="true">
         <view
@@ -7,25 +9,28 @@
           :key="item.id"
           class="sort-list-item"
           :class="{ active: activeName === item.name }"
-          @click="sortClick(item)">{{ item.name }}</view>
+          @click="sortClick(item.name)">{{ item.name }}</view>
       </scroll-view>
     </view>
+
+    <!-- 商品 -->
     <view class="goods-list">
-      <scroll-view class="scroll-view" :scroll-y="true" :scroll-into-view="scrollIntoView">
-        <view v-for="(val, key) in goods" :key="key" :id="key">
-          <view class="goods-list-title">{{ sortMap[key] }}</view>
-          <view
-            v-for="item in val"
-            :key="item.id"
-            class="goods-list-item">
+      <scroll-view class="scroll-view" :scroll-y="true" :scroll-into-view="scrollIntoView" @scroll="goodsScroll">
+        <view v-for="(goods, sort) in goodsMap" :key="sort" :id="sort">
+          <view class="goods-list-title">{{ sortMap[sort] }}</view>
+          <view class="goods-list-item" v-for="item in goods" :key="item.id">
             <image class="goods-list-img" src="/static/tea.jpg" mode="aspectFill" />
             <view class="goods-list-content">
-              <view class="goods-list-content_title">(大杯)芒果酸奶绿</view>
-              <view class="goods-list-content_intro">甜酸细腻的芒果肉果酱，覆盖醇厚的酸奶与清新可口的绿茶茶茶</view>
-              <view></view>
-              <view>
-                <view><text></text></view>
-                <view></view>
+              <view class="goods-list-content_title text-line-1">{{ item.name }}</view>
+              <view class="goods-list-content_intro text-line-2">甜酸细腻的芒果肉果酱，覆盖醇厚的酸奶与清新可口的绿茶茶茶</view>
+              <view class="mb-5 secondary fs-12">月售9</view>
+              <view class="flex justify-space-between">
+                <view>
+                  <text class="red fs-10">¥</text>
+                  <text class="red fs-16 mr-5">13</text>
+                  <text class="secondary fs-12">起</text>
+                </view>
+                <view class="goods-list-content_btn">选规格</view>
               </view>
             </view>
           </view>
@@ -40,6 +45,7 @@ export default {
   data() {
     return {
       activeName: '推荐',
+      scrollIntoView: '',
       sort: [
         { id: 1, name: '推荐' },
         { id: 2, name: '芒着想你' },
@@ -53,9 +59,11 @@ export default {
       ],
       sortMap: {
         recommend: '推荐',
-        missYou: '芒着想你'
+        missYou: '芒着想你',
+        beckoning: '心动夏天',
+        shopowner: '店长推荐'
       },
-      goods: {
+      goodsMap: {
         recommend: [
           { id: 1, name: '(中杯)波霸奶茶' },
           { id: 2, name: '(中杯)百香奶青+珍波椰' },
@@ -77,15 +85,47 @@ export default {
           { id: 6, name: '(中杯)茶冻芒果青' },
           { id: 7, name: '(大杯)芒果青' },
           { id: 8, name: '(中杯)芒果青' }
+        ],
+        beckoning: [
+          { id: 1, name: '(大杯)芒果酸奶绿' },
+          { id: 2, name: '(中杯)芒果酸奶绿' }
+        ],
+        shopowner: [
+          { id: 1, name: '(大杯)芒果酸奶绿' },
+          { id: 2, name: '(中杯)芒果酸奶绿' },
+          { id: 3, name: '(大杯)云朵芒果青' },
+          { id: 4, name: '(中杯)云朵芒果青' },
+          { id: 5, name: '(大杯)茶冻芒果青' },
+          { id: 6, name: '(中杯)茶冻芒果青' }
         ]
-      },
-      scrollIntoView: '',
+      }
     }
   },
   methods: {
-    sortClick(item) {
-      this.activeName = item.name
-      this.scrollIntoView = this.$util.keyvalExchange(this.sortMap)[item.name]
+    sortClick(name) {
+      this.activeName = name
+      this.scrollIntoView = this.$util.keyvalExchange(this.sortMap)[name]
+    },
+    goodsScroll(e) {
+      const scrollTop = e.detail.scrollTop
+
+      if (0 <= scrollTop && scrollTop < 1381) {
+
+        this.activeName = '推荐'
+
+      } else if (1381 <= scrollTop && scrollTop < 2496) {
+
+        this.activeName = '芒着想你'
+
+      } else if (2496 <= scrollTop && scrollTop < 2813) {
+
+        this.activeName = '心动夏天'
+
+      } else if (2813 <= scrollTop) {
+
+        this.activeName = '店长推荐'
+
+      }
     }
   }
 }
@@ -93,7 +133,8 @@ export default {
 
 <style lang="scss" scoped>
 $listHeight: calc(100vh - 44px);
-$leftWidth: 100px;
+$leftWidth: 90px;
+
 .sortlist {
   display: flex;
   height: $listHeight;
@@ -106,13 +147,15 @@ $leftWidth: 100px;
     display: flex;
     box-sizing: border-box;
     align-items: center;
-    padding: 15px;
+    padding: 15px 0 15px 10px;
     margin-bottom: 5px;
     color: $secondary;
+    font-size: 14px;
     &:last-child {
       margin-bottom: 0;
     }
     &.active {
+      border-left: 5px solid #FBD63D;
       background-color: #FFFFFF;
       color: #000000;
     }
@@ -130,8 +173,8 @@ $leftWidth: 100px;
     padding: 0 10px;
   }
   &-img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 6px;
   }
   &-content {
@@ -142,9 +185,18 @@ $leftWidth: 100px;
       color: #000000;
     }
     &_intro {
-      color: #333333;
+      margin-bottom: 5px;
+      color: $general;
       font-size: 12px;
       line-height: 1.2;
+    }
+    &_btn {
+      border-radius: 5px;
+      background-image: linear-gradient(45deg, #FBD63D, #F8BE2C);
+      padding: 5px 7px;
+      color: #000000;
+      font-size: 12px;
+      line-height: 1;
     }
   }
 }

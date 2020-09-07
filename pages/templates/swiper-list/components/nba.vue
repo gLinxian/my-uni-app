@@ -1,0 +1,125 @@
+<template>
+  <scroll-view
+    class="scroll-view"
+    :scroll-y="true"
+    :refresher-enabled="true"
+    :refresher-threshold="45"
+    refresher-default-style="none"
+    refresher-background="#F8F8F8"
+    :refresher-triggered="refresherTriggered"
+    @refresherpulling="refresherpulling"
+    @refresherrefresh="refresherrefresh"
+    @refresherrestore="refresherrestore"
+    @refresherabort="refresherabort">
+    <view class="nba">
+      <view class="item">
+        <view class="item-content">
+          <view class="item-content-title text-line-2">浓眉34+10詹姆斯28+11+9，湖人战胜火箭大比分1-1</view>
+          <view class="item-content-info">
+            <view>
+              <text class="icon-commentfill"></text>
+              <text>17316</text>
+            </view>
+            <view>
+              <text class="tag">置顶</text>
+              <text class="tag">专题</text>
+            </view>
+          </view>
+        </view>
+        <image class="item-img" src="/static/nba.jpg" mode="aspectFill" />
+      </view>
+      <view class="item" v-for="item in 10" :key="item">
+        <view class="item-content">
+          <view class="item-content-title text-line-2">大洛佩斯：米德尔顿的表现不可思议，他是出色的球队领袖</view>
+          <view class="item-content-info">
+            <view>
+              <text class="icon-commentfill"></text>
+              <text>10</text>
+            </view>
+          </view>
+        </view>
+        <image class="item-img" src="/static/nba.jpg" mode="aspectFill" />
+      </view>
+    </view>
+  </scroll-view>
+</template>
+
+<script>
+export default {
+  name: 'Nba',
+  data() {
+    return {
+      refresherTriggered: true
+    }
+  },
+  methods: {
+    refresherpulling(e) {
+      // 被下拉就触发
+      if (e.detail.deltaY > 45) {
+        this.$uni.showToast('下拉刷新')
+      }
+    },
+    refresherrefresh(e) {
+      // 刷新的时候触发
+      setTimeout(() => {
+        this.refresherTriggered = false
+      }, 3000)
+    },
+    refresherrestore(e) {
+      // 重置的时候触发
+      this.$uni.showToast('刷新成功')
+    },
+    refresherabort(e) {
+      // 中止的时候触发
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.scroll-view {
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+}
+.nba {
+  padding: 0 15px;
+}
+.item {
+  display: flex;
+  padding: 15px 0;
+  border-bottom: 1px solid #F5F5F5;
+  &-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 15px;
+    &-title {
+      font-size: 18px;
+    }
+    &-info {
+      display: flex;
+      justify-content: space-between;
+      color: $placeholder;
+      font-size: 15px;
+    }
+  }
+  &-img {
+    width: 100px;
+    height: 75px;
+  }
+}
+.tag {
+  margin-right: 8px;
+  padding: 1px 2px;
+  border: .5px solid #E54A45;
+  border-radius: 2px;
+  color: #E54A45;
+  font-size: 12px;
+  line-height: 1;
+  &:last-child {
+    margin-right: 5px;
+  }
+}
+</style>

@@ -7,7 +7,8 @@
     :loading="loading"
     :disabled="disabled"
     :hover-class="hoverClass"
-    :style="[roundStyle, circleStyle, backgroundStyle ]">
+    :style="[roundStyle, circleStyle, backgroundStyle]"
+    @click="click">
     <text v-if="icon" :class="[iconClass]"></text>
     <slot></slot>
   </button>
@@ -91,6 +92,11 @@ export default {
           : `icon-${this.icon}`
         return iconClass
       }
+    }
+  },
+  methods: {
+    click(e) {
+      this.$emit('click', e)
     }
   }
 }

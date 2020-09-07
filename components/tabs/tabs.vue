@@ -2,10 +2,13 @@
   <scroll-view class="scroll-view " :scroll-x="true" :show-scrollbar="false">
     <view class="tabs" :style="{ width: `${tabsWidth}px` }">
       <view class="tab" v-for="(item, index) in data" :key="item.id" @click="tabClick(item, index)">
-        <view 
-          class="tab-text" 
-          :class="{ 'tab-active': active === item.name }" 
-          :style="{ color: active === item.name ? color : '#333333' }">{{ item.name }}</view>
+        <view
+          class="tab-text"
+          :style="{
+            color: active === item.name
+              ? color
+              : '#333333'
+          }">{{ item.name }}</view>
       </view>
       <view
         class="line"
@@ -22,6 +25,10 @@
 export default {
   name: 'MyTabs',
   props: {
+    value: {
+      type: [Number, String],
+      default: 0
+    },
     data: {
       type: Array,
       default() {
@@ -48,10 +55,15 @@ export default {
       lineLeft: 20
     }
   },
+  watch: {
+    value(val) {
+      this.tabClick(this.data[val], val)
+    }
+  },
   mounted() {
     setTimeout(() => {
       this.computedTabs()
-      this.tabClick(this.data[0], 0)
+      this.tabClick(this.data[this.value], this.value)
     }, 200)
   },
   methods: {
@@ -77,7 +89,7 @@ export default {
         acc += current.width + 20
         return acc
       }, 0) + 20
-      this.$emit('change', item)
+      this.$emit('input', index)
     }
   }
 }
@@ -85,8 +97,10 @@ export default {
 
 <style lang="scss" scoped>
 .scroll-view  {
+  box-sizing: border-box;
   width: 100%;
   height: 45px;
+  border-bottom: .5px solid #F5F5F5;
   background-color: #FFFFFF;
 }
 .tabs {
@@ -99,14 +113,10 @@ export default {
     &-text {
       box-sizing: border-box;
       height: 45px;
-      border-bottom: 2px solid #FFFFFF;
       color: #333333;
       font-size: 16px;
       line-height: 45px;
       transition: all .3s;
-    }
-    &-active {
-      font-weight: 600;
     }
   }
   .line {
