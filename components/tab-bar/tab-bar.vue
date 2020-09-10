@@ -145,7 +145,7 @@ export default {
     margin-bottom: 2px;
     padding: 9px;
     border-radius: 50%;
-    background-image: $blueLinearGradient;
+    background-image: $lgBlue;
     color: $white;
     font-size: 30px;
     line-height: 1;

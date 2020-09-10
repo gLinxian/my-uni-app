@@ -864,6 +864,12 @@
 	-webkit-line-clamp: 2;
 	overflow: hidden;
 }
+.text-line-3 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
 
 .lh-1 { line-height: 1; }
 .lh-1-1 { line-height: 1.1; }
@@ -935,7 +941,7 @@
 }
 
 /* 栅格布局 */
-.row { display: flex; }
+.row { display: flex; flex-wrap: wrap; }
 .col-12 { width: 100%; }
 .col-11 { width: 91.67%; }
 .col-10 { width: 83.33%; }

@@ -4,29 +4,53 @@
  * @author linxian
  */
 
+$tabColor: #999999;
+$tabSelected: #333333;
+
 /* 边框 */
 $border: #C8C7CC;
 
 /* 背景 */
 $bgColor: #F8F8F8;
-
-/* 颜色 */
-$theme: #007AFF;
-$black: #000000;
-$white: #FFFFFF;
-$red: #FF3B30;
-$green: #4CD964;
-$blue: #007AFF;
-$yellow: #FFFF00;
-$blueLinearGradient: linear-gradient(to right, #05d7ff, #007AFF);
-$tabColor: #999999;
-$tabSelected: #333333;
+$bgLightDefault: #ECF5FF;
+$bgLightSuccess: #F0F9EB;
+$bgLightWarning: #FDF6EC;
+$bgLightDanger: #FEF0F0;
+$bgLightInfo: #F4F4F5;
 
 /* 文字 */
 $primary: #303133;     // 主要文字
 $general: #606266;     // 常规文字
 $secondary: #909399;   // 次要文字
 $placeholder: #C0C4CC; // 占位文字
+
+/* 辅助 */
+$default: #409EFF;
+$success: #67C23A;
+$warning: #E6A23C;
+$danger: #F56C6C;
+$info: #909399;
+
+/* 颜色 */
+$theme: #DA70D6;
+$black: #000000;
+$white: #FFFFFF;
+$red: #FF3B30;
+$green: #4CD964;
+$blue: #007AFF;
+$silver: #C0C0C0;
+$gray: #808080;
+$maroon: #800000;
+$purple: #800080;
+$fuchsia: #FF00FF;
+$lime: #00FF00;
+$olive: #808000;
+$navy: #000080;
+$teal: #008080;
+$aqua: #00FFFF;
+
+/* 渐变 */
+$lgBlue: linear-gradient(to right, #05d7ff, #007AFF);
 
 /**
  * 下面的代码不建议删除

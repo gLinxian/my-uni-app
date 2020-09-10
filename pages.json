@@ -1,12 +1,18 @@
 {
   "pages": [
-    { "path": "pages/templates/form/form", "style": { "navigationBarTitleText": "表单" } },
-    { "path": "pages/templates/sort-list/sort-list", "style": { "navigationBarTitleText": "分类列表" } },
-    { "path": "pages/templates/swiper-list/swiper-list", "style": { "navigationBarTitleText": "左右滑动长列表" } },
+    { "path": "pages/basic/icon/icon", "style": { "navigationBarTitleText": "图标" } },
+    { "path": "pages/basic/color/color", "style": { "navigationBarTitleText": "颜色" } },
+    { "path": "pages/basic/composition/composition", "style": { "navigationBarTitleText": "组合" } },
+    { "path": "pages/basic/grid/grid", "style": { "navigationBarTitleText": "栅格" } },
     { "path": "pages/basic/basic", "style": { "navigationStyle": "custom" } },
     { "path": "pages/components/components", "style": { "navigationStyle": "custom" } },
     { "path": "pages/templates/templates", "style": { "navigationStyle": "custom" } },
-    { "path": "pages/about/about", "style": { "navigationStyle": "custom" } }
+    { "path": "pages/about/about", "style": { "navigationStyle": "custom" } },
+    { "path": "pages/templates/app-store-card/app-store-card", "style": { "navigationBarTitleText": "App Store 卡片" } },
+    { "path": "pages/templates/form/form", "style": { "navigationBarTitleText": "表单" } },
+    { "path": "pages/templates/sort-list/sort-list", "style": { "navigationBarTitleText": "分类选择列表" } },
+    { "path": "pages/templates/swiper-list/swiper-list", "style": { "navigationBarTitleText": "左右滑动列表" } },
+    { "path": "pages/templates/waterfall/waterfall", "style": { "navigationBarTitleText": "瀑布流" } }
   ],
   "tabBar": {
     "color": "#999999",
@@ -22,7 +28,9 @@
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "my-uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#F8F8F8",
+    "backgroundColorTop": "#FFFFFF",
+    "backgroundColorBottom": "#FFFFFF"
   }
 }

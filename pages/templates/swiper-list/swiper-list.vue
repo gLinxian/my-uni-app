@@ -1,6 +1,6 @@
 <template>
   <view class="swiperlist">
-    <my-tabs v-model="swiperCurrent" :data="tabs" color="#E54A45" />
+    <my-tabs v-model="swiperCurrent" :items="tabs" color="#E54A45" />
     <swiper class="swiper" :current="swiperCurrent" @change="swiperChange">
       <swiper-item>
         <recommend />

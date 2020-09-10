@@ -1,22 +1,10 @@
 <template>
   <scroll-view class="scroll-view " :scroll-x="true" :show-scrollbar="false">
     <view class="tabs" :style="{ width: `${tabsWidth}px` }">
-      <view class="tab" v-for="(item, index) in data" :key="item.id" @click="tabClick(item, index)">
-        <view
-          class="tab-text"
-          :style="{
-            color: active === item.name
-              ? color
-              : '#333333'
-          }">{{ item.name }}</view>
+      <view class="tab" v-for="(item, index) in items" :key="item.id" @click="tabClick(item, index)">
+        <view class="tab-text" :style="{ color: active === item.name ? color : '#333333' }">{{ item.name }}</view>
       </view>
-      <view
-        class="line"
-        :style="{
-          width: lineWidth,
-          left: `${lineLeft}px`,
-          backgroundColor: color
-        }"></view>
+      <view class="line" :style="{ width: lineWidth, left: `${lineLeft}px`, backgroundColor: color }"></view>
     </view>
   </scroll-view>
 </template>
@@ -29,7 +17,7 @@ export default {
       type: [Number, String],
       default: 0
     },
-    data: {
+    items: {
       type: Array,
       default() {
         return [
@@ -57,13 +45,13 @@ export default {
   },
   watch: {
     value(val) {
-      this.tabClick(this.data[val], val)
+      this.tabClick(this.items[val], val)
     }
   },
   mounted() {
     setTimeout(() => {
       this.computedTabs()
-      this.tabClick(this.data[this.value], this.value)
+      this.tabClick(this.items[this.value], this.value)
     }, 200)
   },
   methods: {
