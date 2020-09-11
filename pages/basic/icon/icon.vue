@@ -1,7 +1,7 @@
 <template>
   <view class="my-container">
     <view class="row">
-      <view class="col-4 item" v-for="(item, index) in icons" :key="index" hover-class="item-hover">
+      <view v-for="(item, index) in icons" :key="index" class="col-4 item" hover-class="item-hover" @click="itemClick(item)">
         <text :class="item.name"></text>
         <text>{{ item.name | name }}</text>
       </view>
@@ -121,6 +121,13 @@ export default {
       ],
       icon: `<text class="icon-calendar"></text>`
     }
+  },
+  methods: {
+    itemClick(item) {
+      uni.setClipboardData({
+        data: item.name.split('-')[1]
+      })
+    }
   }
 }
 </script>
@@ -140,7 +147,7 @@ export default {
   border-bottom: 1px solid #F5F5F5;
   padding: 20px 0;
   transition: all .3s;
-  &:hover {
+  &-hover {
     background-color: $bgColor;
   }
   & > text:first-child {

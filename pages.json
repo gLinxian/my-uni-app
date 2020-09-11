@@ -1,9 +1,11 @@
 {
   "pages": [
-    { "path": "pages/basic/icon/icon", "style": { "navigationBarTitleText": "图标" } },
+    { "path": "pages/basic/utils/utils", "style": { "navigationBarTitleText": "工具" } },
     { "path": "pages/basic/color/color", "style": { "navigationBarTitleText": "颜色" } },
     { "path": "pages/basic/composition/composition", "style": { "navigationBarTitleText": "组合" } },
     { "path": "pages/basic/grid/grid", "style": { "navigationBarTitleText": "栅格" } },
+    { "path": "pages/basic/icon/icon", "style": { "navigationBarTitleText": "图标" } },
+    { "path": "pages/basic/shadow/shadow", "style": { "navigationBarTitleText": "阴影" } },
     { "path": "pages/basic/basic", "style": { "navigationStyle": "custom" } },
     { "path": "pages/components/components", "style": { "navigationStyle": "custom" } },
     { "path": "pages/templates/templates", "style": { "navigationStyle": "custom" } },
