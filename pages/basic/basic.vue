@@ -1,11 +1,11 @@
 <template>
   <view :style="[navigationBar, tabBar]">
-    <my-navigationBar title="my-uni-app" />
+    <my-navigation-bar title="my-uni-app" />
     <view :style="[fullPage]" class="container">
       <!-- 页面内容写在这里 -->
       
     </view>
-    <my-tabBar :midButton="true" />
+    <my-tab-bar :midButton="true" />
   </view>
 </template>
 
