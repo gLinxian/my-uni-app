@@ -19,7 +19,7 @@
         <view v-for="(goods, sort) in goodsMap" :key="sort" :id="sort">
           <view class="goods-list-title">{{ sortMap[sort] }}</view>
           <view class="goods-list-item" v-for="item in goods" :key="item.id">
-            <image class="goods-list-img" src="/static/tea.jpg" mode="aspectFill" />
+            <image class="goods-list-img" src="/static/tea.jpg" mode="aspectFill"></image>
             <view class="goods-list-content">
               <view class="goods-list-content_title text-line-1">{{ item.name }}</view>
               <view class="goods-list-content_intro text-line-2">甜酸细腻的芒果肉果酱，覆盖醇厚的酸奶与清新可口的绿茶茶茶</view>

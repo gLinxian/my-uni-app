@@ -26,7 +26,7 @@
             </view>
           </view>
         </view>
-        <image class="item-img" src="/static/nba.jpg" mode="aspectFill" />
+        <image class="item-img" src="/static/nba.jpg" mode="aspectFill"></image>
       </view>
       <view class="item" v-for="item in 10" :key="item">
         <view class="item-content">
@@ -38,7 +38,7 @@
             </view>
           </view>
         </view>
-        <image class="item-img" src="/static/nba.jpg" mode="aspectFill" />
+        <image class="item-img" src="/static/nba.jpg" mode="aspectFill"></image>
       </view>
     </view>
   </scroll-view>

@@ -31,7 +31,7 @@ export default {
     },
     color: {
       type: String,
-      default: '#007AFF'
+      default: '#687CD5'
     }
   },
   data() {
@@ -49,25 +49,28 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.computedTabs()
+    setTimeout(async () => {
+      await this.computedTabs()
       this.tabClick(this.items[this.value], this.value)
     }, 200)
   },
   methods: {
     computedTabs() {
-      uni.createSelectorQuery()
-        .in(this)
-        .selectAll('.tab')
-        .fields({
-        size: true
-      }, data => {
-        this.tabsData = data
-        this.tabsWidth = data.reduce((acc, current) => {
-          acc += current.width + 20
-          return acc
-        }, 0)
-      }).exec()
+      return new Promise(resolve => {
+        uni.createSelectorQuery()
+          .in(this)
+          .selectAll('.tab')
+          .fields({
+          size: true
+        }, data => {
+          this.tabsData = data
+          this.tabsWidth = data.reduce((acc, current) => {
+            acc += current.width + 20
+            return acc
+          }, 0)
+          resolve()
+        }).exec()
+      })
     },
     tabClick(item, index) {
       this.active = item.name

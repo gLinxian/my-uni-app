@@ -1,6 +1,6 @@
 <template>
   <view class="launchimg" :style="{ display: isShow }">
-    <image class="img" :src="src" mode="aspectFill" />
+    <image class="img" :src="src" mode="aspectFill"></image>
     <view
       class="button"
       :style="positionMap[position]"

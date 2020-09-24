@@ -5,7 +5,7 @@
       'background': bgColor,
       'opacity': opacity
     }">
-    <image v-if="bgImg" class="img" :src="bgImg" mode="aspectFill" />
+    <image v-if="bgImg" class="img" :src="bgImg" mode="aspectFill"></image>
     <text v-if="back" class="back icon-back" @click="backClick"></text>
     <text v-if="title" class="title" :style="{ color: color }">{{ title }}</text>
     <slot></slot>

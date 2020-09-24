@@ -8,7 +8,7 @@
       boxShadow: shadow && '0 3px 6px rgba(0, 0, 0, .35)'
     }"
     @click="upload">
-    <image class="img" :src="imgSrc" mode="aspectFill" />
+    <image class="img" :src="imgSrc" mode="aspectFill"></image>
     <view
       v-if="!uploaded"
       class="select"

@@ -9,7 +9,7 @@
       <image
         class="tab-img"
         :src="`/static/tabBar/${item.url}${(selected === item.url ? '-selected' : '')}.png`"
-        mode="aspectFit">
+        mode="aspectFit"></image>
       <text
         :class="{ 'tab-selected' : selected === item.url }">
         {{ item.name }}

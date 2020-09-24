@@ -14,7 +14,7 @@
         class="card-img"
         :class="{ active: isActive && activeId === item.id }"
         :src="item.src"
-        mode="aspectFill" />
+        mode="aspectFill"></image>
       <view class="card-content">
         <view class="card-content-item" v-for="item in 7" :key="item">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit.

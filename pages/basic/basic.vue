@@ -5,9 +5,18 @@
     </my-navigation-bar>
     <my-navigation-bar title="基础" color="#FFFFFF" :border="false" :bgColor="lgTheme" :opacity="opacity" />
     <view :style="[fullPage]">
-      <image class="w-100" src="/static/basic.jpg" mode="aspectFill" />
+      <image class="w-100" src="/static/basic.jpg" mode="aspectFill"></image>
       <view class="my-page">
-        <view class="item-container" v-for="(item, index) in list" :key="index">
+        <view
+          v-for="(item, index) in list"
+          :key="index"
+          :class="[
+            'ani-slideInDown',
+            `ani-delay-${list.length - index}`
+          ]"
+          class="item-container"
+          hover-class="item-hover"
+          @click="itemClick(item.en)">
           <view class="item">
             <view class="item-decorate"></view>
             <view class="item-decorate"></view>
@@ -31,13 +40,18 @@ export default {
   data() {
     return {
       list: [
-        { cn: '颜色', en: 'color', class: 'icon-skin' },
+        { cn: '颜色', en: 'color',       class: 'icon-skin' },
         { cn: '组合', en: 'composition', class: 'icon-group' },
-        { cn: '栅格', en: 'grid', class: 'icon-cascades' },
-        { cn: '图标', en: 'icon', class: 'icon-emoji' },
-        { cn: '阴影', en: 'shadow', class: 'icon-flashlightopen' },
-        { cn: '工具', en: 'utils', class: 'icon-repair' }
+        { cn: '栅格', en: 'grid',        class: 'icon-cascades' },
+        { cn: '图标', en: 'icon',        class: 'icon-emoji' },
+        { cn: '阴影', en: 'shadow',      class: 'icon-flashlightopen' },
+        { cn: '工具', en: 'utils',       class: 'icon-repair' }
       ]
+    }
+  },
+  methods: {
+    itemClick(url) {
+      this.$uni.navigateTo(`./${url}/${url}`)
     }
   }
 }
@@ -54,6 +68,7 @@ export default {
   box-sizing: border-box;
   width: 50%;
   padding: 0 7.5px;
+  transition: opacity .3s;
 }
 .item {
   position: relative;
@@ -97,6 +112,23 @@ export default {
       width: 25px;
       height: 25px;
       border-radius: 50%;
+    }
+  }
+  &-hover {
+    opacity: .8;
+  }
+}
+.ani-slideInDown {
+  animation-name: slideInDown;
+  @keyframes slideInDown {
+    from {
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+      visibility: visible;
+    }
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
     }
   }
 }

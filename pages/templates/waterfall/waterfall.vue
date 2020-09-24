@@ -3,7 +3,7 @@
     <view class="waterfall" ref="waterfall">
       <view class="water-container">
         <view class="water">
-          <image class="water-img" src="/static/water.jpg" mode="aspectFill" />
+          <image class="water-img" src="/static/water.jpg" mode="aspectFill"></image>
           <view class="water-content">
             <view class="mb-10 fs-14 text-line-2">蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1</view>
             <view class="flex justify-space-between align-center mb-10">
@@ -16,7 +16,7 @@
       </view>
       <view class="water-container">
         <view class="water">
-          <image class="water-img" src="/static/water.jpg" mode="aspectFill" />
+          <image class="water-img" src="/static/water.jpg" mode="aspectFill"></image>
           <view class="water-content">
             <view class="mb-10 fs-14 text-line-2">蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1</view>
             <view class="flex justify-space-between align-center mb-10">
@@ -28,7 +28,7 @@
       </view>
       <view class="water-container">
         <view class="water">
-          <image class="water-img" src="/static/water.jpg" mode="aspectFill" />
+          <image class="water-img" src="/static/water.jpg" mode="aspectFill"></image>
           <view class="water-content">
             <view class="mb-10 fs-14 text-line-2">蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1</view>
             <view class="flex justify-space-between align-center mb-10">
@@ -41,7 +41,7 @@
       </view>
       <view class="water-container">
         <view class="water">
-          <image class="water-img" src="/static/water.jpg" mode="aspectFill" />
+          <image class="water-img" src="/static/water.jpg" mode="aspectFill"></image>
           <view class="water-content">
             <view class="mb-10 fs-14 text-line-2">蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1</view>
             <view class="flex justify-space-between align-center mb-10">

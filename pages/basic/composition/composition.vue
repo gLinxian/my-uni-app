@@ -1,11 +1,11 @@
 <template>
   <view class="my-container">
-    <view class="my-intro">通过组合 css 类来达到想要的样式效果，或有时候不用因为只要一句样式属性而想破脑袋为一个类取名。</view>
+    <view class="my-intro">使用内置的 css 类，通过组合来快速实现想要的样式效果，而不用费尽心思去为样式取名，一句样式也根本不需要取名。</view>
     
     <view class="my-row">
       <view class="my-title">示例：Flex 布局</view>
       <view class="flex flex-column w-100">
-        <view class="flex justify-center align-center h-px-100 bg-light-default default">flex</view>
+        <view class="flex justify-center align-center h-px-100 bg-light-default default">flex center</view>
         <view class="flex">
           <view class="w-px-100 pt-50 pb-50 bg-light-success success text-center">w-px-100</view>
           <view class="flex-1 pt-50 pb-50 bg-light-warning warning text-center">flex-1</view>
@@ -13,8 +13,8 @@
       </view>
       <view class="my-code">
         <text class="my-code-type">template</text>
-        <scroll-view class="w-100" :scroll-x="true">
-          <text class="inline-block" space="nbsp" style="width: 470px;">{{ flex }}</text>
+        <scroll-view :scroll-x="true">
+          <text class="my-code-text" space="nbsp">{{ flex }}</text>
         </scroll-view>
       </view>
     </view>
@@ -66,7 +66,7 @@ export default {
       flex:
 `<!-- 其他样式代码省略 -->
 <view class="flex flex-column">
-  <view class="flex justify-center align-center">flex</view>
+  <view class="flex justify-center align-center">flex center</view>
   <view class="flex">
     <view class="w-px-100">w-px-100</view>
     <view class="flex-1">flex-1</view>

@@ -9,7 +9,7 @@
           <view class='annular-part three' :style="{ backgroundColor: color }" />
         </view>
         <view class="cover">
-          <image class="logo" :src="src" mode="aspectFit" />
+          <image class="logo" :src="src" mode="aspectFit"></image>
         </view>
       </view>
       <view class="loading-text">{{ title }}</view>

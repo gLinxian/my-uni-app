@@ -723,18 +723,6 @@
 .scroll-x { overflow-x: scroll; }
 .scroll-y { overflow-y: scroll; }
 
-/* 2D */
-.scale-1 { transform: scale(.1) }
-.scale-2 { transform: scale(.2) }
-.scale-3 { transform: scale(.3) }
-.scale-4 { transform: scale(.4) }
-.scale-5 { transform: scale(.5) }
-.scale-6 { transform: scale(.6) }
-.scale-7 { transform: scale(.7) }
-.scale-8 { transform: scale(.8) }
-.scale-9 { transform: scale(.9) }
-.scale-10 { transform: scale(1) }
-
 /* 透明 */
 .opacity-0 { opacity: 0; }
 .opacity-1 { opacity: .1; }
@@ -747,6 +735,29 @@
 .opacity-8 { opacity: .8; }
 .opacity-9 { opacity: .9; }
 .opacity-10 { opacity: 1; }
+
+/* 2D */
+.scale-1 { transform: scale(.1) }
+.scale-2 { transform: scale(.2) }
+.scale-3 { transform: scale(.3) }
+.scale-4 { transform: scale(.4) }
+.scale-5 { transform: scale(.5) }
+.scale-6 { transform: scale(.6) }
+.scale-7 { transform: scale(.7) }
+.scale-8 { transform: scale(.8) }
+.scale-9 { transform: scale(.9) }
+.scale-10 { transform: scale(1) }
+
+/* 动画 */
+.ani-delay-1 { animation-duration: 0.2s; }
+.ani-delay-2 { animation-duration: 0.4s; }
+.ani-delay-3 { animation-duration: 0.6s; }
+.ani-delay-4 { animation-duration: 0.8s; }
+.ani-delay-5 { animation-duration: 1.0s; }
+.ani-delay-6 { animation-duration: 1.2s; }
+.ani-delay-7 { animation-duration: 1.4s; }
+.ani-delay-8 { animation-duration: 1.6s; }
+.ani-delay-9 { animation-duration: 1.8s; }
 
 /* 颜色 */
 /* :root {
@@ -852,6 +863,7 @@
 .text-underline { text-decoration: underline; }
 .text-line-through { text-decoration: line-through; }
 
+/* 文字省略 */
 .text-line-1 {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
@@ -869,6 +881,18 @@
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
 	overflow: hidden;
+}
+
+/* 文本两端对齐 */
+.justify {
+  display: inline-block;
+  text-align: justify;
+  text-align-last: justify;
+}
+.justify:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
 }
 
 .lh-1 { line-height: 1; }
@@ -927,18 +951,6 @@
 .align-baseline { align-items: baseline; }
 .align-flex-start { align-items: flex-start; }
 .align-flex-end { align-items: flex-end; }
-
-/* 文本两端对齐 */
-.justify {
-  display: inline-block;
-  text-align: justify;
-  text-align-last: justify;
-}
-.justify:after {
-  content: '';
-  display: inline-block;
-  width: 100%;
-}
 
 /* 栅格布局 */
 .row { display: flex; flex-wrap: wrap; }
