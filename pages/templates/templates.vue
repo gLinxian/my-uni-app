@@ -1,15 +1,9 @@
 <template>
   <view :style="[navigationBar, tabBar]">
-    <my-navigation-bar title="my-uni-app"/>
-    <view class="map">
-      <view v-for="item in 40" :key="item">地图</view>
+    <my-navigation-bar title="模板" color="#FFFFFF" :bgColor="lgTheme"/>
+    <view>
+      <view v-for="item in 40" :key="item">模板</view>
     </view>
     <my-tab-bar/>
   </view>
 </template>
-
-<script>
-</script>
-
-<style>
-</style>

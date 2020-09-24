@@ -67,7 +67,7 @@ export default {
       if (url !== this.selected) {
         setTimeout(() => {
           this.$uni.switchTab(`../${url}/${url}`)
-        }, 300)
+        }, 150)
       }
     },
     scanClick() {
@@ -145,7 +145,7 @@ export default {
     margin-bottom: 2px;
     padding: 9px;
     border-radius: 50%;
-    background-image: $lgBlue;
+    background-image: $lgTheme;
     color: $white;
     font-size: 30px;
     line-height: 1;

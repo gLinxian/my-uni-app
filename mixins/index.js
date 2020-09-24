@@ -24,6 +24,7 @@ Vue.mixin({
       navigationBar: {
         'padding-top': `${uni.getSystemInfoSync().statusBarHeight + 44}px`
       },
+      lgTheme: this.$config.lgTheme,
       tabBar: {
         'padding-bottom': '50px'
       },

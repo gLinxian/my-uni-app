@@ -5,7 +5,7 @@
  */
 
 $tabColor: #999999;
-$tabSelected: #333333;
+$tabSelected: #687CD5;
 
 /* 边框 */
 $border: #C8C7CC;
@@ -32,7 +32,7 @@ $danger: #F56C6C;
 $info: #909399;
 
 /* 颜色 */
-$theme: #DA70D6;
+$theme: #687CD5;
 $black: #000000;
 $white: #FFFFFF;
 $red: #FF3B30;
@@ -50,6 +50,7 @@ $teal: #008080;
 $aqua: #00FFFF;
 
 /* 渐变 */
+$lgTheme: linear-gradient(45deg, #687CD5, #DFA3D6);
 $lgBlue: linear-gradient(to right, #05d7ff, #007AFF);
 
 /**

@@ -14,7 +14,9 @@ export const config = {
   red: '#FF3B30',
   green: '#4CD964',
   blue: '#007AFF',
-  blueLinearGradient: 'linear-gradient(to right, #05d7ff, #007AFF)'
+  
+  lgTheme: 'linear-gradient(45deg, #687CD5, #DFA3D6)',
+  lgBlue: 'linear-gradient(to right, #05d7ff, #007AFF)'
 }
 
 Vue.prototype.$config = config
