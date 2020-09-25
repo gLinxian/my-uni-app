@@ -1,7 +1,7 @@
 <template>
-  <view class="my-container">
-    <view class="my-row">
-      <view class="my-title">栅格布局</view>
+  <view class="doc-container">
+    <view class="doc-row">
+      <view class="doc-title">栅格布局</view>
       <view class="row">
         <view class="col-12 item bg-green">col-12: 100%</view>
       </view>
@@ -68,10 +68,10 @@
         <view class="col-1 item bg-blue fs-10">col-1</view>
       </view>
     </view>
-    <view class="my-row">
-      <view class="my-title">使用</view>
-      <view class="my-code mb-10">
-        <text class="my-code-type">template</text>
+    <view class="doc-row">
+      <view class="doc-title">使用</view>
+      <view class="doc-code mb-10">
+        <text class="doc-code-type">template</text>
         <text space="nbsp">{{ template }}</text>
       </view>
     </view>
@@ -165,6 +165,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/doc.scss';
+
 .row {
   width: 100%;
   margin-bottom: 10px;

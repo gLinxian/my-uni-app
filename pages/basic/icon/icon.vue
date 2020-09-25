@@ -1,13 +1,13 @@
 <template>
-  <view class="my-container">
+  <view class="doc-container">
     <view class="row">
       <view v-for="(item, index) in icons" :key="index" class="col-4 item" hover-class="item-hover" @click="itemClick(item)">
         <text :class="item.name"></text>
         <text>{{ item.name | name }}</text>
       </view>
     </view>
-    <view class="my-code">
-      <text class="my-code-type">template</text>
+    <view class="doc-code">
+      <text class="doc-code-type">template</text>
       <scroll-view class="w-100" :scroll-x="true">
         <text class="inline-block" space="nbsp">{{ icon }}</text>
       </scroll-view>
@@ -133,6 +133,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/doc.scss';
+
 .row {
   border-top: 1px solid #F5F5F5;
   border-right: 1px solid #F5F5F5;

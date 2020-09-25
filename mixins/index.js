@@ -24,19 +24,19 @@ Vue.mixin({
       navigationBar: {
         'padding-top': `${uni.getSystemInfoSync().statusBarHeight + 44}px`
       },
-      lgTheme: this.$config.lgTheme,
       tabBar: {
         'padding-bottom': '50px'
       },
       fullPage: {
-        'min-height': `calc(100vh - ${uni.getSystemInfoSync().statusBarHeight + 44 + 50}px)`
+        'min-height': `calc(100vh - ${44 + 50}px)`
       },
 			fullPageNoNav: {
-				'min-height': `calc(100vh - ${uni.getSystemInfoSync().statusBarHeight + 50}px)`
+				'min-height': `calc(100vh - 50px)`
 			},
 			fullPageNoTab: {
-				'min-height': `calc(100vh - ${uni.getSystemInfoSync().statusBarHeight + 44}px)`
-			}
+				'min-height': `calc(100vh - 44px)`
+			},
+      lgTheme: this.$config.lgTheme
     }
   }
 })

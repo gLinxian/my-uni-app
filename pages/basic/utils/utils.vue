@@ -3,57 +3,57 @@
     <view class="flex justify-center">
       <my-tabs v-model="tabIndex" :items="tabItems" style="width: 200px" />
     </view>
-    <view class="my-container">
+    <view class="doc-container">
       <view v-show="tabIndex === 0">
-        <view class="my-intro">使用 $config ，它包含有一些配置，将所有的配置写在同一个文件，方便修改，也可以实现其他功能，例如换肤。</view>
-        <view class="my-code">
-          <text class="my-code-type">js</text>
+        <view class="doc-intro">使用 $config ，它包含有一些配置，将所有的配置写在同一个文件，方便修改，也可以实现其他功能，例如换肤。</view>
+        <view class="doc-code">
+          <text class="doc-code-type">js</text>
           <scroll-view :scroll-x="true">
-            <text class="my-code-text" space="nbsp">{{ confing }}</text>
+            <text class="doc-code-text" space="nbsp">{{ confing }}</text>
           </scroll-view>
         </view>
-        <view class="my-code">
-          <text class="my-code-type">script</text>
+        <view class="doc-code">
+          <text class="doc-code-type">script</text>
           <scroll-view :scroll-x="true">
-            <text class="my-code-text" space="nbsp">{{ confing2 }}</text>
+            <text class="doc-code-text" space="nbsp">{{ confing2 }}</text>
           </scroll-view>
         </view>
-        <view class="my-code">
-          <text class="my-code-type">template</text>
+        <view class="doc-code">
+          <text class="doc-code-type">template</text>
           <scroll-view :scroll-x="true">
-            <text class="my-code-text" space="nbsp">{{ confing3 }}</text>
+            <text class="doc-code-text" space="nbsp">{{ confing3 }}</text>
           </scroll-view>
         </view>
       </view>
 
       <view v-show="tabIndex === 1">
-        <view class="my-intro">使用 $uni ，它对常用的的 api 进行二次封装，主要目的是为了节约书写时的代码量。</view>
-        <view class="my-code">
-          <text class="my-code-type">script</text>
+        <view class="doc-intro">使用 $uni ，它对常用的的 api 进行二次封装，主要目的是为了节约书写时的代码量。</view>
+        <view class="doc-code">
+          <text class="doc-code-type">script</text>
           <scroll-view :scroll-x="true">
-            <text class="my-code-text" space="nbsp">{{ uniApi }}</text>
+            <text class="doc-code-text" space="nbsp">{{ uniApi }}</text>
           </scroll-view>
         </view>
-        <view class="my-code">
-          <text class="my-code-type">script</text>
+        <view class="doc-code">
+          <text class="doc-code-type">script</text>
           <scroll-view :scroll-x="true">
-            <text class="my-code-text" space="nbsp">{{ uniApi2 }}</text>
+            <text class="doc-code-text" space="nbsp">{{ uniApi2 }}</text>
           </scroll-view>
         </view>
-        <view class="my-code">
-          <text class="my-code-type">script</text>
+        <view class="doc-code">
+          <text class="doc-code-type">script</text>
           <scroll-view :scroll-x="true">
-            <text class="my-code-text" space="nbsp">{{ uniApi3 }}</text>
+            <text class="doc-code-text" space="nbsp">{{ uniApi3 }}</text>
           </scroll-view>
         </view>
       </view>
 
       <view v-show="tabIndex === 2">
-        <view class="my-intro">使用 $util ，它是一些工具函数的集合，方便日常使用，例如数据校验、格式化日期等。</view>
-        <view class="my-code">
-          <text class="my-code-type">script</text>
+        <view class="doc-intro">使用 $util ，它是一些工具函数的集合，方便日常使用，例如数据校验、格式化日期等。</view>
+        <view class="doc-code">
+          <text class="doc-code-type">script</text>
           <scroll-view :scroll-x="true">
-            <text class="my-code-text" space="nbsp">{{ util }}</text>
+            <text class="doc-code-text" space="nbsp">{{ util }}</text>
           </scroll-view>
         </view>
       </view>
@@ -199,7 +199,9 @@ this.$util.parseTime(1599805206)
 </script>
 
 <style lang="scss" scoped>
-.my-code {
+@import '~@/styles/doc.scss';
+
+.doc-code {
   margin-bottom: 15px;
   &:last-child {
     margin-bottom: 0;

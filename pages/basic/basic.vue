@@ -1,34 +1,38 @@
 <template>
   <view :style="[tabBar]">
-    <my-navigation-bar :border="false" bgColor="transparent">
-      <text class="icon-home ml-15 white fs-20"></text>
+
+    <my-navigation-bar :border="false" :bgColor="'transparent'" title="基础" color="#FFFFFF">
+      <text class="icon-basic" @click="iconClick"></text>
     </my-navigation-bar>
-    <my-navigation-bar title="基础" color="#FFFFFF" :border="false" :bgColor="lgTheme" :opacity="opacity" />
+    <my-navigation-bar v-if="opacity" :border="false" :bgColor="lgTheme" :opacity="opacity" title="基础" color="#FFFFFF" />
+
     <view :style="[fullPage]">
+      <!-- 页面内容写在这 -->
       <image class="w-100" src="/static/basic.jpg" mode="aspectFill"></image>
-      <view class="my-page">
+
+      <view class="container">
         <view
           v-for="(item, index) in list"
           :key="index"
-          :class="[
-            'ani-slideInDown',
-            `ani-delay-${list.length - index}`
-          ]"
+          :style="{ 'animation-duration': `${(list.length - index) * 0.2}s`}"
+          :class="isAnimate && 'ani-slideInDown'"
           class="item-container"
           hover-class="item-hover"
-          @click="itemClick(item.en)">
+          @click="itemClick(item.en)"
+          @animationend="itemAnimationend">
           <view class="item">
             <view class="item-decorate"></view>
             <view class="item-decorate"></view>
             <view class="item-text">
               <text class="item-text_cn">{{ item.cn }}</text>
-              <text>{{ item.en }}</text>
+              <text class="item-text_en">{{ item.en }}</text>
             </view>
             <text class="item-icon" :class="item.class"></text>
           </view>
         </view>
       </view>
     </view>
+
     <my-tab-bar :midButton="true" />
   </view>
 </template>
@@ -40,65 +44,53 @@ export default {
   data() {
     return {
       list: [
-        { cn: '颜色', en: 'color',       class: 'icon-skin' },
+        { cn: '颜色', en: 'color', class: 'icon-skin' },
         { cn: '组合', en: 'composition', class: 'icon-group' },
-        { cn: '栅格', en: 'grid',        class: 'icon-cascades' },
-        { cn: '图标', en: 'icon',        class: 'icon-emoji' },
-        { cn: '阴影', en: 'shadow',      class: 'icon-flashlightopen' },
-        { cn: '工具', en: 'utils',       class: 'icon-repair' }
-      ]
+        { cn: '栅格', en: 'grid', class: 'icon-cascades' },
+        { cn: '图标', en: 'icon', class: 'icon-emoji' },
+        { cn: '阴影', en: 'shadow', class: 'icon-flashlightopen' },
+        { cn: '工具', en: 'utils', class: 'icon-repair' }
+      ],
+      isAnimate: true,
+      animateTimer: null
     }
   },
   methods: {
+    iconClick() {
+      this.isAnimate = true
+    },
     itemClick(url) {
       this.$uni.navigateTo(`./${url}/${url}`)
+    },
+    itemAnimationend() {
+      clearTimeout(this.animateTimer)
+      this.animateTimer = setTimeout(() => {
+        this.isAnimate = false
+      }, this.list.length * 0.2 * 1000)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.my-page {
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 15px 7.5px;
-}
-.item-container {
-  box-sizing: border-box;
-  width: 50%;
-  padding: 0 7.5px;
-  transition: opacity .3s;
-}
-.item {
-  position: relative;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding: 10px 15px;
-  border-radius: 4px;
-  background-color: $theme;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, .5);
-  overflow: hidden;
+/* 注意引入 scss 和 引入 css 的方式不一样 */
+@import '~@/styles/tabBar.scss';
+
+.icon-basic {
+  margin-left: 15px;
+  // padding: 5px;
+  // border-radius: 50%;
+  // background: rgba($color: $theme, $alpha: .5);
   color: $white;
-  &-text {
-    display: flex;
-    flex-direction: column;
-    &_cn {
-      margin-bottom: 5px;
-      font-size: 20px;
-    }
-  }
-  &-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
-  }
+  font-size: 20px;
+  // line-height: 1;
+}
+
+.item { 
+  background-color: $theme; 
+
   &-decorate {
-    position: absolute;
-    background: rgba(255, 255, 255, .1);
+
     &:nth-child(1) {
       top: -50px;
       left: -50px;
@@ -106,29 +98,13 @@ export default {
       height: 110px;
       border-radius: 50%;
     }
+    
     &:nth-child(2) {
       right: 25%;
       bottom: -10%;
       width: 25px;
       height: 25px;
       border-radius: 50%;
-    }
-  }
-  &-hover {
-    opacity: .8;
-  }
-}
-.ani-slideInDown {
-  animation-name: slideInDown;
-  @keyframes slideInDown {
-    from {
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
-      visibility: visible;
-    }
-    to {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
     }
   }
 }

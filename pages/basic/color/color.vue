@@ -1,9 +1,9 @@
 <template>
-  <view class="my-container">
+  <view class="doc-container">
 
     <!-- 颜色 -->
-    <view class="my-row">
-      <view class="my-title">颜色</view>
+    <view class="doc-row">
+      <view class="doc-title">颜色</view>
       <view class="col-3" v-for="(item, index) in color" :key="index">
         <view class="item" :class="[`bg-${item.name}`]" :style="{ color: (
           item.name === 'white' ||
@@ -17,8 +17,8 @@
     </view>
 
     <!-- 辅助 -->
-    <view class="my-row">
-      <view class="my-title">辅助</view>
+    <view class="doc-row">
+      <view class="doc-title">辅助</view>
       <view class="col-3" v-for="(item, index) in auxiliary" :key="index">
         <view class="item" :class="[`bg-${item.name}`]">
           <text>{{ item.name }}</text>
@@ -28,8 +28,8 @@
     </view>
 
     <!-- 文字 -->
-    <view class="my-row">
-      <view class="my-title">文字</view>
+    <view class="doc-row">
+      <view class="doc-title">文字</view>
       <view class="col-3" v-for="(item, index) in text" :key="index">
         <view class="item" :class="[`bg-${item.name}`]">
           <text>{{ item.name }}</text>
@@ -39,8 +39,8 @@
     </view>
 
     <!-- 其他 -->
-    <view class="my-row">
-      <view class="my-title">其他</view>
+    <view class="doc-row">
+      <view class="doc-title">其他</view>
       <view class="col-3" v-for="(item, index) in other" :key="index">
         <view class="item" :class="[`bg-${item.name}`]" :style="{
           color: item.name === 'bgColor' && '#000000'
@@ -52,18 +52,18 @@
     </view>
 
     <!-- 代码 -->
-    <view class="my-row">
-      <view class="my-title">使用</view>
-      <view class="my-code mb-10">
-        <text class="my-code-type">template</text>
+    <view class="doc-row">
+      <view class="doc-title">使用</view>
+      <view class="doc-code mb-10">
+        <text class="doc-code-type">template</text>
         <text space="nbsp">{{ template }}</text>
       </view>
-      <view class="my-code mb-10">
-        <text class="my-code-type">script</text>
+      <view class="doc-code mb-10">
+        <text class="doc-code-type">script</text>
         <text space="nbsp">{{ script }}</text>
       </view>
-      <view class="my-code">
-        <text class="my-code-type">style</text>
+      <view class="doc-code">
+        <text class="doc-code-type">style</text>
         <text space="nbsp">{{ style }}</text>
       </view>
     </view>
@@ -129,6 +129,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/doc.scss';
+
 .item {
   display: flex;
   flex-direction: column;
