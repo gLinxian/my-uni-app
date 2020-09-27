@@ -13,7 +13,7 @@ class Waterfall {
     this.container.style.position = 'relative'
     this.childrens = this.container.children                                          // 子元素
     this.colWidth = this.childrens[0].offsetWidth                                     // 列宽
-    this.colCount = Math.floor(this.container.offsetWidth / this.colWidth)            // 列数
+    this.colCount = Math.ceil(this.container.offsetWidth / this.colWidth)             // 列数
     this.colHeightAry = Array.apply(null, Array(this.colCount)).map(item => item = 0) // 创建存储列高的数组
     this.init()
   }

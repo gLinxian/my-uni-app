@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$swiperHeight: calc(100vh - 44px - 46px);
+$swiperHeight: calc(100vh - 46px);
 
 .swiperlist {
   background-color: $bgColor;

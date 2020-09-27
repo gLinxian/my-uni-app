@@ -74,7 +74,7 @@ $height: calc(100vh - 44px);
   box-sizing: border-box;
   width: 100%;
   min-height: $height;
-  padding: 0 5px;
+  padding: 5px;
   background-color: $bgColor;
 }
 .waterfall {
@@ -84,8 +84,7 @@ $height: calc(100vh - 44px);
 .water-container {
   box-sizing: border-box;
   width: 50%;
-  margin-bottom: 10px;
-  padding: 0 5px;
+  padding: 5px;
 }
 .water {
   border-radius: 8px;

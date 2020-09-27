@@ -132,7 +132,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$listHeight: calc(100vh - 44px);
+$listHeight: 100vh;
 $leftWidth: 90px;
 
 .sortlist {

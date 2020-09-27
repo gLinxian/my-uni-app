@@ -13,7 +13,12 @@
       </view>
       <view class="p-15">
         <view class="list">
-          <view v-for="(item, index) in list" :key="index" class="item relative" hover-class="item-hover">
+          <view
+            v-for="(item, index) in list"
+            :key="index"
+            class="item relative"
+            hover-class="item-hover"
+            @click="itemClick(item.en)">
             <text class="item-icon" :class="item.icon"></text>
             <view class="item-body">
               <text>{{ item.cn }}</text>
@@ -49,6 +54,12 @@ export default {
       const { avatarUrl, nickName } = e.detail.userInfo
       this.avatarUrl = avatarUrl
       this.nickName = nickName
+    },
+    itemClick(url) {
+      if (
+        url === 'about' ||
+        url === 'log'
+      ) this.$uni.navigateTo(`./${url}/${url}`)
     }
   }
 }
@@ -68,7 +79,7 @@ export default {
 .avatar {
   width: 80px;
   height: 80px;
-  margin-bottom: 15px;
+  margin: 15px 0;
   padding: 2px;
   border: 1px solid $white;
   border-radius: 50%;

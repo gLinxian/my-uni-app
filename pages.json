@@ -1,6 +1,5 @@
 {
   "pages": [
-    { "path": "pages/about/about/about", "style": { "navigationStyle": "custom" } },
     { "path": "pages/basic/basic", "style": { "navigationStyle": "custom" } },
     { "path": "pages/components/components", "style": { "navigationStyle": "custom" } },
     { "path": "pages/templates/templates", "style": { "navigationStyle": "custom" } },
@@ -15,7 +14,8 @@
     { "path": "pages/templates/form/form", "style": { "navigationBarTitleText": "表单" } },
     { "path": "pages/templates/sort-list/sort-list", "style": { "navigationBarTitleText": "分类选择列表" } },
     { "path": "pages/templates/swiper-list/swiper-list", "style": { "navigationBarTitleText": "左右滑动列表" } },
-    { "path": "pages/templates/waterfall/waterfall", "style": { "navigationBarTitleText": "瀑布流" } }
+    { "path": "pages/templates/waterfall/waterfall", "style": { "navigationBarTitleText": "瀑布流" } },
+    { "path": "pages/about/about/about", "style": { "navigationStyle": "custom" } }
   ],
   "easycom": {
     "autoscan": true,

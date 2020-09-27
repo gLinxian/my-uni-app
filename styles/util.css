@@ -838,6 +838,8 @@
 .text-underline { text-decoration: underline; }
 .text-line-through { text-decoration: line-through; }
 
+.text-indent-2 { text-indent: 2em; }
+
 /* 文字省略 */
 .text-line-1 {
 	display: -webkit-box;
