@@ -1,14 +1,16 @@
 <template>
   <view :style="[navigationBar, tabBar]">
-    <my-navigation-bar title="模板" color="#FFFFFF" :bgColor="lgTheme"/>
+    <my-navigation-bar title="模板" color="#FFFFFF" :bgColor="lgTheme" />
     <view class="container">
       <view
         v-for="(item, index) in list"
         :key="index"
-        :style="{ 'animation-duration': `${(list.length - index) * 0.2}s` }"
-        class="item-container ani-slideInDown"
+        :style="{ 'animation-duration': `${(list.length - index) * animateStep}s` }"
+        :class="isAnimate && 'ani-slideInDown'"
+        class="item-container"
         hover-class="item-hover"
-        @click="itemClick(item.en)">
+        @click="itemClick(item.en)"
+        @animationend="handleAnimationend">
         <view class="item">
           <view class="item-decorate"></view>
           <view class="item-decorate"></view>
@@ -21,12 +23,18 @@
         </view>
       </view>
     </view>
-    <my-tab-bar/>
+    <my-tab-bar :midButton="true">
+      <view class="image" @click="handleAnimate">
+        <image class="w-100 h-100 circle" src="/static/templates.gif" mode="aspectFill"></image>
+      </view>
+    </my-tab-bar>
   </view>
 </template>
 
 <script>
+import animate from '@/mixins/animate.js'
 export default {
+  mixins: [animate],
   data() {
     return {
       list: [
@@ -85,5 +93,11 @@ export default {
       transform: rotate(20deg);
     }
   }
+}
+
+.image {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
 }
 </style>

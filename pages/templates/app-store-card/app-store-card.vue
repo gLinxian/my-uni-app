@@ -41,12 +41,10 @@ export default {
       pageScrollTop: 0,
       activeId: 0,
       data: [
-        { id: 1, src: '/static/card.jpg' },
-        { id: 2, src: '/static/nba.jpg' },
-        { id: 3, src: '/static/tea.jpg' },
-        { id: 4, src: '/static/water.jpg' }
+        { id: 1, src: '/static/card1.jpg' },
+        { id: 2, src: '/static/card2.jpg' },
+        { id: 3, src: '/static/card3.jpg' }
       ],
-      
     }
   },
   onPageScroll(e) {

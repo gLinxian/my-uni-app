@@ -4,44 +4,53 @@
     <view :style="[fullPageNoNav]">
       <view class="header">
         <view class="avatar">
-          <image class="avatar-img" src="/static/default.jpg" mode="aspectFill"></image>
+          <image class="avatar-img" :src="avatarUrl" mode="aspectFill"></image>
         </view>
-        <text>登录 / 注册</text>
+        <view class="relative">
+          <text>{{ nickName }}</text>
+          <button class="absolute top left w-100 h-100 opacity-0" open-type="getUserInfo" @getuserinfo="getuserinfo"></button>
+        </view>
       </view>
       <view class="p-15">
         <view class="list">
-          <view class="item">
-            <text class="item-icon icon-myfill"></text>
+          <view v-for="(item, index) in list" :key="index" class="item relative" hover-class="item-hover">
+            <text class="item-icon" :class="item.icon"></text>
             <view class="item-body">
-              <text>关于</text>
-              <text class="icon-right"></text>
+              <text>{{ item.cn }}</text>
+              <text class="icon-right placeholder"></text>
             </view>
-          </view>
-          <view class="item">
-            <text class="item-icon icon-text"></text>
-            <view class="item-body">
-              <text>日志</text>
-              <text class="icon-right"></text>
-            </view>
-          </view>
-          <view class="item">
-            <text class="item-icon icon-commentfill"></text>
-            <view class="item-body border-bottom-none">
-              <text>反馈</text>
-              <text class="icon-right"></text>
-            </view>
+            <button v-if="item.type" class="absolute w-100 h-100 opacity-0" :open-type="item.type"></button>
           </view>
         </view>
       </view>
     </view>
-    <my-tab-bar/>
+    <my-tab-bar />
   </view>
 </template>
 
 <script>
 import transparentTitle from '@/mixins/transparent-title.js'
 export default {
-  mixins: [transparentTitle]
+  mixins: [transparentTitle],
+  data() {
+    return {
+      avatarUrl: '/static/default.jpg',
+      nickName: '登录/注册',
+      list: [
+        { cn: '关于', en: 'about', icon: 'icon-myfill' },
+        { cn: '日志', en: 'log', icon: 'icon-text' },
+        { cn: '分享', en: 'share', icon: 'icon-share', type: 'share' },
+        { cn: '反馈', en: 'feedback', icon: 'icon-commentfill', type: 'feedback' }
+      ]
+    }
+  },
+  methods: {
+    getuserinfo(e) {
+      const { avatarUrl, nickName } = e.detail.userInfo
+      this.avatarUrl = avatarUrl
+      this.nickName = nickName
+    }
+  }
 }
 </script>
 
@@ -79,7 +88,9 @@ export default {
 .item {
   display: flex;
   align-items: center;
-  font-size: 18px;
+  &-hover {
+    background-color: #F5F5F5;
+  }
   &-icon {
     margin: 0 15px;
     padding: 6px;
@@ -95,7 +106,7 @@ export default {
     align-items: center;
     padding: 15px 15px 15px 0;
     border-bottom: .5px solid #F5F5F5;
-    color: $placeholder;
+    color: $secondary;
   }
 }
 </style>

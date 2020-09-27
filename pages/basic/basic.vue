@@ -2,9 +2,9 @@
   <view :style="[tabBar]">
 
     <my-navigation-bar :border="false" :bgColor="'transparent'" title="基础" color="#FFFFFF">
-      <text class="icon-basic" @click="iconClick"></text>
+      <text class="icon-basic" @click="handleAnimate"></text>
     </my-navigation-bar>
-    <my-navigation-bar v-if="opacity" :border="false" :bgColor="lgTheme" :opacity="opacity" title="基础" color="#FFFFFF" />
+    <my-navigation-bar v-show="opacity" :border="false" :bgColor="lgTheme" :opacity="opacity" title="基础" color="#FFFFFF" />
 
     <view :style="[fullPage]">
       <!-- 页面内容写在这 -->
@@ -14,12 +14,12 @@
         <view
           v-for="(item, index) in list"
           :key="index"
-          :style="{ 'animation-duration': `${(list.length - index) * 0.2}s`}"
+          :style="{ 'animation-duration': `${(list.length - index) * animateStep}s`}"
           :class="isAnimate && 'ani-slideInDown'"
           class="item-container"
           hover-class="item-hover"
           @click="itemClick(item.en)"
-          @animationend="itemAnimationend">
+          @animationend="handleAnimationend">
           <view class="item">
             <view class="item-decorate"></view>
             <view class="item-decorate"></view>
@@ -38,9 +38,10 @@
 </template>
 
 <script>
+import animate from '@/mixins/animate.js'
 import transparentTitle from '@/mixins/transparent-title.js'
 export default {
-  mixins: [transparentTitle],
+  mixins: [animate, transparentTitle],
   data() {
     return {
       list: [
@@ -50,23 +51,12 @@ export default {
         { cn: '图标', en: 'icon', class: 'icon-emoji' },
         { cn: '阴影', en: 'shadow', class: 'icon-flashlightopen' },
         { cn: '工具', en: 'utils', class: 'icon-repair' }
-      ],
-      isAnimate: true,
-      animateTimer: null
+      ]
     }
   },
   methods: {
-    iconClick() {
-      this.isAnimate = true
-    },
     itemClick(url) {
       this.$uni.navigateTo(`./${url}/${url}`)
-    },
-    itemAnimationend() {
-      clearTimeout(this.animateTimer)
-      this.animateTimer = setTimeout(() => {
-        this.isAnimate = false
-      }, this.list.length * 0.2 * 1000)
     }
   }
 }
@@ -78,12 +68,8 @@ export default {
 
 .icon-basic {
   margin-left: 15px;
-  // padding: 5px;
-  // border-radius: 50%;
-  // background: rgba($color: $theme, $alpha: .5);
   color: $white;
   font-size: 20px;
-  // line-height: 1;
 }
 
 .item { 

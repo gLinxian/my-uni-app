@@ -56,15 +56,21 @@
       <view class="doc-title">使用</view>
       <view class="doc-code mb-10">
         <text class="doc-code-type">template</text>
-        <text space="nbsp">{{ template }}</text>
+        <scroll-view :scroll-x="true">
+          <text class="doc-code-text" space="nbsp">{{ template }}</text>
+        </scroll-view>
       </view>
       <view class="doc-code mb-10">
         <text class="doc-code-type">script</text>
-        <text space="nbsp">{{ script }}</text>
+        <scroll-view :scroll-x="true">
+          <text class="doc-code-text" space="nbsp">{{ script }}</text>
+        </scroll-view>
       </view>
       <view class="doc-code">
         <text class="doc-code-type">style</text>
-        <text space="nbsp">{{ style }}</text>
+        <scroll-view :scroll-x="true">
+          <text class="doc-code-text" space="nbsp">{{ style }}</text>
+        </scroll-view>
       </view>
     </view>
   </view>

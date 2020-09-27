@@ -1,14 +1,16 @@
 <template>
   <view :style="[navigationBar, tabBar]">
-    <my-navigation-bar title="组件" color="#FFFFFF" :bgColor="lgTheme"/>
+    <my-navigation-bar title="组件" color="#FFFFFF" :bgColor="lgTheme" />
     <view class="container">
       <view
         v-for="(item, index) in list"
         :key="index"
-        :style="{ 'animation-duration': `${(list.length - index) * 0.2}s` }"
-        class="item-container ani-slideInDown"
+        :style="{ 'animation-duration': `${(list.length - index) * animateStep}s` }"
+        :class="isAnimate && 'ani-slideInDown'"
+        class="item-container"
         hover-class="item-hover"
-        @click="itemClick(item.en)">
+        @click="itemClick(item.en)"
+        @animationend="handleAnimationend">
         <view class="item">
           <view class="item-decorate"></view>
           <view class="item-decorate"></view>
@@ -20,12 +22,18 @@
         </view>
       </view>
     </view>
-    <my-tab-bar />
+    <my-tab-bar :midButton="true">
+      <view class="image" hover-class="image-hover" @click="handleAnimate">
+        <image class="w-100 h-100 circle" src="/static/components.jpg" mode="aspectFill"></image>
+      </view>
+    </my-tab-bar>
   </view>
 </template>
 
 <script>
+import animate from '@/mixins/animate.js'
 export default {
+  mixins: [animate],
   data() {
     return {
       list: [
@@ -44,7 +52,8 @@ export default {
         { cn: '顶部选项栏', en: 'tabs', class: 'icon-tabs' },
         { cn: '上传图片', en: 'upload-img', class: 'icon-upload-img' },
         { cn: '水滴', en: 'water-drop', class: 'icon-water-drop' }
-      ]
+      ],
+      animateStep: 0.1
     }
   },
   methods: {
@@ -58,7 +67,7 @@ export default {
 <style lang="scss" scoped>
 @import '~@/styles/tabBar.scss';
 
-.item { 
+.item {
   background-color: #DFA3D6;
 
   &-decorate {
@@ -78,6 +87,18 @@ export default {
       height: 50px;
       border-radius: 50%;
     }
+  }
+}
+
+.image {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba($color: #DFA3D6, $alpha: .8);
+  transition: all .3s;
+  &-hover {
+    margin-top: 2px;
+    box-shadow: none;
   }
 }
 </style>

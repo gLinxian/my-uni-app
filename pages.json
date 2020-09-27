@@ -1,5 +1,6 @@
 {
   "pages": [
+    { "path": "pages/about/about/about", "style": { "navigationStyle": "custom" } },
     { "path": "pages/basic/basic", "style": { "navigationStyle": "custom" } },
     { "path": "pages/components/components", "style": { "navigationStyle": "custom" } },
     { "path": "pages/templates/templates", "style": { "navigationStyle": "custom" } },
