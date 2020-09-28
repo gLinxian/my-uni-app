@@ -1,6 +1,6 @@
 <template>
   <view :style="[navigationBar, tabBar]">
-    <my-navigation-bar title="组件" color="#FFFFFF" :bgColor="lgTheme" />
+    <my-navigation-bar :bgColor="$config.lgTheme" title="组件" color="#FFFFFF" />
     <view class="container">
       <view
         v-for="(item, index) in list"
@@ -94,7 +94,7 @@ export default {
   width: 80%;
   height: 80%;
   border-radius: 50%;
-  box-shadow: 0 2px 6px rgba($color: #DFA3D6, $alpha: .8);
+  box-shadow: 0 2px rgba($color: #DFA3D6, $alpha: 1);
   transition: all .3s;
   &-hover {
     margin-top: 2px;

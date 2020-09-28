@@ -11,7 +11,7 @@
     @refresherrefresh="refresherrefresh"
     @refresherrestore="refresherrestore"
     @refresherabort="refresherabort">
-    <view class="nba">
+    <view class="container">
       <view class="item">
         <view class="item-content">
           <view class="item-content-title text-line-2">浓眉34+10詹姆斯28+11+9，湖人战胜火箭大比分1-1</view>

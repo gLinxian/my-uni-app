@@ -114,9 +114,9 @@
       </view>
       <view class="form-item">
         <my-button
+          :bgColor="$config.lgTheme"
           class="form-item-button"
           hover-class="form-item-hover"
-          :bgColor="$config.lgTheme"
           @click="submitClick">提 交</my-button>
       </view>
     </view>
@@ -135,8 +135,6 @@
 export default {
   data() {
     return {
-      $config: this.$config,
-
       /* 表单 */
       form: {
         userName: '',

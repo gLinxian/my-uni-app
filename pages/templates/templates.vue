@@ -1,6 +1,6 @@
 <template>
   <view :style="[navigationBar, tabBar]">
-    <my-navigation-bar title="模板" color="#FFFFFF" :bgColor="lgTheme" />
+    <my-navigation-bar :bgColor="$config.lgTheme" title="模板" color="#FFFFFF" />
     <view class="container">
       <view
         v-for="(item, index) in list"

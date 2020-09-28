@@ -21,6 +21,7 @@ import Vue from 'vue'
 Vue.mixin({
   data() {
     return {
+      /* 自定义导航栏和底部选项栏 */
       navigationBar: {
         'padding-top': `${uni.getSystemInfoSync().statusBarHeight + 44}px`
       },
@@ -34,9 +35,11 @@ Vue.mixin({
 				'min-height': `calc(100vh - 50px)`
 			},
 			fullPageNoTab: {
-				'min-height': `calc(100vh - 44px)`
-			},
-      lgTheme: this.$config.lgTheme
+				'min-height': `calc(100vh - ${uni.getSystemInfoSync().statusBarHeight + 44}px)`
+      },
+
+      /* 全局配置 */
+      $config: this.$config
     }
   }
 })

@@ -2,8 +2,8 @@
   <scroll-view
     class="scroll-view"
     :scroll-y="true">
-    <view class="nba">
-      <view class="item" v-for="item in 5" :key="item">
+    <view class="container">
+      <view class="item" v-for="item in 6" :key="item">
         <view class="item-content">
           <view class="item-content-title text-line-2">乔治城大学中锋厄梅尔-尤尔特塞文已参加火箭等队面试</view>
           <view class="item-content-info">

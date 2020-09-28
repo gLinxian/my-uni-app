@@ -1,6 +1,6 @@
 <template>
   <view :style="[navigationBar]">
-    <my-navigation-bar back title="关于" color="#FFFFFF" :border="false" :bgColor="lgTheme" />
+    <my-navigation-bar :bgColor="$config.lgTheme" back title="关于" color="#FFFFFF" />
     <view :style="[fullPageNoTab]" class="container">
       <view class="mb-10">
         <view class="primary">麦尤尼 UI（my-uni-app UI），一个基于<br /> uni-app 开发的 UI 组件库，名字的由来也源于此，她是作者用来记录工作学习过程中的收获以及成果展示。下面分几部分对其进行介绍。</view>
