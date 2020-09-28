@@ -2,12 +2,13 @@
   <view class="navigationBar" :style="{
       'padding-top': paddingTop,
       'border-bottom': borderBottom,
-      'background': bgColor,
-      'opacity': opacity
+      background: bgColor,
+      opacity: opacity,
+      color: color
     }">
     <image v-if="bgImg" class="img" :src="bgImg" mode="aspectFill"></image>
     <text v-if="back" class="back icon-back" @click="backClick"></text>
-    <text v-if="title" class="title" :style="{ color: color }">{{ title }}</text>
+    <text v-if="title" class="title">{{ title }}</text>
     <slot></slot>
   </view>
 </template>

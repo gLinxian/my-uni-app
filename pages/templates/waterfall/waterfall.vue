@@ -1,53 +1,17 @@
 <template>
-  <view class="waterfall-container">
-    <view class="waterfall" ref="waterfall">
-      <view class="water-container">
+  <view class="container">
+    <view :style="{ position: 'relative', height: parentHeight }" class="waterfall">
+      <view v-for="item in list" :key="item.id" :style="{ position: 'absolute', top: item.top, left: item.left }" class="water-container">
         <view class="water">
-          <image class="water-img" src="/static/water.jpg" mode="aspectFill"></image>
+          <image class="water-img" :src="item.img" mode="aspectFill"></image>
           <view class="water-content">
-            <view class="mb-10 fs-14 text-line-2">蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1</view>
-            <view class="flex justify-space-between align-center mb-10">
-              <text class="red fs-10">¥<text class="fs-14">31.80</text></text>
+            <view class="mb-10 fs-14 text-line-2">{{ item.title }}</view>
+            <view class="flex justify-space-between align-center">
+              <text v-if="item.discount" class="red fs-10">¥<text class="fs-14">{{ item.discount }}</text></text>
+              <text v-else class="red fs-10">¥<text class="fs-14">{{ item.price }}</text></text>
               <text class="btn">看相似</text>
             </view>
-            <view class="fs-10">¥30.00</view>
-          </view>
-        </view>
-      </view>
-      <view class="water-container">
-        <view class="water">
-          <image class="water-img" src="/static/water.jpg" mode="aspectFill"></image>
-          <view class="water-content">
-            <view class="mb-10 fs-14 text-line-2">蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1</view>
-            <view class="flex justify-space-between align-center mb-10">
-              <text class="red fs-10">¥<text class="fs-14">31.80</text></text>
-              <text class="btn">看相似</text>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="water-container">
-        <view class="water">
-          <image class="water-img" src="/static/water.jpg" mode="aspectFill"></image>
-          <view class="water-content">
-            <view class="mb-10 fs-14 text-line-2">蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1</view>
-            <view class="flex justify-space-between align-center mb-10">
-              <text class="red fs-10">¥<text class="fs-14">31.80</text></text>
-              <text class="btn">看相似</text>
-            </view>
-            <view class="fs-10">¥30.00</view>
-          </view>
-        </view>
-      </view>
-      <view class="water-container">
-        <view class="water">
-          <image class="water-img" src="/static/water.jpg" mode="aspectFill"></image>
-          <view class="water-content">
-            <view class="mb-10 fs-14 text-line-2">蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1</view>
-            <view class="flex justify-space-between align-center mb-10">
-              <text class="red fs-10">¥<text class="fs-14">31.80</text></text>
-              <text class="btn">看相似</text>
-            </view>
+            <view v-if="item.discount" class="mt-10 fs-10 text-line-through">¥{{ item.price }}</view>
           </view>
         </view>
       </view>
@@ -56,11 +20,21 @@
 </template>
 
 <script>
-import Waterfall from './class/Waterfall'
+import waterfall from '@/mixins/waterfall.js'
 export default {
-  mounted() {
-    new Waterfall(this.$refs.waterfall)
-  }
+  mixins: [waterfall],
+  data() {
+    return {
+      list: [
+        { id: 1, title: '蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1', price: '31.80', discount: '30.00', img: '/static/water1.jpg' },
+        { id: 2, title: '蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1', price: '31.80', img: '/static/water2.jpg'  },
+        { id: 3, title: '蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1', price: '31.80', img: '/static/water4.jpg'  },
+        { id: 4, title: '蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1', price: '31.80', img: '/static/water3.jpg'  },
+        { id: 5, title: '蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1', price: '31.80', discount: '30.00', img: '/static/water2.jpg'  },
+        { id: 6, title: '蓝月亮深层洁净洗衣液4斤套装：薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1薰衣草1kg*1', price: '31.80', discount: '30.00', img: '/static/water5.jpg'  }
+      ]
+    }
+  },
 }
 </script>
 
@@ -70,7 +44,7 @@ $height: calc(100vh - 44px);
 /**
  * -container 是为了营造好看的边距多写出来的类
  */
-.waterfall-container {
+.container {
   box-sizing: border-box;
   width: 100%;
   min-height: $height;

@@ -80,7 +80,7 @@ export default {
       if (this.bgColor) {
         return {
           'border-color': this.bgColor,
-          'background-color': this.bgColor,
+          'background': this.bgColor,
           'color': '#FFFFFF'
         }
       }

@@ -9,7 +9,7 @@
         <text class="placeholder icon-close"></text>
       </view>
       <view class="item-title text-line-2">[流言板]詹姆斯戴维斯季后赛前七场场均25+10，历史首个二人组</view>
-      <image class="item-img" src="/static/nba.jpg" mode="aspectFill"></image>
+      <image class="item-img" src="/static/swiper1.jpg" mode="aspectFill"></image>
       <view class="item-tag"><text class="item-tag-primary"># 湿乎乎的话题</text></view>
       <view class="item-menu">
         <view class="item-menu-item">
@@ -41,6 +41,8 @@ export default {
   height: 100%;
 }
 .item {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
   padding: 0 15px;
   background-color: $white;

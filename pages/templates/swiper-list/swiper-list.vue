@@ -8,6 +8,12 @@
       <swiper-item>
         <nba />
       </swiper-item>
+      <swiper-item>
+        <follow />
+      </swiper-item>
+      <swiper-item>
+        <cba />
+      </swiper-item>
     </swiper>
   </view>
 </template>
@@ -15,14 +21,18 @@
 <script>
 import Recommend from './components/recommend'
 import Nba from './components/nba'
+import Follow from './components/follow'
+import Cba from './components/cba'
 export default {
   components: {
     Recommend,
-    Nba
+    Nba,
+    Follow,
+    Cba
   },
   data() {
     return {
-      swiperCurrent: 1,
+      swiperCurrent: 0,
       tabs: [
         { id: 1, name: '推荐' },
         { id: 2, name: 'NBA' },

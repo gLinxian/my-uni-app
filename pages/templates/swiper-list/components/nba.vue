@@ -26,7 +26,7 @@
             </view>
           </view>
         </view>
-        <image class="item-img" src="/static/nba.jpg" mode="aspectFill"></image>
+        <image class="item-img" src="/static/swiper1.jpg" mode="aspectFill"></image>
       </view>
       <view class="item" v-for="item in 10" :key="item">
         <view class="item-content">
@@ -38,7 +38,7 @@
             </view>
           </view>
         </view>
-        <image class="item-img" src="/static/nba.jpg" mode="aspectFill"></image>
+        <image class="item-img" src="/static/swiper2.jpg" mode="aspectFill"></image>
       </view>
     </view>
   </scroll-view>
@@ -77,49 +77,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.scroll-view {
-  width: 100%;
-  height: 100%;
-  background-color: $white;
-}
-.nba {
-  padding: 0 15px;
-}
-.item {
-  display: flex;
-  padding: 15px 0;
-  border-bottom: 1px solid #F5F5F5;
-  &-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-right: 15px;
-    &-title {
-      font-size: 18px;
-    }
-    &-info {
-      display: flex;
-      justify-content: space-between;
-      color: $placeholder;
-      font-size: 15px;
-    }
-  }
-  &-img {
-    width: 100px;
-    height: 75px;
-  }
-}
-.tag {
-  margin-right: 8px;
-  padding: 1px 2px;
-  border: .5px solid #E54A45;
-  border-radius: 2px;
-  color: #E54A45;
-  font-size: 12px;
-  line-height: 1;
-  &:last-child {
-    margin-right: 5px;
-  }
-}
+@import '~@/styles/swiper-list.scss';
 </style>

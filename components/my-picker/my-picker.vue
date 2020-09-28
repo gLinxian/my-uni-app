@@ -4,7 +4,7 @@
     <view class="picker" :class="{ toggle: isToggle }">
       <view class="picker-header">
         <view class="picker-action cancel" @click="close('cancel')">取消</view>
-        <view class="picker-action confirm" @click="close('confirm')">确定</view>
+        <view class="picker-action confirm" :style="{ color: color }" @click="close('confirm')">确定</view>
       </view>
 
       <!-- 普通选择器 -->
@@ -106,6 +106,10 @@ export default {
     rangeKey: {
       type: String,
       default: ''
+    },
+    color: {
+      type: String,
+      default: '#007AFF'
     }
   },
   data() {
@@ -349,9 +353,6 @@ export default {
     line-height: 1;
     &.cancel {
       color: #888888;
-    }
-    &.confirm {
-      color: #007AFF
     }
   }
   &-content {

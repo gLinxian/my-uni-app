@@ -11,7 +11,7 @@
         <input class="form-item-input" v-model="form.mobile" type="text" placeholder="请填写手机">
         <my-button
           :disabled="codeDisabled"
-          :bgColor="$config.theme"
+          :bgColor="$config.lgTheme"
           hover-class="form-item-hover"
           size="mini"
           @click="codeClick">
@@ -116,12 +116,17 @@
         <my-button
           class="form-item-button"
           hover-class="form-item-hover"
-          :bgColor="$config.theme"
+          :bgColor="$config.lgTheme"
           @click="submitClick">提 交</my-button>
       </view>
     </view>
     
-    <my-picker ref="myPicker" type="region" @cancel="regionCancel" @change="regionChange" />
+    <my-picker
+      ref="myPicker"
+      type="region"
+      :color="$config.theme"
+      @cancel="regionCancel"
+      @change="regionChange" />
     <my-modal />
   </view>
 </template>
@@ -130,6 +135,8 @@
 export default {
   data() {
     return {
+      $config: this.$config,
+
       /* 表单 */
       form: {
         userName: '',
@@ -343,11 +350,11 @@ export default {
     &.checked {
       border: 1px solid $theme;
       background-color: $theme;
-      color: #ffffff;
+      color: $white;
     }
     &.unchecked {
       border: 1px solid $border;
-      background-color: #ffffff;
+      background-color: $white;
       color: #808080;
     }
   }
@@ -359,39 +366,6 @@ export default {
     width: 100%;
     height: 30px;
     opacity: 0;
-  }
-}
-.popup {
-  width: 300px;
-  border-radius: 15px;
-  background-color: $white;
-  &-title {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0 5px 0;
-    color: $primary;
-    font-size: 16px;
-  }
-  &-content {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 15px 15px 15px;
-    color: $general;
-    font-size: 14px;
-  }
-  &-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 45px;
-    border-top: 1px solid #F5F5F5;
-    color: $theme;
-    font-size: 14px;
   }
 }
 </style>

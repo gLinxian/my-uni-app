@@ -19,7 +19,8 @@
         <view v-for="(goods, sort) in goodsMap" :key="sort" :id="sort">
           <view class="goods-list-title">{{ sortMap[sort] }}</view>
           <view class="goods-list-item" v-for="item in goods" :key="item.id">
-            <image class="goods-list-img" src="/static/tea.jpg" mode="aspectFill"></image>
+            <image v-if="item.img" class="goods-list-img" :src="item.img" mode="aspectFill"></image>
+            <image v-else class="goods-list-img" src="/static/sort1.jpg" mode="aspectFill"></image>
             <view class="goods-list-content">
               <view class="goods-list-content_title text-line-1">{{ item.name }}</view>
               <view class="goods-list-content_intro text-line-2">甜酸细腻的芒果肉果酱，覆盖醇厚的酸奶与清新可口的绿茶茶茶</view>
@@ -77,14 +78,14 @@ export default {
           { id: 10, name: '(中杯)茶冻奶绿' },
         ],
         missYou: [
-          { id: 1, name: '(大杯)芒果酸奶绿' },
-          { id: 2, name: '(中杯)芒果酸奶绿' },
-          { id: 3, name: '(大杯)云朵芒果青' },
-          { id: 4, name: '(中杯)云朵芒果青' },
-          { id: 5, name: '(大杯)茶冻芒果青' },
-          { id: 6, name: '(中杯)茶冻芒果青' },
-          { id: 7, name: '(大杯)芒果青' },
-          { id: 8, name: '(中杯)芒果青' }
+          { id: 1, name: '(大杯)芒果酸奶绿', img: '/static/sort3.jpg' },
+          { id: 2, name: '(中杯)芒果酸奶绿', img: '/static/sort3.jpg' },
+          { id: 3, name: '(大杯)云朵芒果青', img: '/static/sort3.jpg' },
+          { id: 4, name: '(中杯)云朵芒果青', img: '/static/sort3.jpg' },
+          { id: 5, name: '(大杯)茶冻芒果青', img: '/static/sort3.jpg' },
+          { id: 6, name: '(中杯)茶冻芒果青', img: '/static/sort3.jpg' },
+          { id: 7, name: '(大杯)芒果青', img: '/static/sort3.jpg' },
+          { id: 8, name: '(中杯)芒果青', img: '/static/sort3.jpg' }
         ],
         beckoning: [
           { id: 1, name: '(大杯)芒果酸奶绿' },
