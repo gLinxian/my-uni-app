@@ -11,6 +11,7 @@
     @click="click">
     <text v-if="icon" :class="[iconClass]"></text>
     <slot></slot>
+    <text v-if="suffixIcon" :class="[iconClass]"></text>
   </button>
 </template>
 
@@ -57,13 +58,17 @@ export default {
     icon: {
       type: String,
       default: ''
+    },
+    suffixIcon: {
+      type: String,
+      default: ''
     }
   },
   computed: {
     roundStyle() {
       if (this.round) {
         return {
-          'border-radius': '20px'
+          'border-radius': '23px'
         }
       }
     },
@@ -90,6 +95,13 @@ export default {
         const iconClass = !this.circle
           ? `icon-${this.icon} mr-5`
           : `icon-${this.icon}`
+        return iconClass
+      }
+
+      if (this.suffixIcon) {
+        const iconClass = !this.circle
+          ? `icon-${this.suffixIcon} ml-5`
+          : `icon-${this.suffixIcon}`
         return iconClass
       }
     }
