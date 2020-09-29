@@ -55,3 +55,24 @@
     white-space: nowrap;
   }
 }
+
+.table {
+  .tr {
+    display: flex;
+    border-bottom: .5px solid $lightBorder;
+  }
+
+  .th {
+    padding: 10px 13px;
+    white-space: nowrap;
+    color: $secondary;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .td {
+    padding: 10px 13px;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+}

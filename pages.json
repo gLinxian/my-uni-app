@@ -5,18 +5,36 @@
     { "path": "pages/components/components", "style": { "navigationStyle": "custom" } },
     { "path": "pages/templates/templates", "style": { "navigationStyle": "custom" } },
     { "path": "pages/about/about", "style": { "navigationStyle": "custom", "backgroundColorTop": "#687CD5", "backgroundColorBottom": "#F8F8F8" } },
-    /* 内页 */
+    /* 基础 */
     { "path": "pages/basic/utils/utils", "style": { "navigationBarTitleText": "工具" } },
     { "path": "pages/basic/color/color", "style": { "navigationBarTitleText": "颜色" } },
     { "path": "pages/basic/composition/composition", "style": { "navigationBarTitleText": "组合" } },
     { "path": "pages/basic/grid/grid", "style": { "navigationBarTitleText": "栅格" } },
     { "path": "pages/basic/icon/icon", "style": { "navigationBarTitleText": "图标" } },
     { "path": "pages/basic/shadow/shadow", "style": { "navigationBarTitleText": "阴影" } },
+    /* 组件 */
+    { "path": "pages/components/annular-progress/annular-progress", "style": { "navigationBarTitleText": "环形进度条" } },
+    { "path": "pages/components/button/button", "style": { "navigationBarTitleText": "按钮" } },
+    { "path": "pages/components/launch-img/launch-img", "style": { "navigationBarTitleText": "启动图" } },
+    { "path": "pages/components/loading/loading", "style": { "navigationBarTitleText": "加载中" } },
+    { "path": "pages/components/modal/modal", "style": { "navigationBarTitleText": "模态框" } },
+    { "path": "pages/components/navigation-bar/navigation-bar", "style": { "navigationBarTitleText": "自定义导航栏" } },
+    { "path": "pages/components/number-box/number-box", "style": { "navigationBarTitleText": "计数器" } },
+    { "path": "pages/components/picker/picker", "style": { "navigationBarTitleText": "选择器" } },
+    { "path": "pages/components/search-bar/search-bar", "style": { "navigationBarTitleText": "搜索框" } },
+    { "path": "pages/components/skeleton/skeleton", "style": { "navigationBarTitleText": "骨架屏" } },
+    { "path": "pages/components/switch/switch", "style": { "navigationBarTitleText": "开关按钮" } },
+    { "path": "pages/components/tab-bar/tab-bar", "style": { "navigationBarTitleText": "底部选项栏" } },
+    { "path": "pages/components/tabs/tabs", "style": { "navigationBarTitleText": "顶部选项栏" } },
+    { "path": "pages/components/upload-img/upload-img", "style": { "navigationBarTitleText": "上传图片" } },
+    { "path": "pages/components/water-drop/water-drop", "style": { "navigationBarTitleText": "水滴" } },
+    /* 模板 */
     { "path": "pages/templates/app-store-card/app-store-card", "style": { "navigationBarTitleText": "App Store 卡片" } },
     { "path": "pages/templates/form/form", "style": { "navigationBarTitleText": "表单" } },
     { "path": "pages/templates/sort-list/sort-list", "style": { "navigationBarTitleText": "分类选择列表", "disableScroll": true } },
     { "path": "pages/templates/swiper-list/swiper-list", "style": { "navigationBarTitleText": "左右滑动列表", "disableScroll": true } },
     { "path": "pages/templates/waterfall/waterfall", "style": { "navigationBarTitleText": "瀑布流", "backgroundColorTop": "#F8F8F8", "backgroundColorBottom": "#F8F8F8" } },
+    /* 关于 */
     { "path": "pages/about/about/about", "style": { "navigationStyle": "custom" } },
     { "path": "pages/about/log/log", "style": { "navigationStyle": "custom" } }
   ],

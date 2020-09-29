@@ -18,13 +18,18 @@
 export default {
   name: 'MyAnnularProgress',
   props: {
-    // 环形圆的直径
-    circleDiam: {
+    // 百分比数值
+    value: {
       type: Number,
-      default: 100,
+      default: 60,
     },
-    // 无进度条区域的颜色
-    circleColor: {
+    // 进度条的颜色
+    progressColor: {
+      type: String,
+      default: '#409EFF',
+    },
+    // 槽的颜色
+    troughColor: {
       type: String,
       default: '#FFFFFF',
     },
@@ -33,32 +38,32 @@ export default {
       type: String,
       default: '',
     },
-    // 进度条的粗细
-    progressSize: {
-      type: Number,
-      default: 10,
-    },
-    // 进度条的颜色
-    progressColor: {
-      type: String,
-      default: '#409EFF',
-    },
     // 遮盖圆的颜色
     coverColor: {
       type: String,
       default: '#FFFFFF',
     },
-    // 中心文字
+    // 环形圆的直径
+    circleDiam: {
+      type: Number,
+      default: 100,
+    },
+    // 进度条的粗细
+    progressSize: {
+      type: Number,
+      default: 10,
+    },
+    // 中间文本
     text: {
       type: String,
       default: '',
     },
-    // 中心文字大小
+    // 中间文本大小
     textSize: {
       type: Number,
       default: 16,
     },
-    // 中心文字颜色
+    // 中间文本颜色
     textColor: {
       type: String,
       default: '#333333',
@@ -67,23 +72,18 @@ export default {
     cssUnit: {
       type: String,
       default: 'px',
-    },
-    // 百分比数值
-    value: {
-      type: Number,
-      default: 60,
-    },
+    }
   },
   computed: {
     circle() {
       return {
         position: 'relative',
+        zIndex: 0,
         width: this.circleDiam + this.cssUnit,
         height: this.circleDiam + this.cssUnit,
-        backgroundColor: this.circleColor,
         borderRadius: '50%',
-        overflow: 'hidden',
-        zIndex: 0
+        backgroundColor: this.troughColor,
+        overflow: 'hidden'
       }
     },
     circleBlock() {
@@ -153,7 +153,7 @@ export default {
           ? this.halfColor
             ? this.halfColor
             : this.progressColor
-          : this.circleColor
+          : this.troughColor
       const right = this.progressSize / 2
       return {
         top: 0,
@@ -182,16 +182,16 @@ export default {
         right: 0,
         bottom: 0,
         left: 0,
+        zIndex: 3,
         width: this.circleDiam - this.progressSize * 2 + this.cssUnit,
         height: this.circleDiam - this.progressSize * 2 + this.cssUnit,
         margin: 'auto',
-        backgroundColor: this.coverColor,
         borderRadius: '50%',
+        backgroundColor: this.coverColor,
         color: this.textColor,
         fontSize: this.textSize + this.cssUnit,
         textAlign: 'center',
-        lineHeight: this.circleDiam - this.progressSize * 2 + this.cssUnit,
-        zIndex: 3
+        lineHeight: this.circleDiam - this.progressSize * 2 + this.cssUnit
       }
     },
   },
