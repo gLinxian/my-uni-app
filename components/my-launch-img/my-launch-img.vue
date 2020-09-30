@@ -3,8 +3,13 @@
     <image class="img" :src="src" mode="aspectFill"></image>
     <view
       class="button"
-      :style="positionMap[position]"
-      @click="close">跳过</view>
+      :style="{
+        top: top,
+        right: right,
+        bottom: bottom,
+        left: left
+      }"
+      @click="close">{{ second }}{{ text }}</view>
   </view>
 </template>
 
@@ -12,10 +17,6 @@
 export default {
   name: 'MyLaunchImg',
   props: {
-    src: {
-      type: String,
-      default: '/static/launch.jpg'
-    },
     duration: {
       type: Number,
       default: 3000
@@ -23,26 +24,79 @@ export default {
     position: {
       type: String,
       default: 'tr'
+    },
+    src: {
+      type: String,
+      default: '/static/launch.jpg'
+    },
+    text: {
+      type: String,
+      default: '跳过'
     }
   },
   data() {
     return {
-      isShow: 'block',
-      positionMap: {
-        'tl': { top: '15px', left: '15px' },
-        'tr': { top: '15px', right: '15px' },
-        'bl': { bottom: '15px', left: '15px' },
-        'br': { bottom: '15px', right: '15px' }
-      }
+      isShow: 'none',
+      top: 'auto',
+      right: 'auto',
+      bottom: 'auto',
+      left: 'auto',
+      second: '',
+      timer: null
     }
   },
-  created() {
-    setTimeout(() => {
-      this.isShow = 'none'
-    }, this.duration)
+  watch: {
+    position: {
+      handler(val) {
+        if (val === 'tl') {
+          this.top = '15px'
+          this.right = 'auto'
+          this.bottom = 'auto'
+          this.left = '15px'
+        }
+        
+        if (val === 'tr') {
+          this.top = '15px'
+          this.right = '15px'
+          this.bottom = 'auto'
+          this.left = 'auto'
+        }
+        
+        if (val === 'bl') {
+          this.top = 'auto'
+          this.right = 'auto'
+          this.bottom = '15px'
+          this.left = '15px'
+        }
+        
+        if (val === 'br') {
+          this.top = 'auto'
+          this.right = '15px'
+          this.bottom = '15px'
+          this.left = 'auto'
+        }
+      },
+      immediate: true
+    }
   },
   methods: {
-    close() {
+    countDown() {
+      let second = this.duration / 1000
+      this.second = `${second}`
+      this.timer = setInterval(() => {
+        this.second = `${--second}`
+        if (second === 0) {
+          clearInterval(this.timer)
+          this.isShow = 'none'
+        }
+      }, 1000)
+    },
+    open() {
+      this.countDown()
+      this.isShow = 'block'
+    },
+    close() { 
+      this.timer && clearInterval(this.timer)
       this.isShow = 'none'
     }
   }
@@ -71,9 +125,8 @@ export default {
   width: 60px;
   height: 30px;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, .9);
-  box-shadow: 0 0 10px rgba(0, 0, 0, .35);
-  color: #333333;
+  background-color: rgba(0, 0, 0, .5);
+  color: #FFFFFF;
   font-size: 14px;
   text-align: center;
   line-height: 30px;

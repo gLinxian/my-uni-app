@@ -21,21 +21,21 @@
 export default {
   name: 'MyLoading',
   props: {
-    mask: {
-      type: Boolean,
-      default: true
+    src: {
+      type: String,
+      default: '/static/uni-logo.png'
     },
     color: {
       type: String,
       default: '#2B9939'
     },
-    src: {
-      type: String,
-      default: '/static/logo.png'
-    },
     title: {
       type: String,
       default: '加载中...'
+    },
+    mask: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -93,7 +93,7 @@ export default {
   padding: 10px 0;
   border-radius: 8px;
   background-color: #FFFFFF;
-  box-shadow: 0 0 12px rgba(0, 0, 0, .35);
+  box-shadow: 0 0 6px rgba(0, 0, 0, .35);
   &-pattern {
     position: relative;
     display: flex;

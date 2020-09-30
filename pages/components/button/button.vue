@@ -111,11 +111,11 @@
           </view>
           <view class="tr">
             <view class="td">size</view>
-            <view class="td">按钮大小</view>
+            <view class="td">按钮大小（default | mini）</view>
           </view>
           <view class="tr">
             <view class="td">type</view>
-            <view class="td">按钮类型</view>
+            <view class="td">按钮类型（primary | default | warn）</view>
           </view>
           <view class="tr">
             <view class="td">plain</view>
@@ -185,7 +185,7 @@ export default {
 
 /* 表格宽度 */
 .tr {
-  min-width: 100%;
+  min-width: 400px;
 }
 
 /* 第一列宽度  */

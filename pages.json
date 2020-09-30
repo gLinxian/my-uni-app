@@ -15,7 +15,7 @@
     /* 组件 */
     { "path": "pages/components/annular-progress/annular-progress", "style": { "navigationBarTitleText": "环形进度条" } },
     { "path": "pages/components/button/button", "style": { "navigationBarTitleText": "按钮" } },
-    { "path": "pages/components/launch-img/launch-img", "style": { "navigationBarTitleText": "启动图" } },
+    { "path": "pages/components/launch-img/launch-img", "style": { "navigationStyle": "custom" } },
     { "path": "pages/components/loading/loading", "style": { "navigationBarTitleText": "加载中" } },
     { "path": "pages/components/modal/modal", "style": { "navigationBarTitleText": "模态框" } },
     { "path": "pages/components/navigation-bar/navigation-bar", "style": { "navigationBarTitleText": "自定义导航栏" } },

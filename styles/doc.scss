@@ -37,10 +37,15 @@
   position: relative;
   box-sizing: border-box;
   min-width: 100%;
+  margin-bottom: 15px;
   padding: 18px 15px 12px;
   background-color: #F8F8F8;
   color: #333333;
   line-height: 1.5;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   &-type {
     position: absolute;
