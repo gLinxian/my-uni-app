@@ -13,7 +13,7 @@
       v-if="!uploaded"
       class="select"
       :style="{
-        backgroundColor: defaultSrc
+        backgroundColor: bgImg
           ? 'rgba(0, 0, 0, .5)'
           : bgColor,
         color: color,
@@ -43,19 +43,19 @@ export default {
     },
     radius: {
       type: Number,
-      default: 50
+      default: 4
     },
     shadow: {
       type: Boolean,
       default: true
     },
-    defaultSrc: {
+    bgImg: {
       type: String,
-      default: '/static/avatar.jpg'
+      default: ''
     },
     bgColor: {
       type: String,
-      default: '#FFFFFF'
+      default: '#F8F8F8'
     },
     color: {
       type: String,
@@ -79,7 +79,7 @@ export default {
     }
   },
   created() {
-    this.imgSrc = this.defaultSrc
+    this.imgSrc = this.bgImg
   },
   methods: {
     async upload() {
@@ -115,6 +115,7 @@ export default {
         })
         const tempFilePath = imagePath[1].tempFilePath
         this.imgSrc = await this.$util.pathToBase64(tempFilePath)
+        this.$emit('change', this.imgSrc)
         this.uploaded = true
       }
       const context = uni.createCanvasContext('canvas', this)

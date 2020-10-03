@@ -27,7 +27,7 @@ export default {
     },
     src: {
       type: String,
-      default: '/static/launch.jpg'
+      default: '/static/launch1.jpg'
     },
     text: {
       type: String,
@@ -49,15 +49,15 @@ export default {
     position: {
       handler(val) {
         if (val === 'tl') {
-          this.top = '15px'
+          this.top = '25px'
           this.right = 'auto'
           this.bottom = 'auto'
-          this.left = '15px'
+          this.left = '25px'
         }
         
         if (val === 'tr') {
-          this.top = '15px'
-          this.right = '15px'
+          this.top = '25px'
+          this.right = '25px'
           this.bottom = 'auto'
           this.left = 'auto'
         }
@@ -65,14 +65,14 @@ export default {
         if (val === 'bl') {
           this.top = 'auto'
           this.right = 'auto'
-          this.bottom = '15px'
-          this.left = '15px'
+          this.bottom = '25px'
+          this.left = '25px'
         }
         
         if (val === 'br') {
           this.top = 'auto'
-          this.right = '15px'
-          this.bottom = '15px'
+          this.right = '25px'
+          this.bottom = '25px'
           this.left = 'auto'
         }
       },

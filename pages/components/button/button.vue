@@ -4,7 +4,7 @@
     <view class="doc-row">
       <view class="doc-title">图标按钮</view>
       <view class="flex justify-center w-100 pt-50 pb-50">
-        <my-button type="primary" icon="appreciatefill">按 钮</my-button>
+        <my-button size="mini" :bgColor="$config.btnDefault" icon="appreciatefill">按 钮</my-button>
       </view>
       <view class="doc-code">
         <text class="doc-code-type">template</text>
@@ -17,7 +17,7 @@
     <view class="doc-row">
       <view class="doc-title">图标后置</view>
       <view class="flex justify-center w-100 pt-50 pb-50">
-        <my-button type="primary" suffix-icon="appreciatefill">按 钮</my-button>
+        <my-button size="mini" :bgColor="$config.btnSuccess" suffix-icon="appreciatefill" >按 钮</my-button>
       </view>
       <view class="doc-code">
         <text class="doc-code-type">template</text>
@@ -30,7 +30,7 @@
     <view class="doc-row">
       <view class="doc-title">圆角按钮</view>
       <view class="flex justify-center w-100 pt-50 pb-50">
-        <my-button type="primary" icon="appreciatefill" round>按 钮</my-button>
+        <my-button size="mini" round :bgColor="$config.btnWarning" icon="appreciatefill">按 钮</my-button>
       </view>
       <view class="doc-code">
         <text class="doc-code-type">template</text>
@@ -43,7 +43,7 @@
     <view class="doc-row">
       <view class="doc-title">圆形按钮</view>
       <view class="flex justify-center w-100 pt-50 pb-50">
-        <my-button type="primary" icon="appreciatefill" circle></my-button>
+        <my-button size="mini" :bgColor="$config.btnDanger" icon="appreciatefill" circle></my-button>
       </view>
       <view class="doc-code">
         <text class="doc-code-type">template</text>
@@ -56,7 +56,7 @@
     <view class="doc-row">
       <view class="doc-title">颜色</view>
       <view class="flex justify-center w-100 pt-50 pb-50">
-        <my-button bgColor="#687CD5" icon="appreciatefill">按 钮</my-button>
+        <my-button bgColor="#687CD5" size="mini" icon="appreciatefill">按 钮</my-button>
       </view>
       <view class="doc-code">
         <text class="doc-code-type">template</text>
@@ -69,7 +69,7 @@
     <view class="doc-row">
       <view class="doc-title">渐变</view>
       <view class="flex justify-center w-100 pt-50 pb-50">
-        <my-button bgColor="linear-gradient(45deg, #687CD5, #DFA3D6)" icon="appreciatefill">按 钮</my-button>
+        <my-button bgColor="linear-gradient(45deg, #687CD5, #DFA3D6)" size="mini" icon="appreciatefill">按 钮</my-button>
       </view>
       <view class="doc-code">
         <text class="doc-code-type">template</text>
@@ -133,6 +133,10 @@
             <view class="td">hoverClass</view>
             <view class="td">点击的样式类</view>
           </view>
+          <view class="tr">
+            <view class="td">@click</view>
+            <view class="td">按钮点击事件</view>
+          </view>
         </view>
       </scroll-view>
     </view>
@@ -145,36 +149,17 @@ export default {
   data() {
     return {
       code1:
-`<my-button
-  type="primary"
-  icon="appreciatefill"
->按 钮</my-button>`,
+`<my-button icon="appreciatefill">按 钮</my-button>`,
       code2:
-`<my-button
-  type="primary"
-  suffix-icon="appreciatefill"
->按 钮</my-button>`,
+`<my-button suffix-icon="appreciatefill">按 钮</my-button>`,
       code3:
-`<my-button
-  type="primary"
-  icon="appreciatefill"
-  round
->按 钮</my-button>`,
+`<my-button round>按 钮</my-button>`,
       code4:
-`<my-button
-  type="primary"
-  circle
-></my-button>`,
+`<my-button circle></my-button>`,
       code5:
-`<my-button
-  bgColor="#687CD5"
-  icon="appreciatefill"
->按 钮</my-button>`,
+`<my-button bgColor="#687CD5">按 钮</my-button>`,
       code6:
-`<my-button
-  bgColor="linear-gradient(45deg, #687CD5, #DFA3D6)"
-  icon="appreciatefill"
->按 钮</my-button>`
+`<my-button bgColor="linear-gradient(45deg, #687CD5, #DFA3D6)">按 钮</my-button>`
     }
   }
 }
@@ -185,13 +170,6 @@ export default {
 
 /* 表格宽度 */
 .tr {
-  min-width: 400px;
-}
-
-/* 第一列宽度  */
-.th:first-child,
-.td:first-child {
-  min-width: 110px;
-}  
+  min-width: 400px !important;
+} 
 </style>
-

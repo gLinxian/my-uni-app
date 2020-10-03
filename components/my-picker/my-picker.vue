@@ -1,6 +1,6 @@
 <template>
   <view class="picker-container" :style="{ display: isShow }">
-    <view class="mask" :style="{ opacity: maskOpacity }" @click="close('cancel')"></view>
+    <view class="mask" :style="{ opacity: maskOpacity }" @click="close('cancel')" @touchmove.stop></view>
     <view class="picker" :class="{ toggle: isToggle }">
       <view class="picker-header">
         <view class="picker-action cancel" @click="close('cancel')">取消</view>
@@ -162,7 +162,7 @@ export default {
       return minutes
     }
   },
-  created() {
+  mounted() {
     this.value_ = this.value
 
     if (!this.value_.length) {

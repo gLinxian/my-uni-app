@@ -28,7 +28,12 @@ export const config = {
   lightInfo: '#F4F4F5',
   
   lgTheme: 'linear-gradient(45deg, #687CD5, #DFA3D6)',
-  lgBlue: 'linear-gradient(to right, #05d7ff, #007AFF)'
+
+  btnDefault: 'linear-gradient(#34A5F8, #088EF0)',
+  btnSuccess: 'linear-gradient(#AFE24D, #9AD824)',
+  btnWarning: 'linear-gradient(#FEB734, #FEA502)',
+  btnDanger: 'linear-gradient(#FF5C69, #FF2939)',
+  btnInfo: 'linear-gradient(#2F2F2F, #151515)'
 }
 
 Vue.prototype.$config = config

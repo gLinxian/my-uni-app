@@ -1,10 +1,10 @@
 <template>
   <view :style="[tabBar]">
 
-    <my-navigation-bar :border="false" :bgColor="'transparent'" title="基础" color="#FFFFFF">
+    <my-navigation-bar :bgColor="'transparent'" title="基础" color="#FFFFFF">
       <text class="icon-basic" @click="handleAnimate"></text>
     </my-navigation-bar>
-    <my-navigation-bar v-show="opacity" :border="false" :bgColor="$config.lgTheme" :opacity="opacity" title="基础" color="#FFFFFF" />
+    <my-navigation-bar v-show="opacity" :bgColor="$config.lgTheme" :opacity="opacity" title="基础" color="#FFFFFF" />
 
     <view :style="[fullPage]">
       <!-- 页面内容写在这 -->

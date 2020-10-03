@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       list: [
-        { text: 'v1.0.0 \n 发布上线', time: '2020/09/28' }
+        { text: 'v1.0.0 \n 发布上线', time: '2020/10/05' }
       ]
     }
   }

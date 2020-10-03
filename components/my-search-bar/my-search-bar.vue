@@ -6,7 +6,7 @@
         'border-radius': radius,
         'background-color': bgColor
       }">
-      <text :class="iconPrefix"></text>
+      <text :class="prefixIcon"></text>
       <label
         class="input_label"
         :class="{ animate: labelAnimate }"
@@ -27,8 +27,8 @@
           @confirm="handleConfirm" />
       </label>
       <text
-        v-show="!showClose && iconSuffix"
-        :class="iconSuffix"></text>
+        v-show="!showClose && suffixIcon"
+        :class="suffixIcon"></text>
       <text
         v-show="showClose"
         class="icon-roundclosefill"
@@ -57,11 +57,11 @@ export default {
       type: String,
       default: '#F2F2F2'
     },
-    iconPrefix: {
+    prefixIcon: {
       type: String,
       default: 'icon-search'
     },
-    iconSuffix: {
+    suffixIcon: {
       type: String,
       default: ''
     },
@@ -77,7 +77,7 @@ export default {
     },
     placeholderStyle: {
       type: String,
-      default: 'color: #C0C4CC;'
+      default: 'color: #C0C4CC;font-size: 16px;'
     },
     disabled: {
       type: Boolean,
@@ -107,8 +107,8 @@ export default {
     },
     labelBefore() {
       return this.isFocusing
-        ? '' :
-        this.placeholders[this.currentIndex]
+        ? ''
+        : this.placeholders[this.currentIndex] || ''
     },
     labelAfter() {
       const keyword = typeof this.placeholders[this.currentIndex + 1] === 'undefined'
@@ -180,6 +180,7 @@ export default {
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  width: 100%;
   height: 36px;
 }
 .input {

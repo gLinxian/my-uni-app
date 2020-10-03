@@ -8,7 +8,7 @@
     <view
       class="view"
       :class="{ 'checked': isChecked }"
-      :style="{ 'background-color': isChecked ? color : '#E9E9E9' }"
+      :style="{ 'background': isChecked ? color : '#E9E9E9' }"
       :data-unchecked="uncheckedText"
       :data-checked="checkedText"></view>
   </label>

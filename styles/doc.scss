@@ -64,6 +64,7 @@
 .table {
   .tr {
     display: flex;
+    min-width: 100%;
     border-bottom: .5px solid $lightBorder;
   }
 
@@ -79,5 +80,10 @@
     padding: 10px 13px;
     white-space: nowrap;
     font-size: 14px;
+  }
+  
+  .th:first-child,
+  .td:first-child {
+    min-width: 110px;
   }
 }

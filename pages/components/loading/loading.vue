@@ -4,7 +4,7 @@
     <view class="doc-row">
       <view class="doc-title">基础用法</view>
       <view class="flex justify-center w-100 pt-50 pb-50">
-        <my-button :bgColor="$config.default" size="mini" @click="handleClick(undefined, undefined, undefined)">尝 试</my-button>
+        <my-button :bgColor="$config.btnDefault" size="mini" @click="handleClick(undefined, undefined, undefined)">演 示</my-button>
       </view>
       <view class="doc-code">
         <text class="doc-code-type">template</text>
@@ -21,9 +21,9 @@
     </view>
   
     <view class="doc-row">
-      <view class="doc-title">更换图片</view>
+      <view class="doc-title">更改 Logo</view>
       <view class="flex justify-center w-100 pt-50 pb-50">
-        <my-button :bgColor="$config.success" size="mini" @click="handleClick('/static/hupu-logo.png', '#C01E2F')">尝 试</my-button>
+        <my-button :bgColor="$config.btnSuccess" size="mini" @click="handleClick('/static/hupu-logo.png', '#C01E2F')">演 示</my-button>
       </view>
       <view class="doc-code">
         <text class="doc-code-type">template</text>
@@ -36,7 +36,7 @@
     <view class="doc-row">
       <view class="doc-title">更改标题</view>
       <view class="flex justify-center w-100 pt-50 pb-50">
-        <my-button :bgColor="$config.warning" size="mini" @click="handleClick(undefined, undefined, '请求中...')">尝 试</my-button>
+        <my-button :bgColor="$config.btnWarning" size="mini" @click="handleClick(undefined, undefined, '请求中...')">演 示</my-button>
       </view>
       <view class="doc-code">
         <text class="doc-code-type">template</text>
@@ -120,15 +120,4 @@ setTimeout(() => {
 
 <style lang="scss" scoped>
 @import '~@/styles/doc.scss';
-
-/* 表格宽度 */
-.tr {
-  min-width: 400px;
-}
-
-/* 第一列宽度  */
-.th:first-child,
-.td:first-child {
-  min-width: 110px;
-}  
 </style>

@@ -147,10 +147,4 @@ export default {
 .tr {
   min-width: 335px;
 }
-
-/* 第一列宽度  */
-.th:first-child,
-.td:first-child {
-  min-width: 110px;
-}  
 </style>

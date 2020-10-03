@@ -1,6 +1,6 @@
 <template>
   <view :style="[tabBar]" class="bg-bgColor">
-    <my-navigation-bar :border="false" :bgColor="$config.lgTheme" :opacity="opacity" title="关于" color="#FFFFFF" />
+    <my-navigation-bar :bgColor="$config.lgTheme" :opacity="opacity" title="关于" color="#FFFFFF" />
     <view :style="[fullPageNoNav]">
       <view class="header">
         <view class="avatar">

@@ -19,19 +19,19 @@ export default {
   props: {
     border: {
       type: Boolean,
-      default: true
+      default: false
     },
     bgColor: {
       type: String,
       default: '#FFFFFF'
     },
-    opacity: {
-      type: Number,
-      default: 1
-    },
     bgImg: {
       type: String,
       default: ''
+    },
+    opacity: {
+      type: Number,
+      default: 1
     },
     back: {
       type: Boolean,

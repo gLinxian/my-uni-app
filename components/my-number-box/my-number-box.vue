@@ -1,5 +1,5 @@
 <template>
-  <view class="numberbox">
+  <view class="numberbox" :style="{ background: bgColor }">
     <view class="button">
       <text class="icon-move" @click="moveClick"></text>
     </view>
@@ -39,6 +39,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    bgColor: {
+      type: String,
+      default: '#000000'
     }
   },
   data() {
@@ -74,6 +78,7 @@ export default {
       setTimeout(() => {
         this.number -= this.step
         this.$emit('change', this.number)
+        this.$emit('input', this.number)
         this.isBefore = false
       }, 200)
     },
@@ -88,6 +93,7 @@ export default {
       setTimeout(() => {
         this.number += this.step
         this.$emit('change', this.number)
+        this.$emit('input', this.number)
         this.isAfter = false
       }, 200)
     }
@@ -104,7 +110,6 @@ export default {
   height: 35px;
   padding: 8px 0;
   border-radius: 3px;
-  background-color: #000000;
   overflow: hidden;
   color: #FFFFFF;
   &::after {
@@ -117,10 +122,10 @@ export default {
     border-radius: 3px;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, .9) 0%,
+      rgba(0, 0, 0, .35) 0%,
       rgba(0, 0, 0, 0) 30%,
       rgba(0, 0, 0, 0) 70%,
-      rgba(0, 0, 0, .9) 100%
+      rgba(0, 0, 0, .35) 100%
     );
   }
 }

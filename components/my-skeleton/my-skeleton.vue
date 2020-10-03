@@ -20,7 +20,7 @@ export default {
   props: {
     number: {
       type: Number,
-      default: 4
+      default: 1
     },
     image: {
       type: Boolean,
@@ -48,8 +48,9 @@ export default {
 
 <style lang="scss" scoped>
 .skeleton {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 15px;
   &-item {
     display: flex;
     box-sizing: border-box;

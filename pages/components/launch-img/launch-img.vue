@@ -1,12 +1,12 @@
 <template>
   <view :style="[navigationBar]">
-    <my-navigation-bar :border="false" back title="启动图" />
+    <my-navigation-bar back title="启动图" />
     <view class="doc-container">
     
       <view class="doc-row">
         <view class="doc-title">基础用法</view>
         <view class="flex justify-center w-100 pt-50 pb-50">
-          <my-button :bgColor="$config.default" size="mini" @click="handleClick(undefined, undefined, undefined)">尝 试</my-button>
+          <my-button :bgColor="$config.btnDefault" size="mini" @click="handleClick(undefined, undefined, undefined)">演 示</my-button>
         </view>
         <view class="doc-code">
           <text class="doc-code-type">template</text>
@@ -25,7 +25,7 @@
       <view class="doc-row">
         <view class="doc-title">设置时长</view>
         <view class="flex justify-center w-100 pt-50 pb-50">
-          <my-button :bgColor="$config.success" size="mini" @click="handleClick(5000)">尝 试</my-button>
+          <my-button :bgColor="$config.btnSuccess" size="mini" @click="handleClick(5000)">演 示</my-button>
         </view>
         <view class="doc-code">
           <text class="doc-code-type">template</text>
@@ -38,7 +38,7 @@
       <view class="doc-row">
         <view class="doc-title">设置位置</view>
         <view class="flex justify-center w-100 pt-50 pb-50">
-          <my-button :bgColor="$config.warning" size="mini" @click="handleClick(undefined, 'br')">尝 试</my-button>
+          <my-button :bgColor="$config.btnWarning" size="mini" @click="handleClick(undefined, 'tl')">演 示</my-button>
         </view>
         <view class="doc-code">
           <text class="doc-code-type">template</text>
@@ -51,7 +51,7 @@
       <view class="doc-row">
         <view class="doc-title">设置图片</view>
         <view class="flex justify-center w-100 pt-50 pb-50">
-          <my-button :bgColor="$config.danger" size="mini" @click="handleClick(undefined, undefined, '/static/launch2.jpg')">尝 试</my-button>
+          <my-button :bgColor="$config.btnDanger" size="mini" @click="handleClick(undefined, undefined, '/static/launch2.jpg')">演 示</my-button>
         </view>
         <view class="doc-code">
           <text class="doc-code-type">template</text>
@@ -77,7 +77,7 @@
             </view>
             <view class="tr">
               <view class="td">position</view>
-              <view class="td">设置按钮位置</view>
+              <view class="td">设置按钮位置（tl | tr | bl | br）</view>
             </view>
             <view class="tr">
               <view class="td">src</view>
@@ -101,8 +101,8 @@ export default {
   data() {
     return {
       duration: 3000,
-      position: 'tr',
-      src: '/static/launch.jpg',
+      position: 'br',
+      src: '/static/launch1.jpg',
       code1:
 `<my-launch-img ref="launchImg" />`,
       code1_1: 
@@ -122,7 +122,7 @@ export default {
     }
   },
   methods: {
-    handleClick(duration = 3000, position = 'tr', src = '/static/launch.jpg') {
+    handleClick(duration = 3000, position = 'br', src = '/static/launch1.jpg') {
       this.duration = duration
       this.position = position
       this.src = src
@@ -139,12 +139,6 @@ export default {
 
 /* 表格宽度 */
 .tr {
-  min-width: 100%;
+  min-width: 385px;
 }
-
-/* 第一列宽度  */
-.th:first-child,
-.td:first-child {
-  min-width: 110px;
-}  
 </style>
