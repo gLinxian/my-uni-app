@@ -49,49 +49,60 @@ export default {
       type: String,
       default: ''
     },
+
     radius: {
       type: String,
       default: '18px'
     },
+
     bgColor: {
       type: String,
       default: '#F2F2F2'
     },
+
     prefixIcon: {
       type: String,
       default: 'icon-search'
     },
+
     suffixIcon: {
       type: String,
       default: ''
     },
+
     placeholder: {
       type: String,
       default: ''
     },
+
     placeholders: {
       type: Array,
       default() {
         return []
       }
     },
+
     placeholderStyle: {
       type: String,
       default: 'color: #C0C4CC;font-size: 16px;'
     },
+
     disabled: {
       type: Boolean,
       default: false
     },
+
     maxlength: {
       type: Number,
       default: 140
     },
+
     showCancel: {
       type: Boolean,
       default: false
     }
   },
+
   data() {
     return {
       input: '',
@@ -101,15 +112,18 @@ export default {
       isAnimationend: true
     }
   },
+
   computed: {
     labelAnimate() {
       return !this.isFocusing && this.isAnimationend
     },
+
     labelBefore() {
       return this.isFocusing
         ? ''
         : this.placeholders[this.currentIndex] || ''
     },
+
     labelAfter() {
       const keyword = typeof this.placeholders[this.currentIndex + 1] === 'undefined'
         ? this.placeholders[0]
@@ -119,6 +133,7 @@ export default {
         : keyword
     }
   },
+
   watch: {
     isFocusing: {
       handler() {
@@ -131,9 +146,11 @@ export default {
       immediate: true
     }
   },
+
   created() {
     this.input = this.value
   },
+
   methods: {
     handleAnimationend(e) {
       if (
@@ -149,25 +166,31 @@ export default {
         this.isAnimationend = true
       }, 3000)
     },
+
     handleInput(e) {
       this.showClose = e.detail.value.length > 0
       this.$emit('change', e.detail.value)
     },
+
     handleFocus(e) {
       this.isFocusing = true
       this.$emit('focus', e)
     },
+
     handleBlur(e) {
       this.isFocusing = false
       this.$emit('blur', e)
     },
+
     handleConfirm(e) {
       this.$emit('confirm', e)
     },
+
     handleClose() {
       this.input = ''
       this.showClose = false
     },
+
     handleCancel() {
       this.$emit('cancel')
     }
@@ -183,6 +206,7 @@ export default {
   width: 100%;
   height: 36px;
 }
+
 .input {
   flex: 1;
   display: flex;
@@ -192,17 +216,21 @@ export default {
   padding: 0 8px;
   color: $secondary;
   font-size: 20px;
+
   &_label {
     flex: 1;
     position: relative;
     display: block;
     overflow: hidden;
+
     &::before {
       content: attr(data-before);
     }
+
     &::after {
       content: attr(data-after);
     }
+
     &::before, &::after {
       position: absolute;
       display: block;
@@ -213,24 +241,30 @@ export default {
       font-size: 16px;
     }
   }
+
   &_input {
     flex: 1;
   }
+
   & > .icon-search {
     margin-right: 8px;
   }
 }
+
 .animate {
   &::before {
     animation: .25s placeholder-before ease-in-out;
   }
+
   &::after {
     animation: .25s placeholder-after ease-in-out;
   }
+
   &::before, &::after {
     animation-fill-mode: forwards;
     animation-delay: 3s;
   }
+
   @keyframes placeholder-before {
     0% {
       transform: translateY(0%);
@@ -241,6 +275,7 @@ export default {
       opacity: 0;
     }
   }
+
   @keyframes placeholder-before {
     0% {
       transform: translateY(0%);
@@ -252,6 +287,7 @@ export default {
     }
   }
 }
+
 .cancel {
   margin-left: 10px;
   color: $secondary;

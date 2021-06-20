@@ -192,6 +192,7 @@ export default {
         this.$refs[type].open()
       }, 150)
     },
+
     pickerChange(e) {
       // console.log(e)
     }

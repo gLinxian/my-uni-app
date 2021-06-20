@@ -22,22 +22,27 @@ export default {
       type: Number,
       default: 1
     },
+
     image: {
       type: Boolean,
       default: true
     },
+
     width: {
       type: Number,
       default: 50
     },
+
     height: {
       type: Number,
       default: 50
     },
+
     radius: {
       type: Number,
       default: 25
     },
+
     rows: {
       type: Number,
       default: 3
@@ -51,20 +56,24 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+
   &-item {
     display: flex;
     box-sizing: border-box;
     width: 100%;
     margin-bottom: 30px;
+
     &:last-child {
       margin-bottom: 0;
     }
   }
+
   &-content {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
+
   &-row {
     width: 100%;
     height: 25px;
@@ -72,18 +81,22 @@ export default {
     border-radius: 4px;
     background-color: #F2F3F5;
     animation: blink 1s linear infinite;
+
     @keyframes blink {
       50% {
         opacity: 0.6;
       }
     }
+
     &.image {
       margin-right: 15px;
     }
+
     &.title {
       width: 33.33%;
       margin-bottom: 20px;
     }
+
     &:last-child {
       width: 75%;
       margin-bottom: 0;

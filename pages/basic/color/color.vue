@@ -144,6 +144,7 @@ export default {
   padding: 10px 0;
   color: $white;
   font-size: 12px;
+
   & > text:first-child {
     margin-bottom: 10px;
   }

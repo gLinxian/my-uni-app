@@ -52,6 +52,7 @@ export default {
       refresherTriggered: true
     }
   },
+
   methods: {
     refresherpulling(e) {
       // 被下拉就触发
@@ -59,16 +60,19 @@ export default {
         this.$uni.showToast('下拉刷新')
       }
     },
+
     refresherrefresh(e) {
       // 刷新的时候触发
       setTimeout(() => {
         this.refresherTriggered = false
       }, 3000)
     },
+
     refresherrestore(e) {
       // 重置的时候触发
       this.$uni.showToast('刷新成功')
     },
+
     refresherabort(e) {
       // 中止的时候触发
     }

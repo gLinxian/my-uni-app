@@ -34,6 +34,7 @@
 import animate from '@/mixins/animate.js'
 export default {
   mixins: [animate],
+
   data() {
     return {
       list: [
@@ -56,6 +57,11 @@ export default {
       animateStep: 0.1
     }
   },
+
+  onShareAppMessage() {
+    
+  },
+
   methods: {
     itemClick(url) {
       this.$uni.navigateTo(`./${url}/${url}`)
@@ -94,8 +100,9 @@ export default {
   width: 80%;
   height: 80%;
   border-radius: 50%;
-  box-shadow: 0 2px rgba($color: #DFA3D6, $alpha: 1);
+  box-shadow: 0 2px 6px rgba($color: #DFA3D6, $alpha: .5);
   transition: all .3s;
+
   &-hover {
     margin-top: 2px;
     box-shadow: none;

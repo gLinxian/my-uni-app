@@ -47,12 +47,14 @@ export default {
       ],
     }
   },
+
   onPageScroll(e) {
     if (!this.isActive) {
       /* 记录打开前的页面位置 */
       this.pageScrollTop = e.scrollTop
     }
   },
+
   methods: {
     scroll(e) {
       clearTimeout(this.timer)
@@ -61,6 +63,7 @@ export default {
         this.viewScrollTop = e.detail.scrollTop
       }, 100)
     },
+
     click(e, id) {
       this.viewScrollTop = 0
       this.$nextTick(() => {
@@ -79,6 +82,7 @@ export default {
   min-height: calc(100vh - 44px);
   padding: 30px 0;
 }
+
 .card {
   top: 0;
   right: 0;
@@ -92,29 +96,36 @@ export default {
   box-shadow: 0 0 30px rgba(0, 0, 0, .2);
   overflow: hidden;
   transition: all .3s;
+
   &:last-child {
     margin-bottom: 0;
   }
+
   &.active {
     width: 100%;
     min-height: 100%;
     border-radius: 0;
   }
+
   &-img {
     width: 100%;
     height: 100%;
+
     &.active {
       height: 490px;
     }
   }
+
   &-content {
     box-sizing: border-box;
     padding: 20px;
     font-size: 18px;
+
     &-item {
       margin-bottom: 20px;
       text-indent: 36px;
       line-height: 1.8;
+
       &:last-child {
         margin-bottom: 0;
       }

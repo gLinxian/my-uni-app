@@ -23,47 +23,58 @@ export default {
       type: String,
       default: 'default'
     },
+
     type: {
       type: String,
       default: 'default'
     },
+
     plain: {
       type: Boolean,
       default: false
     },
+
     bgColor: {
       type: String,
       default: ''
     },
+
     loading: {
       type: Boolean,
       default: false
     },
+
     disabled: {
       type: Boolean,
       default: false
     },
+
     hoverClass: {
       type: String,
       default: 'button-hover'
     },
+
     round: {
       type: Boolean,
       default: false
     },
+
     circle: {
       type: Boolean,
       default: false
     },
+
     icon: {
       type: String,
       default: ''
     },
+
     suffixIcon: {
       type: String,
       default: ''
     }
   },
+
   computed: {
     roundStyle() {
       if (this.round) {
@@ -72,6 +83,7 @@ export default {
         }
       }
     },
+
     circleStyle() {
       if (this.circle) {
         return {
@@ -81,6 +93,7 @@ export default {
         }
       }
     },
+
     backgroundStyle() {
       if (this.bgColor) {
         return {
@@ -90,6 +103,7 @@ export default {
         }
       }
     },
+
     iconClass() {
       if (this.icon) {
         const iconClass = !this.circle
@@ -106,6 +120,7 @@ export default {
       }
     }
   },
+
   methods: {
     click(e) {
       this.$emit('click', e)

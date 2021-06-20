@@ -19,9 +19,11 @@ export default {
       type: ''
     }
   },
+
   onLoad(e) {
     this.type = e.type
   },
+
   methods: {
     handleClick() {
       this.$uni.showToast('皮卡皮卡')

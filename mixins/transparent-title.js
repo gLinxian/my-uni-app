@@ -19,6 +19,7 @@ export default {
       navigationBarHeight: uni.getSystemInfoSync().statusBarHeight + 45
     }
   },
+
   onPageScroll(e) {
     this.opacity = e.scrollTop < this.navigationBarHeight
       ? Number((e.scrollTop / this.navigationBarHeight).toFixed(1))

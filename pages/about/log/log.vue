@@ -26,7 +26,8 @@ export default {
   data() {
     return {
       list: [
-        { text: 'v1.0.0 \n 发布上线', time: '2020/10/05' }
+        { text: 'v1.0.0 \n 发布上线', time: '2020/10/05' },
+        { text: 'v1.0.1 \n 1、iOS 全面屏底部添加了安全距离； \n 2、tabBar 页增加右上角菜单分享；', time: '2021/06/20' }
       ]
     }
   }
@@ -38,6 +39,7 @@ export default {
   position: relative;
   padding: 0 0 30px 30px;
   border-left: 1px solid $border;
+
   &-dot {
     position: absolute;
     top: 0;
@@ -48,6 +50,7 @@ export default {
     padding: 5px;
     border-radius: 50%;
     background-color: $white;
+
     &-inner {
       box-sizing: border-box;
       width: 100%;
@@ -55,6 +58,7 @@ export default {
       padding: 6px;
       border-radius: 50%;
       background-color: $theme;
+
       &-inner {
         width: 100%;
         height: 100%;
@@ -63,6 +67,7 @@ export default {
       }
     }
   }
+
   &-content {
     position: relative;
     box-sizing: border-box;
@@ -70,6 +75,7 @@ export default {
     border-radius: 4px;
     background-color: $theme;
     box-shadow: 1px 1px 6px rgba($color: #000000, $alpha: .2);
+
     &-triangle {
       position: absolute;
       top: 10px;
@@ -79,6 +85,7 @@ export default {
       background-color: $theme;
       transform: rotate(45deg);
     }
+
     &-time {
       position: absolute;
       top: 10px;
@@ -89,6 +96,7 @@ export default {
       color: $theme;
       font-size: 12px;
     }
+
     &-text {
       color: $white;
       line-height: 1.8;

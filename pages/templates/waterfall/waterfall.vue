@@ -39,18 +39,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$height: calc(100vh - 44px);
-
-/**
- * -container 是为了营造好看的边距多写出来的类
- */
 .container {
   box-sizing: border-box;
   width: 100%;
-  min-height: $height;
+  min-height: calc(100vh - 44px);
   padding: 5px;
-  background-color: $bgColor;
+  background-color: #F3F3F3;
 }
+
 .waterfall {
   width: 100%;
 }
@@ -60,13 +56,16 @@ $height: calc(100vh - 44px);
   width: 50%;
   padding: 5px;
 }
+
 .water {
   border-radius: 8px;
   background-color: $white;
   overflow: hidden;
+
   &-img {
     width: 100%;
   }
+
   &-content {
     padding: 5px 10px;
   }

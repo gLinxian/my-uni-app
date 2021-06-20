@@ -18,19 +18,23 @@ export default {
       type: String,
       default: 'yellow'
     },
+
     bgColor: {
       type: String,
       default: 'white'
     },
+
     color: {
       type: String,
       default: 'white'
     },
+
     text: {
       type: String,
       default: '0%'
     }
   },
+
   data() {
     return {
       themeMap: {
@@ -61,6 +65,7 @@ export default {
   filter: contrast(30); /* 对比度 */
   overflow: hidden;
 }
+
 .drop {
   position: absolute;
   width: 100px;
@@ -69,12 +74,15 @@ export default {
   filter: blur(20px);
   opacity: 0;
   animation: 2.5s drop linear infinite;
+
   &:nth-child(2) {
     animation-delay: .5s;
   }
+
   &:nth-child(3) {
     animation-delay: .7s;
   }
+
   @keyframes drop {
     0% {
       transform: scale(.7) translateY(-600%);
@@ -89,6 +97,7 @@ export default {
     }
   }
 }
+
 .collection {
   position: relative;
   display: flex;
@@ -96,6 +105,7 @@ export default {
   align-items: center;
   width: 100px;
   height: 100px;
+
   &-box {
     position: absolute;
     z-index: 1;
@@ -104,6 +114,7 @@ export default {
     border-radius: 50%;
     filter: blur(20px);
     animation: 2.5s collection linear infinite;
+
     @keyframes collection{
       0% {
         transform: scale(1) rotate(0deg);
@@ -119,6 +130,7 @@ export default {
       }
     }
   }
+
   &-text {
     position: absolute;
     z-index: 2;

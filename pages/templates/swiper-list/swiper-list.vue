@@ -30,6 +30,7 @@ export default {
     Follow,
     Cba
   },
+
   data() {
     return {
       swiperCurrent: 0,
@@ -41,6 +42,7 @@ export default {
       ]
     }
   },
+
   methods: {
     swiperChange(e) {
       this.swiperCurrent = e.detail.current
@@ -55,6 +57,7 @@ $swiperHeight: calc(100vh - 46px);
 .swiperlist {
   background-color: $bgColor;
 }
+
 .swiper {
   height: $swiperHeight;
 }

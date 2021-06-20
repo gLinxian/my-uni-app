@@ -42,6 +42,7 @@ import animate from '@/mixins/animate.js'
 import transparentTitle from '@/mixins/transparent-title.js'
 export default {
   mixins: [animate, transparentTitle],
+
   data() {
     return {
       list: [
@@ -54,6 +55,11 @@ export default {
       ]
     }
   },
+
+  onShareAppMessage() {
+    
+  },
+
   methods: {
     itemClick(url) {
       this.$uni.navigateTo(`./${url}/${url}`)

@@ -56,6 +56,7 @@ export default {
   font-size: 16px;
   line-height: 2;
 }
+
 .img {
   display: block;
   margin: 15px auto;

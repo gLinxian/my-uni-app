@@ -171,56 +171,69 @@ export default {
   width: 100%;
   margin-bottom: 10px;
 }
+
 .item {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 0;
   color: $white;
+
   &:first-child {
     background-color: #ECF5FF;
     color: #409EFF;
   }
+
   &:nth-child(2) {
     background-color: #F0F9EB;
     color: #67C23A;
   }
+
   &:nth-child(3) {
     background-color: #FDF6EC;
     color: #E6A23C;
   }
+
   &:nth-child(4) {
     background-color: #FEF0F0;
     color: #F56C6C;
   }
+
   &:nth-child(5) {
     background-color: #F4F4F5;
     color: #909399;
   }
+
   &:nth-child(6) {
     background-color: #FFFFFF;
     color: #606266;
   }
+
   &:nth-child(7) {
     background-color: #ECF5FF;
     color: #409EFF;
   }
+
   &:nth-child(8) {
     background-color: #F0F9EB;
     color: #67C23A;
   }
+
   &:nth-child(9) {
     background-color: #FDF6EC;
     color: #E6A23C;
   }
+
   &:nth-child(10) {
     background-color: #FEF0F0;
     color: #F56C6C;
   }
+
   &:nth-child(11) {
     background-color: #F4F4F5;
     color: #909399;
   }
+
   &:nth-child(12) {
     background-color: #FFFFFF;
     color: #606266;

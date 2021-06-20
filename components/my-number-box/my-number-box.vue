@@ -24,27 +24,33 @@ export default {
       type: Number,
       default: 0
     },
+
     min: {
       type: Number,
       default: 0
     },
+
     max: {
       type: Number,
       default: 100
     },
+
     step: {
       type: Number,
       default: 1
     },
+
     disabled: {
       type: Boolean,
       default: false
     },
+
     bgColor: {
       type: String,
       default: '#000000'
     }
   },
+
   data() {
     return {
       number: 0,
@@ -52,20 +58,25 @@ export default {
       isAfter: false
     }
   },
+
   computed: {
     numberBefore() {
       return this.number - this.step
     },
+
     numberAfter() {
       return this.number + this.step
     },
+
     isAnimating() {
       return this.isBefore || this.isAfter
     }
   },
+
   created() {
     this.number = this.value
   },
+
   methods: {
     moveClick() {
       if (
@@ -82,6 +93,7 @@ export default {
         this.isBefore = false
       }, 200)
     },
+
     addClick() {
       if (
         this.isAnimating ||
@@ -112,6 +124,7 @@ export default {
   border-radius: 3px;
   overflow: hidden;
   color: #FFFFFF;
+
   &::after {
     content: '';
     position: absolute;
@@ -129,6 +142,7 @@ export default {
     );
   }
 }
+
 .number {
   display: block;
   flex: 1 1 120px;
@@ -137,23 +151,28 @@ export default {
   text-align: center;
   line-height: 19px;
   transform: translateY(-19px);
+
   &::before {
     content: attr(data-before);
     display: block;
   }
+
   &::after {
     content: attr(data-after);
     display: block;
   }
+
   &.before {
     transition: transform .2s ease-in;
     transform: translateY(0);
   }
+
   &.after {
     transition: transform .2s ease-in;
     transform: translateY(-38px);
   }
 }
+
 .button {
   position: relative;
   z-index: 10;

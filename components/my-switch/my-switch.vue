@@ -22,28 +22,34 @@ export default {
       type: String,
       default: ''
     },
+
     checkedText: {
       type: String,
       default: ''
     },
+
     disabled: {
       type: Boolean,
       default: false
     },
+
     checked: {
       type: Boolean,
       default: false
     },
+
     color: {
       type: String,
       default: '#30D158'
     }
   },
+
   data() {
     return {
       isChecked: false
     }
   },
+
   watch: {
     checked: {
       handler(val) {
@@ -52,6 +58,7 @@ export default {
       immediate: true
     }
   },
+
   methods: {
     switchChange(e) {
       this.isChecked = e.detail.value
@@ -67,9 +74,11 @@ export default {
   width: 52px;
   height: 32px;
 }
+
 .switch {
   display: none;
 }
+
 .view {
   position: relative;
   display: inline-block;
@@ -77,6 +86,7 @@ export default {
   height: 32px;
   border-radius: 16px;
   transition: .3s all ease-in-out;
+
   &::before, &::after, &.checked::before {
     position: absolute;
     top: 2px;
@@ -84,16 +94,19 @@ export default {
     width: 28px;
     height: 28px;
   }
+
   &::before, &.checked::before {
     color: #FFFFFF;
     font-size: 14px;
     text-align: center;
     line-height: 28px;
   }
+
   &::before {
     content: attr(data-unchecked);
     right: 0;
   }
+
   &::after {
     content: '';
     border-radius: 14px;
@@ -102,10 +115,12 @@ export default {
     transition: .3s all ease-in-out;
     transform: translateX(2px);
   }
+
   &.checked::before {
     content: attr(data-checked);
     left: 0;
   }
+
   &.checked::after {
     box-shadow: -1px 0 4px rgba(0, 0, 0, .1);
     transform: translateX(22px);

@@ -37,39 +37,48 @@ export default {
       type: Number,
       default: 100
     },
+
     height: {
       type: Number,
       default: 100
     },
+
     radius: {
       type: Number,
       default: 4
     },
+
     shadow: {
       type: Boolean,
       default: true
     },
+
     bgImg: {
       type: String,
       default: ''
     },
+
     bgColor: {
       type: String,
       default: '#F8F8F8'
     },
+
     color: {
       type: String,
       default: '#C0C4CC'
     },
+
     fontSize: {
       type: String,
       default: '#16px'
     },
+
     text: {
       type: String,
       default: '选择图片'
     }
   },
+
   data() {
     return {
       imgSrc: '',
@@ -78,9 +87,11 @@ export default {
       uploaded: false
     }
   },
+
   created() {
     this.imgSrc = this.bgImg
   },
+
   methods: {
     async upload() {
       // 选择图片
@@ -131,6 +142,7 @@ export default {
   position: relative;
   overflow: hidden;
 }
+
 .img {
   position: absolute;
   top: 0;
@@ -138,6 +150,7 @@ export default {
   width: 100%;
   height: 100%;
 }
+
 .select {
   position: absolute;
   top: 0;
@@ -148,6 +161,7 @@ export default {
   width: 100%;
   height: 100%;
 }
+
 .canvas {
   position: absolute;
   left: -9999px;

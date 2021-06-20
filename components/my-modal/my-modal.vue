@@ -35,35 +35,43 @@ export default {
       type: Boolean,
       default: true
     },
+
     title: {
       type: String,
       default: '提示'
     },
+
     content: {
       type: String,
       default: ''
     },
+
     showCancel: {
       type: Boolean,
       default: true
     },
+
     cancelText: {
       type: String,
       default: '取消'
     },
+
     cancelColor: {
       type: String,
       default: '#007AFF'
     },
+
     confirmText: {
       type: String,
       default: '确定'
     },
+
     confirmColor: {
       type: String,
       default: '#007AFF'
     }
   },
+
   data() {
     return {
       isOut: false,
@@ -71,33 +79,42 @@ export default {
       object: {}
     }
   },
+
   computed: {
     isShow() {
       return (!this.isApi || this.object.show) ? 'flex' : 'none'
     },
+
     showCancel_() {
       return this.isApi ? this.object.showCancel : this.showCancel
     },
+
     cancelColor_() {
       return this.isApi ? this.object.cancelColor : this.cancelColor
     },
+
     cancelText_() {
       return this.isApi ? this.object.cancelText.slice(0, 3) : this.cancelText.slice(0, 3)
     },
+
     confirmBorder_() {
       return (this.isApi ? this.object.showCancel : this.showCancel) ? '.5px solid #F5F5F5' : 'none'
     },
+
     confirmColor_() {
       return this.isApi ? this.object.confirmColor : this.confirmColor
     },
+
     confirmText_() {
       return this.isApi ? this.object.confirmText.slice(0, 3) : this.confirmText.slice(0, 3)
     }
   },
+
   created() {
     this.isApi = !this.$listeners.success
     this.isApi && (this.object = this.$store.state.modal)
   },
+
   methods: {
     btnClick(val) {
       const res = {
@@ -110,7 +127,6 @@ export default {
           this.$store.commit('modal/SET_STATE', { key: 'show', val: false })
           this.isOut = false
         }, this.isAnimate ? 300 : 0)
-
         this.object.success(res)
       } else {
         this.$emit('success', res)
@@ -132,6 +148,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 .mask {
   position: fixed;
   top: 0;
@@ -141,6 +158,7 @@ export default {
   z-index: 999;
   background: rgba(0, 0, 0, 0.6);
 }
+
 .modal {
   z-index: 999;
   width: 80%;
@@ -149,9 +167,11 @@ export default {
   background-color: #FFFFFF;
   overflow: hidden;
   text-align: center;
+
   &-header {
     box-sizing: border-box;
     padding: 1em 1.6em 0.3em;
+
     &-title {
       display: -webkit-box;
       overflow: hidden;
@@ -166,6 +186,7 @@ export default {
       -webkit-box-orient: vertical;
     }
   }
+
   &-body {
     box-sizing: border-box;
     min-height: 40px;
@@ -180,16 +201,19 @@ export default {
     word-break: break-all;
     white-space: pre-wrap;
   }
+
   &-footer {
     display: flex;
     font-size: 18px;
     line-height: 48px;
+
     &-btn {
       flex: 1;
       box-sizing: border-box;
     }
   }
 }
+
 .zoom {
   &-in {
     animation: zoom-in .3s;
@@ -200,6 +224,7 @@ export default {
       }
     }
   }
+
   &-out {
     animation: zoom-out .3s;
     @keyframes zoom-out {

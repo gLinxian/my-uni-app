@@ -85,29 +85,35 @@ export default {
       type: String,
       default: ''
     },
+
     value: {
       type: [String, Number, Array],
       default: ''
     },
+
     range: {
       type: Array,
       default() {
         return []
       }
     },
+
     rangeKey: {
       type: String,
       default: ''
     },
+
     fields: {
       type: String,
       default: 'day'
     },
+
     isUnit: {
       type: Boolean,
       default: false
     }
   },
+
   data() {
     return {
       regionRange: [provinceData, cityData[0], districtData[0][0]],
@@ -115,23 +121,27 @@ export default {
       value_: null
     }
   },
+
   computed: {
     dateStart() {
       if (this.type === 'date') {
         return this.getDate(this.fields, 'start')
       }
     },
+
     dateEnd() {
       if (this.type === 'date') {
         return this.getDate(this.fields, 'end')
       }
     },
+
     dateTimeRange() {
       if (this.type === 'dateTime') {
         return this.getDateTimeRange(this.isUnit, '年', '月', '日', '时', '分')
       }
     }
   },
+
   created() {
     this.value_ = this.value
 
@@ -170,6 +180,7 @@ export default {
       }
     }
   },
+
   methods: {
     pickerColumnchange(e) {
       if (this.type === 'region') {
@@ -193,6 +204,7 @@ export default {
       }
       this.$emit('columnchange', e.detail.value)
     },
+
     pickerChange(e) {
       if (this.type === 'dateTime') {
         const value = e.detail.value
@@ -222,6 +234,7 @@ export default {
       }
       this.$emit('change', e.detail.value)
     },
+
     pickerCancel(e) {
       this.$emit('cancel', e)
     },

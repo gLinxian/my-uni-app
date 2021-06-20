@@ -16,7 +16,7 @@
     <my-navigation-bar v-if="type === '3'" bgImg="/static/basic.jpg" back title="背景图片" color="#FFFFFF" />
 
     <my-navigation-bar v-if="type === '4'" :opacity="opacity" :bgColor="$config.lgTheme" back title="背景渐现" color="#FFFFFF" />
-    <view v-if="type === '4'" :style="[navigationBar]" class="container">撑出新高度</view>
+    <view v-if="type === '4'" :style="[navigationBar]" class="container">往上拖动看看</view>
   </view>
 </template>
 
@@ -29,13 +29,16 @@ export default {
       type: ''
     }
   },
+
   onLoad(e) {
     this.type = e.type
   },
+
   methods: {
     backClick() {
       this.$uni.navigateBack(1)
     },
+
     textClick(str) {
       this.$uni.showToast(str)
     }
@@ -44,24 +47,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .navigation-bar {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 12px;
-  }
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 100vh;
-    background-color: $bgColor;
-    color: $placeholder;
-    font-size: 20px;
-    letter-spacing: 10px;
-    writing-mode: vertical-lr;
-  }
+.navigation-bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 12px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: $bgColor;
+  color: $placeholder;
+  font-size: 20px;
+  letter-spacing: 10px;
+  writing-mode: vertical-lr;
+}
 </style>

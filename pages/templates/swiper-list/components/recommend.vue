@@ -40,28 +40,34 @@ export default {
   width: 100%;
   height: 100%;
 }
+
 .item {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   padding: 0 15px;
   background-color: $white;
+
   &-header {
     display: flex;
     justify-content: space-between;
     padding: 15px 0;
     font-size: 14px;
   }
+
   &-title {
     margin-bottom: 10px;
   }
+
   &-img {
     width: 200px;
     height: 200px;
     margin-bottom: 5px;
   }
+
   &-tag {
     margin-bottom: 10px;
+
     &-primary {
       padding: 2px 4px;
       background-color: #F3F4FE;
@@ -69,11 +75,13 @@ export default {
       font-size: 14px;
     }
   }
+
   &-menu {
     display: flex;
     padding: 10px 0;
     border-top: .5px solid #F5F5F5;
     font-size: 15px;
+
     &-item {
       flex: 1;
       display: flex;

@@ -10,11 +10,13 @@ export default {
       parentHeight: 'auto'
     }
   },
+
   async mounted() {
     const parent = await this.getParent()
     const childrens = await this.getChildrens()
     this.init(parent, childrens)
   },
+
   methods: {
     getParent() {
       return new Promise(resolve => {

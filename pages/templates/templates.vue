@@ -35,6 +35,7 @@
 import animate from '@/mixins/animate.js'
 export default {
   mixins: [animate],
+
   data() {
     return {
       list: [
@@ -46,6 +47,11 @@ export default {
       ]
     }
   },
+
+  onShareAppMessage() {
+    
+  },
+
   methods: {
     itemClick(url) {
       this.$uni.navigateTo(`./${url}/${url}`)

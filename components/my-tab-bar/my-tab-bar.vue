@@ -36,6 +36,7 @@ export default {
       default: false
     }
   },
+
   data() {
     return {
       list: [
@@ -47,6 +48,7 @@ export default {
       selected: ''
     }
   },
+
   watch: {
     midButton: {
       handler(val) {
@@ -57,11 +59,13 @@ export default {
       immediate: true
     }
   },
+
   created() {
     const pages = getCurrentPages()
     const route = pages[pages.length - 1].route
     this.selected = route.substr(route.lastIndexOf('/') + 1)
   },
+
   methods: {
     itemClick(url) {
       if (url !== this.selected) {
@@ -70,6 +74,7 @@ export default {
         }, 150)
       }
     },
+
     scanClick() {
       uni.scanCode({
         success: res => {
@@ -93,9 +98,13 @@ export default {
   align-items: center;
   width: 100%;
   height: 50px;
+  padding-bottom: 0;  
+  padding-bottom: constant(safe-area-inset-bottom);  
+  padding-bottom: env(safe-area-inset-bottom); 
   background-color: $white;
   border-top: 0.5px solid $border;
 }
+
 .tab {
   flex: 1;
   box-sizing: border-box;
@@ -104,15 +113,19 @@ export default {
   align-items: center;
   color: $tabColor;
   font-size: 10px;
+
   &-img {
     width: 24px;
     height: 24px;
   }
+
   &-selected {
     color: $tabSelected;
   }
+
   &-hover {
     animation: narrow .3s 1;
+
     @keyframes narrow {
       0% {
         transform: scale(1);
@@ -126,6 +139,7 @@ export default {
     }
   }
 }
+
 .middle {
   position: absolute;
   bottom: 0;
@@ -136,10 +150,14 @@ export default {
   align-items: center;
   width: 75px;
   height: 75px;
+  margin-bottom: 0;  
+  margin-bottom: constant(safe-area-inset-bottom);  
+  margin-bottom: env(safe-area-inset-bottom); 
   border-radius: 50%;
   background-color: $white;
   box-shadow: 0 -5px 5px -3px $border;
   transform: translateX(-50%);
+
   &-btn {
     box-sizing: border-box;
     margin-bottom: 2px;
@@ -150,6 +168,7 @@ export default {
     font-size: 30px;
     line-height: 1;
   }
+
   &-text {
     color: $tabColor;
     font-size: 10px;

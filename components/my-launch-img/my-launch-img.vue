@@ -21,19 +21,23 @@ export default {
       type: Number,
       default: 3000
     },
+
     position: {
       type: String,
       default: 'tr'
     },
+
     src: {
       type: String,
       default: '/static/launch1.jpg'
     },
+
     text: {
       type: String,
       default: '跳过'
     }
   },
+
   data() {
     return {
       isShow: 'none',
@@ -45,6 +49,7 @@ export default {
       timer: null
     }
   },
+
   watch: {
     position: {
       handler(val) {
@@ -79,6 +84,7 @@ export default {
       immediate: true
     }
   },
+
   methods: {
     countDown() {
       let second = this.duration / 1000
@@ -91,10 +97,12 @@ export default {
         }
       }, 1000)
     },
+
     open() {
       this.countDown()
       this.isShow = 'block'
     },
+
     close() { 
       this.timer && clearInterval(this.timer)
       this.isShow = 'none'
@@ -112,6 +120,7 @@ export default {
   width: 100%;
   height: 100vh;
 }
+
 .img {
   position: absolute;
   top: 0;
@@ -119,6 +128,7 @@ export default {
   width: 100%;
   height: 100%;
 }
+
 .button {
   position: absolute;
   box-sizing: border-box;

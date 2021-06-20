@@ -91,27 +91,32 @@ export default {
       type: String,
       default: ''
     },
+
     value: {
       type: Array,
       default() {
         return []
       }
     },
+
     range: {
       type: Array,
       default() {
         return []
       }
     },
+
     rangeKey: {
       type: String,
       default: ''
     },
+
     color: {
       type: String,
       default: '#007AFF'
     }
   },
+
   data() {
     return {
       isShow: 'none',
@@ -124,6 +129,7 @@ export default {
       result: null
     }
   },
+
   computed: {
     years() {
       const years = []
@@ -133,6 +139,7 @@ export default {
       }
       return years
     },
+
     months() {
       const months = []
       for (let i = 1; i <= 12; i++) {
@@ -140,6 +147,7 @@ export default {
       }
       return months
     },
+
     days() {
       const days = []
       for (let i = 1; i <= 31; i++) {
@@ -147,6 +155,7 @@ export default {
       }
       return days
     },
+
     hours() {
       const hours = []
       for (let i = 0; i < 24; i++) {
@@ -154,6 +163,7 @@ export default {
       }
       return hours
     },
+
     minutes() {
       const minutes = []
       for (let i = 0; i < 60; i++) {
@@ -162,6 +172,7 @@ export default {
       return minutes
     }
   },
+
   mounted() {
     this.value_ = this.value
 
@@ -202,6 +213,7 @@ export default {
       }
     }
   },
+
   methods: {
     handleChange(e) {
       const value = e.detail.value
@@ -236,11 +248,13 @@ export default {
         this.result = region
       }
     },
+
     open() {
       this.isShow = 'block'
       setTimeout(() => { this.maskOpacity = 1 }, 10)
       setTimeout(() => { this.isToggle = true }, 50)
     },
+
     close(type) {
       this.isToggle = false
       this.maskOpacity = 0
@@ -298,6 +312,7 @@ export default {
   z-index: 999;
   font-size: 16px;
 }
+
 .mask {
   position: fixed;
   top: 0;
@@ -308,6 +323,7 @@ export default {
   background-color: rgba(0, 0, 0, .6);
   transition: opacity .25s;
 }
+
 .picker {
   position: fixed;
   bottom: 0;
@@ -319,10 +335,12 @@ export default {
   backface-visibility: hidden;
   transform: translateY(100%);
   transition: transform .3s, visibility .3s, -webkit-transform .3s;
+
   &.toggle {
     visibility: visible;
     transform: translate(0);
   }
+
   &-header {
     position: relative;
     display: flex;
@@ -331,6 +349,7 @@ export default {
     width: 100%;
     height: 45px;
     background-color: #FFFFFF;
+
     &:after {
       content: '';
       position: absolute;
@@ -345,22 +364,26 @@ export default {
       clear: both;
     }
   }
+
   &-action {
     box-sizing: border-box;
     max-width: 50%;
     padding: 0 14px;
     font-size: 17px;
     line-height: 1;
+
     &.cancel {
       color: #888888;
     }
   }
+
   &-content {
     position: relative;
     width: 100%;
     height: 238px;
     background-color: #FFFFFF;
   }
+
   &-item {
     text-align: center;
     line-height: 34px;

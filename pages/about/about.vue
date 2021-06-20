@@ -8,7 +8,7 @@
         </view>
         <view class="relative">
           <text>{{ nickName }}</text>
-          <button class="absolute top left w-100 h-100 opacity-0" open-type="getUserInfo" @getuserinfo="getuserinfo"></button>
+          <button class="absolute top left w-100 h-100 opacity-0" @click="getUserProfile"></button>
         </view>
       </view>
       <view class="p-15">
@@ -37,6 +37,7 @@
 import transparentTitle from '@/mixins/transparent-title.js'
 export default {
   mixins: [transparentTitle],
+
   data() {
     return {
       avatarUrl: '/static/default.jpg',
@@ -49,17 +50,29 @@ export default {
       ]
     }
   },
+
+  onShareAppMessage() {
+    
+  },
+
   methods: {
-    getuserinfo(e) {
-      const { avatarUrl, nickName } = e.detail.userInfo
-      this.avatarUrl = avatarUrl
-      this.nickName = nickName
-    },
     itemClick(url) {
       if (
         url === 'about' ||
         url === 'log'
       ) this.$uni.navigateTo(`./${url}/${url}`)
+    },
+
+    getUserProfile(e) {
+      // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
+      // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+      uni.getUserProfile({
+        desc: '欢迎使用麦尤尼 UI', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          this.avatarUrl = res.userInfo.avatarUrl
+          this.nickName = res.userInfo.nickName
+        }
+      })
     }
   }
 }
@@ -83,6 +96,7 @@ export default {
   padding: 2px;
   border: 1px solid $white;
   border-radius: 50%;
+
   &-img {
     width: 100%;
     height: 100%;
@@ -99,9 +113,11 @@ export default {
 .item {
   display: flex;
   align-items: center;
+
   &-hover {
     background-color: #F5F5F5;
   }
+
   &-icon {
     margin: 0 15px;
     padding: 6px;
@@ -110,6 +126,7 @@ export default {
     color: #F1C643;
     line-height: 1;
   }
+
   &-body {
     flex: 1;
     display: flex;

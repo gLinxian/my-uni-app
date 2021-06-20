@@ -17,6 +17,7 @@ export default {
       type: [Number, String],
       default: 0
     },
+
     items: {
       type: Array,
       default() {
@@ -29,11 +30,13 @@ export default {
         ]
       }
     },
+
     color: {
       type: String,
       default: '#687CD5'
     }
   },
+
   data() {
     return {
       active: '',
@@ -43,17 +46,20 @@ export default {
       lineLeft: 20
     }
   },
+
   watch: {
     value(val) {
       this.tabClick(this.items[val], val)
     }
   },
+
   mounted() {
     setTimeout(async () => {
       await this.computedTabs()
       this.tabClick(this.items[this.value], this.value)
     }, 200)
   },
+
   methods: {
     computedTabs() {
       return new Promise(resolve => {
@@ -72,6 +78,7 @@ export default {
         }).exec()
       })
     },
+
     tabClick(item, index) {
       this.active = item.name
       this.lineWidth = `${this.tabsData[index].width}px`
@@ -94,13 +101,16 @@ export default {
   border-bottom: .5px solid #F5F5F5;
   background-color: #FFFFFF;
 }
+
 .tabs {
   position: relative;
   display: flex;
   width: 9999px;
   padding-left: 20px;
+
   .tab {
     margin-right: 20px;
+
     &-text {
       box-sizing: border-box;
       height: 45px;
@@ -110,10 +120,12 @@ export default {
       transition: all .3s;
     }
   }
+
   .line {
     position: absolute;
     bottom: 0;
     height: 2px;
+    border-radius: 1px;
     transition: all .3s;
   }
 }

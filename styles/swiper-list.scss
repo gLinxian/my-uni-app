@@ -3,23 +3,28 @@
   height: 100%;
   background-color: $bgColor;
 }
+
 .container {
   padding: 0 15px;
   background-color: $white;
 }
+
 .item {
   display: flex;
   padding: 15px 0;
   border-bottom: 1px solid #F5F5F5;
+
   &-content {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-right: 15px;
+
     &-title {
       font-size: 18px;
     }
+
     &-info {
       display: flex;
       justify-content: space-between;
@@ -27,11 +32,13 @@
       font-size: 15px;
     }
   }
+
   &-img {
     width: 100px;
     height: 75px;
   }
 }
+
 .tag {
   margin-right: 8px;
   padding: 1px 2px;
@@ -40,6 +47,7 @@
   color: #E54A45;
   font-size: 12px;
   line-height: 1;
+
   &:last-child {
     margin-right: 5px;
   }

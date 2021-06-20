@@ -22,6 +22,7 @@ export default {
       return str.split('-')[1]
     }
   },
+
   data() {
     return {
       icons: [
@@ -122,6 +123,7 @@ export default {
       icon: `<text class="icon-calendar"></text>`
     }
   },
+
   methods: {
     itemClick(item) {
       uni.setClipboardData({
@@ -139,6 +141,7 @@ export default {
   border-top: 1px solid #F5F5F5;
   border-right: 1px solid #F5F5F5;
 }
+
 .item {
   display: flex;
   flex-direction: column;
@@ -149,13 +152,16 @@ export default {
   border-bottom: 1px solid #F5F5F5;
   padding: 20px 0;
   transition: all .3s;
+
   &-hover {
     background-color: $bgColor;
   }
+
   & > text:first-child {
     font-size: 24px;
     margin-bottom: 10px;
   }
+
   & > text:last-child {
     font-size: 12px;
   }

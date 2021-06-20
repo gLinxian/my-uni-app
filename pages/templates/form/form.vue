@@ -300,40 +300,50 @@ export default {
   padding: 0 15px;
   color: $primary;
 }
+
 .form {
   &-item {
     display: flex;
     align-items: center;
     padding: 15px 0;
     border-bottom: 1px solid #F5F5F5;
+
     &:nth-last-child(2) {
       border-bottom: none;
     }
+
     &:last-child {
       border-bottom: none;
     }
+
     &-label {
       display: inline-block;
       width: 100px;
     }
+
     &-input {
       flex: 1;
+
       .placeholder {
         color: #808080;
         font-size: 16px;
       }
     }
+
     &-button {
       width: 100%;
     }
+
     &-hover {
       opacity: .8;
     }
   }
 }
+
 .checkbox-group {
   display: flex;
   flex-wrap: wrap;
+
   &_label {
     position: relative;
     box-sizing: border-box;
@@ -345,17 +355,20 @@ export default {
     margin: 0 4px 4px 0;
     border-radius: 4px;
     font-size: 12px;
+
     &.checked {
       border: 1px solid $theme;
       background-color: $theme;
       color: $white;
     }
+
     &.unchecked {
       border: 1px solid $border;
       background-color: $white;
       color: #808080;
     }
   }
+
   &_checkbox {
     position: absolute;
     top: 0;

@@ -6,6 +6,7 @@ export default {
       animateTimer: null
     }
   },
+
   methods: {
     handleAnimate() {
       if (this.isAnimate) {
@@ -19,6 +20,7 @@ export default {
       }
       this.isAnimate = true
     },
+
     handleAnimationend() {
       clearTimeout(this.animateTimer)
       this.animateTimer = setTimeout(() => {

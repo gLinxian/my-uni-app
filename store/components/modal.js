@@ -1,5 +1,6 @@
 export default {
   namespaced: true,
+
   state: {
     show: false,
     title: '提示',
@@ -12,6 +13,7 @@ export default {
     confirmColor: '#007AFF',
     success: function() {}
   },
+
   mutations: {
     SET_STATE(state, obj) {
       state[obj.key] = obj.val

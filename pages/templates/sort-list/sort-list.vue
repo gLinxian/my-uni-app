@@ -102,11 +102,13 @@ export default {
       }
     }
   },
+
   methods: {
     sortClick(name) {
       this.activeName = name
       this.scrollIntoView = this.$util.keyvalExchange(this.sortMap)[name]
     },
+  
     goodsScroll(e) {
       const scrollTop = e.detail.scrollTop
 
@@ -144,6 +146,7 @@ $leftWidth: 90px;
 }
 .sort-list {
   width: $leftWidth;
+
   &-item {
     display: flex;
     box-sizing: border-box;
@@ -152,9 +155,11 @@ $leftWidth: 90px;
     margin-bottom: 5px;
     color: $secondary;
     font-size: 14px;
+
     &:last-child {
       margin-bottom: 0;
     }
+
     &.active {
       border-left: 5px solid #FBD63D;
       background-color: #FFFFFF;
@@ -162,35 +167,43 @@ $leftWidth: 90px;
     }
   }
 }
+
 .goods-list {
   flex: 1;
   background-color: #FFFFFF;
+
   &-title {
     padding: 15px;
   }
+
   &-item {
     display: flex;
     margin-bottom: 30px;
     padding: 0 10px;
   }
+
   &-img {
     width: 100px;
     height: 100px;
     border-radius: 6px;
   }
+
   &-content {
     flex: 1;
     padding: 0 10px;
+
     &_title {
       margin-bottom: 5px;
       color: #000000;
     }
+
     &_intro {
       margin-bottom: 5px;
       color: $general;
       font-size: 12px;
       line-height: 1.2;
     }
+
     &_btn {
       border-radius: 5px;
       background-image: linear-gradient(45deg, #FBD63D, #F8BE2C);
@@ -201,6 +214,7 @@ $leftWidth: 90px;
     }
   }
 }
+
 .scroll-view {
   flex-direction: column;
   width: 100%;

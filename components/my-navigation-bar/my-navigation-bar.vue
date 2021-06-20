@@ -21,39 +21,48 @@ export default {
       type: Boolean,
       default: false
     },
+
     bgColor: {
       type: String,
       default: '#FFFFFF'
     },
+
     bgImg: {
       type: String,
       default: ''
     },
+
     opacity: {
       type: Number,
       default: 1
     },
+
     back: {
       type: Boolean,
       default: false
     },
+
     title: {
       type: String,
       default: ''
     },
+
     color: {
       type: String,
       default: '#000000'
     }
   },
+
   computed: {
     paddingTop() {
       return `${uni.getSystemInfoSync().statusBarHeight}px`
     },
+
     borderBottom() {
       return this.border ? '.5px solid #C8C7CC' : 'none'
     }
   },
+
   methods: {
     backClick() {
       this.$uni.navigateBack(1)
@@ -73,16 +82,19 @@ export default {
   align-items: center;
   width: 100%;
   height: 44px;
+
   .back {
     float: left;
     margin-left: 12px;
     font-size: 17px;
   }
+
   .title {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
   }
+
   .img {
     position: absolute;
     top: 0;

@@ -18,62 +18,74 @@
 export default {
   name: 'MyAnnularProgress',
   props: {
+
     // 百分比数值
     value: {
       type: Number,
       default: 60,
     },
+
     // 进度条的颜色
     progressColor: {
       type: String,
       default: '#409EFF',
     },
+
     // 槽的颜色
     troughColor: {
       type: String,
       default: '#FFFFFF',
     },
+
     // 数值大于50%进度条颜色
     halfColor: {
       type: String,
       default: '',
     },
+
     // 遮盖圆的颜色
     coverColor: {
       type: String,
       default: '#FFFFFF',
     },
+
     // 环形圆的直径
     circleDiam: {
       type: Number,
       default: 100,
     },
+
     // 进度条的粗细
     progressSize: {
       type: Number,
       default: 10,
     },
+
     // 中间文本
     text: {
       type: String,
       default: '',
     },
+
     // 中间文本大小
     textSize: {
       type: Number,
       default: 16,
     },
+
     // 中间文本颜色
     textColor: {
       type: String,
       default: '#333333',
     },
+
     // CSS 单位
     cssUnit: {
       type: String,
       default: 'px',
     }
   },
+
   computed: {
     circle() {
       return {
@@ -86,6 +98,7 @@ export default {
         overflow: 'hidden'
       }
     },
+
     circleBlock() {
       return {
         position: 'absolute',
@@ -94,16 +107,19 @@ export default {
         overflow: 'hidden'
       }
     },
+
     circleBlockLeft() {
       return {
         left: 0
       }
     },
+
     circleBlockRight() {
       return {
         right: 0
       }
     },
+
     circleBlockProgress() {
       return {
         position: 'absolute',
@@ -111,6 +127,7 @@ export default {
         height: this.circleDiam + this.cssUnit
       }
     },
+
     circleBlockProgressLeft() {
       const backgroundColor =
         this.value > 50
@@ -125,6 +142,7 @@ export default {
         transform: `rotate(${val}deg)`
       }
     },
+
     circleBlockProgressRight() {
       const backgroundColor =
         this.value > 50
@@ -139,6 +157,7 @@ export default {
         transform: `rotate(${val}deg)`
       }
     },
+
     circleBlockProgressRadius() {
       return {
         position: 'absolute',
@@ -147,6 +166,7 @@ export default {
         borderRadius: '50%'
       }
     },
+
     circleBlockProgressRadiusLeft() {
       const backgroundColor =
         this.value > 50
@@ -161,6 +181,7 @@ export default {
         backgroundColor: backgroundColor
       }
     },
+
     circleBlockProgressRadiusRight() {
       const backgroundColor =
         this.value <= 50
@@ -175,6 +196,7 @@ export default {
         backgroundColor: backgroundColor
       }
     },
+
     circleInner() {
       return {
         position: 'absolute',
@@ -193,7 +215,7 @@ export default {
         textAlign: 'center',
         lineHeight: this.circleDiam - this.progressSize * 2 + this.cssUnit
       }
-    },
-  },
+    }
+  }
 }
 </script>

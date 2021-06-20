@@ -25,36 +25,44 @@ export default {
       type: String,
       default: '/static/uni-logo.png'
     },
+
     color: {
       type: String,
       default: '#2B9939'
     },
+
     title: {
       type: String,
       default: '加载中...'
     },
+
     mask: {
       type: Boolean,
       default: true
     }
   },
+
   data() {
     return {
       object: {}
     }
   },
+
   computed: {
     isShow() {
       return this.object.show ? 'flex' : 'none'
     }
   },
+
   created() {
     this.object = this.$store.state.loading
   },
+
   methods:{
     open() {
       this.$store.commit('loading/SET_STATE', { key: 'show', val: true })
     },
+
     close() {
       this.$store.commit('loading/SET_STATE', { key: 'show', val: false })
     }
@@ -74,6 +82,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 .mask {
   position: fixed;
   top: 0;
@@ -83,6 +92,7 @@ export default {
   z-index: 999;
   background-color: rgba(0, 0, 0, .6);
 }
+
 .loading {
   z-index: 999;
   display: flex;
@@ -94,6 +104,7 @@ export default {
   border-radius: 8px;
   background-color: #FFFFFF;
   box-shadow: 0 0 6px rgba(0, 0, 0, .35);
+
   &-pattern {
     position: relative;
     display: flex;
@@ -102,12 +113,14 @@ export default {
     width: 40px;
     height: 40px;
   }
+
   &-text {
     margin-top: 12px;
     color: #909399;
     font-size: 12px;
   }
 }
+
 .annular {
   position: absolute;
   top: 0;
@@ -118,6 +131,7 @@ export default {
   border-radius: 50%;
   overflow: hidden;
   animation: annular .8s linear infinite;
+
   @keyframes annular {
     0% {
       transform: rotate(0deg);
@@ -126,6 +140,7 @@ export default {
       transform: rotate(-360deg);
     }
   }
+
   &-part {
     position: absolute;
     top: 0; 
@@ -133,20 +148,24 @@ export default {
     width: 50%;
     height: 50%;
     transform-origin: 0% 100%;
+  
     &.one {
       transform: rotate(-30deg) skewY(-18deg);
       opacity: .9;
     }
+  
     &.two {
       transform: rotate(42deg) skewY(-42deg);
       opacity: .6;
     }
+
     &.three {
       transform: rotate(90deg) skewY(-66deg);
       opacity: .3;
     }
   }
 }
+
 .cover {
   z-index: 2;
   display: flex;
@@ -157,6 +176,7 @@ export default {
   border-radius: 50%;
   background-color: #FFFFFF;
 }
+
 .logo {
   width: 80%;
   height: 80%;

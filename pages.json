@@ -1,7 +1,7 @@
 {
   "pages": [
     /* tabBar */
-    { "path": "pages/basic/basic", "style": { "navigationStyle": "custom" } },
+    { "path": "pages/basic/basic", "style": { "navigationStyle": "custom", "backgroundColorTop": "#687CD5", "backgroundColorBottom": "#F8F8F8" } },
     { "path": "pages/components/components", "style": { "navigationStyle": "custom" } },
     { "path": "pages/templates/templates", "style": { "navigationStyle": "custom" } },
     { "path": "pages/about/about", "style": { "navigationStyle": "custom", "backgroundColorTop": "#687CD5", "backgroundColorBottom": "#F8F8F8" } },
@@ -35,7 +35,7 @@
     { "path": "pages/templates/form/form", "style": { "navigationBarTitleText": "表单" } },
     { "path": "pages/templates/sort-list/sort-list", "style": { "navigationBarTitleText": "分类选择列表", "disableScroll": true } },
     { "path": "pages/templates/swiper-list/swiper-list", "style": { "navigationBarTitleText": "左右滑动列表", "disableScroll": true } },
-    { "path": "pages/templates/waterfall/waterfall", "style": { "navigationBarTitleText": "瀑布流", "backgroundColorTop": "#F8F8F8", "backgroundColorBottom": "#F8F8F8" } },
+    { "path": "pages/templates/waterfall/waterfall", "style": { "navigationBarTitleText": "瀑布流", "backgroundColorTop": "#F3F3F3", "backgroundColorBottom": "#F3F3F3" } },
     /* 关于 */
     { "path": "pages/about/about/about", "style": { "navigationStyle": "custom" } },
     { "path": "pages/about/log/log", "style": { "navigationStyle": "custom" } }
